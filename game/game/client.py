@@ -6,6 +6,7 @@ import sys
 from multiprocessing import Process
 import os
 import json
+import base64
 
 def login():
 	HOST, PORT = "localhost", 9999
@@ -14,7 +15,7 @@ def login():
 
 	# Create a socket (SOCK_STREAM means a TCP socket)
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	tokenID = ""
+	b64_tokenID = ""
 	try:
 	    # Connect to server and send data
 	    sock.connect((HOST, PORT))
@@ -22,8 +23,11 @@ def login():
 
 	    # Receive data from the server and shut down
 	    received = sock.recv(1024)
+	    #b64_received = base64.b64decode(received)
 	    received = json.loads(received)
+	    
 	    tokenID = received[u'tokenID']
+	    b64_tokenID = base64.b64decode(tokenID)
 	finally:
 	    sock.close()
 	
@@ -31,7 +35,7 @@ def login():
 	print "Sent:     {}".format(encode_data)
 	print "Received: {}".format(received)
 
-	return tokenID
+	return b64_tokenID
 		
 
 if __name__ == "__main__":

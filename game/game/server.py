@@ -9,6 +9,7 @@ import SocketServer
 from multiprocessing import Process
 import os
 import json
+import base64
 
 
 class users():
@@ -23,7 +24,11 @@ class users():
 		print "yes!"
 		token_message = ""
 		if True:
-			token_message = {"tokenID": decode_message[u'name'] + str(time.time())}
+			now = time.time()
+			tokenID = decode_message[u'name'] + str(now)
+			b64_tokenID = base64.b64encode(tokenID)
+			token_message = {"tokenID": b64_tokenID}
+			#b64_token_messsage =  base64.b64encode(token_message)
 		return token_message
 	def Handeler(self, CheckPassword):
 		class MyTCPHandler(SocketServer.BaseRequestHandler):
