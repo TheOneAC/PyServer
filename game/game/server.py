@@ -1,20 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-import socket
-import threading
+import os
 import time
 
+import socket
 import SocketServer
 from multiprocessing import Process
-import os
+import logging
+import traceback  
+
 import json
 
-import base64
 
 from user import User
 from configure import *
-
+from aes import Encrypt
 
 class users(object):
 	"""所有玩家的集合,负责玩家登陆,同时实例化每一个玩家,放在列表中
@@ -34,14 +34,15 @@ class users(object):
 		return "HandlerUDPMessage"
 
 	def CheckPassword(self, decode_message):
-		print "yes!"
+		
 		token_message = ""
 		try:
 			#if True:
-			if self.get_user(decode_message['name']).get_password() == decode_message['password']:
-				now = time.time()
-				token_message = {"tokenID": base64.b64encode(decode_message[u'name'] + str(now))}
-		finally:		
+			if self.Get_user(decode_message['name']).get_password() == decode_message['password']:
+				tokenID = decode_message[u'name'] + str(time.time())
+				en_tokenID = Encrypt(tokenID)
+				token_message = {"tokenID": en_tokenID}
+		finally:	
 			return token_message
 	def LoginHandeler(self, CheckPassword):
 		class MyTCPHandler(SocketServer.BaseRequestHandler):
@@ -55,15 +56,21 @@ class users(object):
 
 			def handle(self):
 				# self.request is the TCP socket connected to the client
-				
-				message = self.request.recv(1024)
-				decode_message = json.loads(message)
-				print "{} wrote:".format(self.client_address[0])
-				print decode_message
+				logging.info("new user conect")
+				try:
+					message = self.request.recv(MESSAGE_SIZE)
+					if message:
+						decode_message = json.loads(message)
+						print "{} wrote:".format(self.client_address[0])
+						print decode_message
+						#check id and password , create tokenID
+						token_message = CheckPassword(decode_message)
+						self.request.sendall(json.dumps(token_message))
+					else:
+						raise Exception("client is off")  
+				except :
+					logging.warning('login response failed, traceback: %s' % traceback.format_exc())
 
-				#check id and password , create tokenID
-				token_message = CheckPassword(decode_message)
-				self.request.sendall(json.dumps(token_message))
 		return MyTCPHandler
 	def LoginServer(self):
 		#HOST, PORT = "0.0.0.0", 9999

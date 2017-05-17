@@ -13,8 +13,7 @@ class User(object):
     	self.__drug = {}
     	self.__other_goods = {}
 
-
-   
+    
     def get_name(self):
         return self.__name
        

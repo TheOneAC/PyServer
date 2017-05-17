@@ -10,10 +10,11 @@ import base64
 import time
 
 import configure
+from aes import Decrypt
 
 def Login():
 	HOST, PORT = "localhost", 9999
-	data = {"name":"","password":"123456"}
+	data = {"name":"zero","password":"123456"}
 	encode_data = json.dumps(data)
 
 	# Create a socket (SOCK_STREAM means a TCP socket)
@@ -28,9 +29,12 @@ def Login():
 	    received = sock.recv(1024)
 	    #b64_received = base64.b64decode(received)
 	    received = json.loads(received)
-	    
+	    #
+	    #print type(received)
 	    tokenID = received[u'tokenID']
-	    b64_tokenID = base64.b64decode(tokenID)
+	    decrypt_tokenID = Decrypt(tokenID)
+	    
+
 	finally:
 	    sock.close()
 	
@@ -38,7 +42,7 @@ def Login():
 	print "Sent:     {}".format(encode_data)
 	print "Received: {}".format(received)
 
-	return b64_tokenID
+	return decrypt_tokenID
 
 def UpdateUDPMessage(tokenID):
 	monsterID = "monster100"
