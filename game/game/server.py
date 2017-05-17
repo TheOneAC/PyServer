@@ -9,28 +9,41 @@ import SocketServer
 from multiprocessing import Process
 import os
 import json
+
 import base64
 
+from user import User
+from configure import *
 
-class users():
+
+class users(object):
+	"""所有玩家的集合,负责玩家登陆,同时实例化每一个玩家,放在列表中
+    并接受每个玩家的请求,用多程"""
+    
 	def __init__(self):
-		self.__user = {}
-	
+		self.__user = {
+			"zero":User("zero", "123456"),
+			"hello":User("hello", "123456")
+		}
+	def Get_user(self, name):
+		return self.__user[name]
 
-	def HandlerMessage(self, message):
-		pass
+	def HandlerActionMessage(self, message):
+		print message
+
+		return "HandlerUDPMessage"
 
 	def CheckPassword(self, decode_message):
 		print "yes!"
 		token_message = ""
-		if True:
-			now = time.time()
-			tokenID = decode_message[u'name'] + str(now)
-			b64_tokenID = base64.b64encode(tokenID)
-			token_message = {"tokenID": b64_tokenID}
-			#b64_token_messsage =  base64.b64encode(token_message)
-		return token_message
-	def Handeler(self, CheckPassword):
+		try:
+			#if True:
+			if self.get_user(decode_message['name']).get_password() == decode_message['password']:
+				now = time.time()
+				token_message = {"tokenID": base64.b64encode(decode_message[u'name'] + str(now))}
+		finally:		
+			return token_message
+	def LoginHandeler(self, CheckPassword):
 		class MyTCPHandler(SocketServer.BaseRequestHandler):
 			"""
 			The request handler class for our server.
@@ -52,24 +65,48 @@ class users():
 				token_message = CheckPassword(decode_message)
 				self.request.sendall(json.dumps(token_message))
 		return MyTCPHandler
-	def MyTCPServer(self):
-		HOST, PORT = "localhost", 9999
+	def LoginServer(self):
+		#HOST, PORT = "0.0.0.0", 9999
 
 		# Create the server, binding to localhost on port 9999
-		server = SocketServer.TCPServer((HOST, PORT), self.Handeler(self.CheckPassword))
+		server = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword))
 		# Activate the server; this will keep running until you
 		# interrupt the program with Ctrl-C
 		server.serve_forever()
 
 
+	def ActionHandler(self, HandlerUDPMessage):
+		class MyActionHandler(SocketServer.BaseRequestHandler):
+		    """
+			This class works similar to the TCP handler class, except that
+			self.request consists of a pair of data and client socket, and since
+			there is no connection the client address must be given explicitly
+			when sending data back via sendto().
+			"""
+		    def handle(self):
+		        data = self.request[0]
+		        message = json.dumps(data)
+		        response = HandlerUDPMessage(message)
+		        socket = self.request[1]
+		        print "{} wrote:".format(self.client_address[0])
+		        print response
+		        socket.sendto(json.dumps(response), self.client_address)
+
+		return MyActionHandler
+
+	def ActionServer(self):
+		#HOST, PORT = "localhost", 9998
+		server = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.HandlerActionMessage))
+		server.serve_forever()
 
 
 
 if __name__ == "__main__":
 	userset = users()
-	TCPProcess = Process(target=userset.MyTCPServer)
-	TCPProcess.start()
-	
+	LoginProcess = Process(target=userset.LoginServer)
+	LoginProcess.start()
+	ListenUDPProcess = Process(target=userset.ActionServer)
+	ListenUDPProcess.start()
     
 
 	
