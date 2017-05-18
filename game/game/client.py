@@ -8,9 +8,35 @@ import os
 import json
 import base64
 import time
+import logging
+import traceback 
+
 
 import configure
-from aes import Decrypt
+import security
+from security import SecurityTools
+def CheckTokenID(msg):
+	print msg
+	tokenID = ""
+	try:
+		tokenID = base64.b64decode(msg[u'token'])
+		print msg[u'signature']
+		sign = base64.b64decode(msg[u'signature'])
+		print "tokenID:******" + tokenID
+		print "sign:*******" + sign
+		sec = SecurityTools()
+		sha = sec.ENSHA(tokenID)
+		de_sign = sec.PublicVerify(sign)
+		if sha != de_sign:
+			raise Exception("SIGN VERIFY ERROR")
+		else:
+
+			tokenID = sec.AESDecrypt(tokenID) 
+			#print "tokenID+++" + tokenID
+	except:
+		logging.warning('tokenID checkout failed, traceback: %s' % traceback.format_exc()) 
+	finally:
+		return tokenID
 
 def Login():
 	HOST, PORT = "localhost", 9999
@@ -19,7 +45,7 @@ def Login():
 
 	# Create a socket (SOCK_STREAM means a TCP socket)
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	b64_tokenID = ""
+	tokenID = ""
 	try:
 	    # Connect to server and send data
 	    sock.connect((HOST, PORT))
@@ -27,22 +53,23 @@ def Login():
 
 	    # Receive data from the server and shut down
 	    received = sock.recv(1024)
-	    #b64_received = base64.b64decode(received)
-	    received = json.loads(received)
 	    #
+	    received = json.loads(received)
+	    #b64_received = base64.b64decode(received)
 	    #print type(received)
-	    tokenID = received[u'tokenID']
-	    decrypt_tokenID = Decrypt(tokenID)
+	    tokenID = CheckTokenID(received)
 	    
+	except:
+		logging.warning('login response failed, traceback: %s' % traceback.format_exc()) 
 
 	finally:
 	    sock.close()
 	
 
-	print "Sent:     {}".format(encode_data)
-	print "Received: {}".format(received)
+	#print "Sent:     {}".format(encode_data)
+	#print "Received: {}".format(received)
 
-	return decrypt_tokenID
+	return tokenID
 
 def UpdateUDPMessage(tokenID):
 	monsterID = "monster100"

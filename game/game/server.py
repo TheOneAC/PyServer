@@ -10,11 +10,13 @@ import logging
 import traceback  
 
 import json
+import  base64
 
 
 from user import User
 from configure import *
-from aes import Encrypt
+
+from security import SecurityTools
 
 class users(object):
 	"""所有玩家的集合,负责玩家登陆,同时实例化每一个玩家,放在列表中
@@ -25,7 +27,8 @@ class users(object):
 			"zero":User("zero", "123456"),
 			"hello":User("hello", "123456")
 		}
-	def Get_user(self, name):
+		self.sec = SecurityTools()
+	def GetUser(self, name):
 		return self.__user[name]
 
 	def HandlerActionMessage(self, message):
@@ -35,15 +38,22 @@ class users(object):
 
 	def CheckPassword(self, decode_message):
 		
-		token_message = ""
+		tokenMessage = ""
 		try:
 			#if True:
-			if self.Get_user(decode_message['name']).get_password() == decode_message['password']:
-				tokenID = decode_message[u'name'] + str(time.time())
-				en_tokenID = Encrypt(tokenID)
-				token_message = {"tokenID": en_tokenID}
+			if self.GetUser(decode_message['name']).get_password() == decode_message['password']:
+				tokenID = decode_message[u'name'] + decode_message['password']+ str(time.time())
+				enTokenID,sign = self.sec.Encrypt(tokenID)
+				#b64_tokenID = 
+				#sign = self.sec.Encrypt(tokenID)
+				#b64_sign = base64.b64encode(sign)
+				tokenMessage = {"token": base64.b64encode(enTokenID), "signature":base64.b64encode(sign)}
+				print  tokenMessage
+				#tokenMessage = {"tokenID": enTokenID, "sign":sign}
+		except:
+			logging.warning('login security check failed, traceback: %s' % traceback.format_exc())
 		finally:	
-			return token_message
+			return tokenMessage
 	def LoginHandeler(self, CheckPassword):
 		class MyTCPHandler(SocketServer.BaseRequestHandler):
 			"""
@@ -64,8 +74,9 @@ class users(object):
 						print "{} wrote:".format(self.client_address[0])
 						print decode_message
 						#check id and password , create tokenID
-						token_message = CheckPassword(decode_message)
-						self.request.sendall(json.dumps(token_message))
+						tokenMessage = CheckPassword(decode_message)
+
+						self.request.sendall(json.dumps(tokenMessage))
 					else:
 						raise Exception("client is off")  
 				except :
@@ -76,10 +87,10 @@ class users(object):
 		#HOST, PORT = "0.0.0.0", 9999
 
 		# Create the server, binding to localhost on port 9999
-		server = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword))
+		loginServer = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword))
 		# Activate the server; this will keep running until you
 		# interrupt the program with Ctrl-C
-		server.serve_forever()
+		loginServer.serve_forever()
 
 
 	def ActionHandler(self, HandlerUDPMessage):
@@ -103,8 +114,8 @@ class users(object):
 
 	def ActionServer(self):
 		#HOST, PORT = "localhost", 9998
-		server = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.HandlerActionMessage))
-		server.serve_forever()
+		actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.HandlerActionMessage))
+		actionServer.serve_forever()
 
 
 
