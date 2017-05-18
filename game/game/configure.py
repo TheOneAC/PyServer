@@ -5,7 +5,7 @@
 LOGIN_HOST, LOGIN_PORT = "0.0.0.0", 9999
 ACTION_HOST, ACTION_PORT = "0.0.0.0", 9998
 MESSAGE_SIZE = 1024
-EN_KEY = "68b329da9893e34099c7d8ad5cb9c940"
+enKey = "68b329da9893e34099c7d8ad5cb9c940"
 
 RSA_PRIVATE_KEY = "\
 MIICXQIBAAKBgQCY4l+8+5B6wzSh/wMTwvaj8KfGhxYRbhX5vtkVAVIICWWgsDwg\n\
@@ -29,7 +29,7 @@ hxYRbhX5vtkVAVIICWWgsDwglriJjFzObKenNU+k2he+jG1ZncfDI3fXS0rD34pT\n\
 2vyDbeYoPASy8iZqXwIDAQAB\n\
 "
 from M2Crypto import RSA
-publickey = 'secret/public'
-privatekey = 'secret/private'
-RSAPUB = RSA.load_pub_key(publickey)
-RSAPRI = RSA.load_key(privatekey)
+publicKey = 'secret/public'
+privateKey = 'secret/private'
+RSAPub = RSA.load_pub_key(publicKey)
+RSAPri = RSA.load_key(privateKey)

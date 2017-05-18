@@ -23,10 +23,13 @@ class users(object):
     并接受每个玩家的请求,用多程"""
     
 	def __init__(self):
+		user = User()
+		user.name = "zero"
+		user.password = "123456"
 		self.__user = {
-			"zero":User("zero", "123456"),
-			"hello":User("hello", "123456")
+			user.name: user
 		}
+		#self.__dispa
 		self.sec = SecurityTools()
 	def GetUser(self, name):
 		return self.__user[name]
@@ -41,8 +44,9 @@ class users(object):
 		tokenMessage = ""
 		try:
 			#if True:
-			if self.GetUser(decode_message['name']).get_password() == decode_message['password']:
-				tokenID = decode_message[u'name'] + decode_message['password']+ str(time.time())
+			if self.GetUser(decode_message['name']).password == decode_message['password']:
+				tokenID = decode_message[u'name'] + decode_message['password']
+				#+ str(time.time())
 				enTokenID,sign = self.sec.Encrypt(tokenID)
 				#b64_tokenID = 
 				#sign = self.sec.Encrypt(tokenID)

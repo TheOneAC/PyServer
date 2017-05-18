@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-class User(object):
+class User():
     '''一个玩家，包括玩家的物品，任务进度，位置，血量，装备等所有信息'''
-    def __init__(self, name, password):
+    def __init__(self):
     	
-    	self.__name = name
-    	self.__password = password
+    	self.__name = None
+    	self.__password = None
     	self.__blood_value = 10000
     	self.__position = ()
     	self.__mission = {}
@@ -13,24 +13,64 @@ class User(object):
     	self.__drug = {}
     	self.__other_goods = {}
 
+    def name():
+        doc = "The __name property."
+        def fget(self):
+            return self.__name
+        def fset(self, value):
+            self.__name = value
+        def fdel(self):
+            del self.__name
+        return locals()
+    name = property(**name())
+
+    def password():
+        doc = "The __password property."
+        def fget(self):
+            return self.__password
+        def fset(self, value):
+            self.__password = value
+        def fdel(self):
+            del self.__password
+        return locals()
+    password = property(**password())
+
     
-    def get_name(self):
-        return self.__name
-       
-    def set_name(self, value):
-        self.__name = value
+    def blood_value():
+        doc = "The __blood_value property."
+        def fget(self):
+            return self.__blood_value
+        def fset(self, value):
+            self.__blood_value = value
+        def fdel(self):
+            del self.__blood_value
+        return locals()
+    blood_value = property(**blood_value())
+
     
-    def get_password(self):
-    	return self.__password
+    def position():
+        doc = "The __position property."
+        def fget(self):
+            return self.__position
+        def fset(self, value):
+            self.__position = value
+        def fdel(self):
+            del self.__position
+        return locals()
+    position = property(**position())
+
+    
+    
+    
+
+if __name__ == "__main__":
+    user = User()
+    #user.__name = "zero"
+    #print user.GetName()
+    #print user.__getattribute__('__name')
+    print user.name
+    user.name = "zero"
+    print user.name
 
 
 
-
-'''
-
-if  __name__ == "__main__":
-	
-	user = User("hello", "12345")
-	userName = user.get_name();
-	print userName
-'''

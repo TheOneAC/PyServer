@@ -19,13 +19,15 @@ def CheckTokenID(msg):
 	print msg
 	tokenID = ""
 	try:
+		print "base3284290385405************************" +msg[u'token']
 		tokenID = base64.b64decode(msg[u'token'])
 		print msg[u'signature']
 		sign = base64.b64decode(msg[u'signature'])
 		print "tokenID:******" + tokenID
 		print "sign:*******" + sign
 		sec = SecurityTools()
-		sha = sec.ENSHA(tokenID)
+		sha = sec.EnHash(tokenID)
+		print "hash**********" + sha
 		de_sign = sec.PublicVerify(sign)
 		if sha != de_sign:
 			raise Exception("SIGN VERIFY ERROR")
