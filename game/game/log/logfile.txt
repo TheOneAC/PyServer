@@ -1,0 +1,2 @@
+2017-05-19 18:01:37  ERROR: MainThread  what
+2017-05-19 18:01:37  DEBUG: MainThread  hello

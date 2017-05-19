@@ -31,6 +31,7 @@ class users(object):
 		}
 		#self.__dispa
 		self.sec = SecurityTools()
+		#self,log = 
 	def GetUser(self, name):
 		return self.__user[name]
 
@@ -39,19 +40,25 @@ class users(object):
 
 		return "HandlerUDPMessage"
 
-	def CheckPassword(self, decode_message):
+	def CheckPassword(self, message):
 		
 		tokenMessage = ""
 		try:
+			#message = self.sec.SecretDeRSA(message)
+			decode_message = json.loads(message)
+		except:
+			logging.warning('login security check failed, traceback: %s' % traceback.format_exc())
+		try:	
 			#if True:
 			if self.GetUser(decode_message['name']).password == decode_message['password']:
-				tokenID = decode_message[u'name'] + decode_message['password']
-				#+ str(time.time())
-				enTokenID,sign = self.sec.Encrypt(tokenID)
+				tokenID = decode_message[u'name'] + decode_message['password'] + str(time.time())
+				token,signature = self.sec.Encrypt(tokenID)
+				#for ch in sign:
+				#	print ord(ch)
 				#b64_tokenID = 
 				#sign = self.sec.Encrypt(tokenID)
 				#b64_sign = base64.b64encode(sign)
-				tokenMessage = {"token": base64.b64encode(enTokenID), "signature":base64.b64encode(sign)}
+				tokenMessage = {"token": base64.b64encode(token), "signature":base64.b64encode(signature)}
 				print  tokenMessage
 				#tokenMessage = {"tokenID": enTokenID, "sign":sign}
 		except:
@@ -74,11 +81,10 @@ class users(object):
 				try:
 					message = self.request.recv(MESSAGE_SIZE)
 					if message:
-						decode_message = json.loads(message)
 						print "{} wrote:".format(self.client_address[0])
-						print decode_message
+						print message
 						#check id and password , create tokenID
-						tokenMessage = CheckPassword(decode_message)
+						tokenMessage = CheckPassword(message)
 
 						self.request.sendall(json.dumps(tokenMessage))
 					else:
@@ -91,10 +97,14 @@ class users(object):
 		#HOST, PORT = "0.0.0.0", 9999
 
 		# Create the server, binding to localhost on port 9999
-		loginServer = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword))
+		try:
+			loginServer = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword))
+
 		# Activate the server; this will keep running until you
 		# interrupt the program with Ctrl-C
-		loginServer.serve_forever()
+			loginServer.serve_forever()
+		except :
+			logging.error('port ERROR, traceback: %s' % traceback.format_exc())
 
 
 	def ActionHandler(self, HandlerUDPMessage):
