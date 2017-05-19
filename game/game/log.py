@@ -3,7 +3,7 @@
 import logging
 import logging.handlers
 
-
+from configure import logFileName
 
 class LoggerTools():
     logTool = None
@@ -17,9 +17,9 @@ class LoggerTools():
         logging.getLogger('').addHandler(console)
 
     @classmethod
-    def Init(cls,logFileName = 'logfile.txt',consoleshow = True):
+    def Init(cls,logFileName = logFileName,consoleshow = True):
         logger = logging.getLogger()
-        logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.INFO)
 
         rh=logging.handlers.TimedRotatingFileHandler(logFileName,'D')
         fm=logging.Formatter("%(asctime)s  %(levelname)s: %(threadName)s  %(message)s","%Y-%m-%d %H:%M:%S")
@@ -33,17 +33,21 @@ class LoggerTools():
 
     @classmethod
     def warn(cls, msg):
-        warn = cls.logTool.warn
-        warn(msg)
-
+        cls.logTool.warn(msg)    
     @classmethod
     def debug(cls, msg):
-        debug = cls.logTool.debug
-        debug(msg)
+        cls.logTool.debug(msg)
     @classmethod
     def error(cls, msg):
-        error = cls.logTool.error
-        error(msg)
+        cls.logTool.error(msg)
+        
+    @classmethod
+    def info(cls, msg):
+        cls.logTool.info(msg)
+        
+    @classmethod
+    def critical(cls, msg):
+        cls.logTool.critical(msg)
 
 if __name__ == "__main__":
 

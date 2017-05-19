@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-
+import M2Crypto
 from M2Crypto import *
 from M2Crypto.EVP import Cipher  
 from M2Crypto import m2  
@@ -11,9 +11,9 @@ from configure import enKey,RSAPub, RSAPri, salt
 import  hashlib
 import json
 import base64
-
-ENCRYPT_OP = 1 # 加密操作 
-DECRYPT_OP = 0 # 解密操作 
+from base64 import b64encode, b64decode
+ENC = 1 # 加密操作 
+DEC = 0 # 解密操作 
 
 
 class SecurityTools():
@@ -57,19 +57,29 @@ class SecurityTools():
 		#cert = RSA.load_key_bio(mb)
 		cert = cls.rsaPub
 		result = cert.verify(digest, sign, "md5")
-		
-		
 		return result
 
+	@classmethod
+	def MsgSecretSign(cls, msg):
+		ctxtPri = cls.rsaPri.private_encrypt(msg, RSA.pkcs1_padding)
+		#ctxt64_pri = ctxtPri.encode('base64')
+		#print ('密文:%s'% ctxt64_pri)
+		return ctxtPri
+
+	@classmethod
+	def MsgPublicVerify(cls, msg):
+		txtPri = cls.rsaPub.public_decrypt(msg, RSA.pkcs1_padding)
+		#print('明文:%s'% txtPri)
+		return txtPri
 
 
 
 
-
+	
 	@classmethod
 	def AESEncrypt(cls, data):  
 	  '使用aes_128_ecb算法对数据加密'  
-	  cipher = Cipher(alg = 'aes_128_ecb', key = cls.privateKey, iv = cls.iv, op = ENCRYPT_OP)  
+	  cipher = Cipher(alg = 'aes_128_ecb', key = cls.privateKey, iv = cls.iv, op = ENC)  
 	  txt = cipher.update(data)  
 	  txt = txt + cipher.final()  
 	  del cipher  
@@ -83,25 +93,57 @@ class SecurityTools():
 	  '使用aes_128_ecb算法对数据解密'  
 	  # 将密文从16进制转为字节流  
 	  data = util.h2b(data)  
-	  cipher = Cipher(alg = 'aes_128_ecb', key = cls.privateKey, iv = cls.iv, op = DECRYPT_OP)  
+	  cipher = Cipher(alg = 'aes_128_ecb', key = cls.privateKey, iv = cls.iv, op = DEC)  
 	  txt = cipher.update(data)  
 	  txt = txt + cipher.final()  
 	  del cipher  
 	  return txt
-	
+	'''
 	@classmethod
-	def MsgSecretSign(cls, msg):
-		ctxtPri = cls.rsaPri.private_encrypt(msg, RSA.pkcs1_padding)
-		#ctxt64_pri = ctxtPri.encode('base64')
-		#print ('密文:%s'% ctxt64_pri)
-		return ctxtPri
+	def AES_build_cipher(cls, key, iv, op=ENC):
+		return M2Crypto.EVP.Cipher(alg='aes_128_cbc', key=key, iv=iv, op=op)
+	@classmethod
+	def AESEncrypt(cls, msg):
+		#Decode the key and iv
+		#key = b64decode(key)
+		key = cls.privateKey
+		iv = cls.iv
+		# Return the encryption function
+		#def encrypt(data):
+		cipher = cls.AES_build_cipher(key, iv, DEC)
+		v = cipher.update(msg)
+		v = v + cipher.final()
+		del cipher
+		v = b64encode(v)
+			#return v
+		
+		#print "AES encryption successful\n"
+		#return encrypt(msg)
+		return v
+	@classmethod
+	def AESDecrypt(cls, key,msg, iv=None):
+		#Decode the key and iv
+		key = b64decode(key)
+		if iv is None:
+			iv = '\0' * 16
+		else:
+			iv = b64decode(iv)
+		# Return the decryption function
+		def decrypt(data):
+			data = b64decode(data)
+			cipher = cls.AES_build_cipher(key, iv, DEC)
+			v = cipher.update(data)
+			v = v + cipher.final()
+			del cipher
+			return v
+		#print "AES dencryption successful\n"
+		return decrypt(msg)
+	''' 
+       
+        
 
-	@classmethod
-	def MsgPublicVerify(cls, msg):
-		txtPri = cls.rsaPub.public_decrypt(msg, RSA.pkcs1_padding)
-		#print('明文:%s'% txtPri)
-		return txtPri
-	
+
+
 	@classmethod
 	def EnHash(cls, msg): 
 	    hashObj=EVP.MessageDigest("md5") 
@@ -118,8 +160,12 @@ class SecurityTools():
 		return aesMsg, signMsg
 	@classmethod
 	def LoginEncrypt(cls, userName, password):
-		message = {"userName": userName, "password":(cls.EnHash(password + salt))}
-		return cls.PublicEnRSA(json.dumps(message))
+		message = {"userName": userName, "password":base64.b64encode(cls.EnHash(password + salt))}
+		return cls.AESEncrypt(json.dumps(message))
+
+	
+
+
 
 
 
@@ -143,3 +189,6 @@ if __name__ == "__main__":
 	else:
 		print pub_msg
 		print "No"
+	en = sec.AESEncrypt(msg)
+	de = sec.AESDecrypt(en)
+	print de

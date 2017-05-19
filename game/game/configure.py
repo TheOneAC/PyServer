@@ -8,6 +8,8 @@ MESSAGE_SIZE = 1024
 enKey = "68b329da9893e34099c7d8ad5cb9c940"
 salt = ""
 
+logFileName = 'log/logfile.txt'
+
 RSA_PRIVATE_KEY = "\
 MIICXQIBAAKBgQCY4l+8+5B6wzSh/wMTwvaj8KfGhxYRbhX5vtkVAVIICWWgsDwg\n\
 lriJjFzObKenNU+k2he+jG1ZncfDI3fXS0rD34pT0PvxG3f/KoeKtnstnSOH4wEC\n\

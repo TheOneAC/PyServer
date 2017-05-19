@@ -6,16 +6,14 @@ import time
 import socket
 import SocketServer
 from multiprocessing import Process
-import logging
-import traceback  
+import logging, traceback  
 
-import json
-import  base64
-
+import json, base64
+import Queue, threading
 
 from user import User
 from configure import *
-
+from log import LoggerTools
 from security import SecurityTools
 
 class users(object):
@@ -23,49 +21,73 @@ class users(object):
     并接受每个玩家的请求,用多程"""
     
 	def __init__(self):
+		
+		self.__userMsgQueue = {}
+		self.__log = LoggerTools()
+		self.__log.Init()
+		self.__sec = SecurityTools()
 		user = User()
-		user.name = "zero"
-		user.password = "123456"
+		user.userName = "zero"
+		user.password = self.__sec.EnHash("123456" + salt)
 		self.__user = {
-			user.name: user
+			user.userName: user
 		}
-		#self.__dispa
-		self.sec = SecurityTools()
-		#self,log = 
-	def GetUser(self, name):
-		return self.__user[name]
+	
+	def log():
+	    doc = "The __log property."
+	    def fget(self):
+	        return self.__log
+	    def fset(self, value):
+	        self.__log = value
+	    def fdel(self):
+	        del self.__log
+	    return locals()
+	log = property(**log())
+	
+	def sec():
+	    doc = "The __sec property."
+	    def fget(self):
+	        return self.__sec
+	    def fset(self, value):
+	        self.__sec = value
+	    def fdel(self):
+	        del self.__sec
+	    return locals()
+	sec = property(**sec())
+	
+
+	def GetUser(self, userName):
+		return self.__user[userName]
 
 	def HandlerActionMessage(self, message):
-		print message
+		#print message
 
 		return "HandlerUDPMessage"
 
 	def CheckPassword(self, message):
 		
-		tokenMessage = ""
+		tokenMessage = None
 		try:
-			#message = self.sec.SecretDeRSA(message)
+			message = base64.b64decode(message)
+			message = self.__sec.AESDecrypt(message)
+			#print message
 			decode_message = json.loads(message)
+			
 		except:
-			logging.warning('login security check failed, traceback: %s' % traceback.format_exc())
+			self.__log.info('login security decode failed')
 		try:	
 			#if True:
-			if self.GetUser(decode_message['name']).password == decode_message['password']:
-				tokenID = decode_message[u'name'] + decode_message['password'] + str(time.time())
+			if self.GetUser(decode_message[u'userName']).password == base64.b64decode(decode_message['password']):
+				self.__log.info("new user: %s login success" % decode_message['userName'])
+
+				tokenID = decode_message[u'userName'] + decode_message['password'] + str(time.time())
 				token,signature = self.sec.Encrypt(tokenID)
-				#for ch in sign:
-				#	print ord(ch)
-				#b64_tokenID = 
-				#sign = self.sec.Encrypt(tokenID)
-				#b64_sign = base64.b64encode(sign)
 				tokenMessage = {"token": base64.b64encode(token), "signature":base64.b64encode(signature)}
-				print  tokenMessage
-				#tokenMessage = {"tokenID": enTokenID, "sign":sign}
 		except:
-			logging.warning('login security check failed, traceback: %s' % traceback.format_exc())
+			self.__log.warn('login security check failed, traceback: %s' % traceback.format_exc())
 		finally:	
 			return tokenMessage
-	def LoginHandeler(self, CheckPassword):
+	def LoginHandeler(self, CheckPassword,error):
 		class MyTCPHandler(SocketServer.BaseRequestHandler):
 			"""
 			The request handler class for our server.
@@ -77,20 +99,20 @@ class users(object):
 
 			def handle(self):
 				# self.request is the TCP socket connected to the client
-				logging.info("new user conect")
+				
 				try:
 					message = self.request.recv(MESSAGE_SIZE)
 					if message:
 						print "{} wrote:".format(self.client_address[0])
-						print message
-						#check id and password , create tokenID
+						
+						
 						tokenMessage = CheckPassword(message)
-
+						
 						self.request.sendall(json.dumps(tokenMessage))
 					else:
 						raise Exception("client is off")  
 				except :
-					logging.warning('login response failed, traceback: %s' % traceback.format_exc())
+					error('login response failed, traceback: %s' % traceback.format_exc())
 
 		return MyTCPHandler
 	def LoginServer(self):
@@ -98,13 +120,13 @@ class users(object):
 
 		# Create the server, binding to localhost on port 9999
 		try:
-			loginServer = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword))
+			loginServer = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, self.log.error))
 
 		# Activate the server; this will keep running until you
 		# interrupt the program with Ctrl-C
 			loginServer.serve_forever()
 		except :
-			logging.error('port ERROR, traceback: %s' % traceback.format_exc())
+			self.__log.error('port ERROR, traceback: %s' % traceback.format_exc())
 
 
 	def ActionHandler(self, HandlerUDPMessage):
@@ -135,6 +157,8 @@ class users(object):
 
 if __name__ == "__main__":
 	userset = users()
+	#userset.log = LoggerTools()
+	#userset.sec = 
 	LoginProcess = Process(target=userset.LoginServer)
 	LoginProcess.start()
 	ListenUDPProcess = Process(target=userset.ActionServer)

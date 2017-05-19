@@ -16,13 +16,13 @@ import configure
 import security
 from security import SecurityTools
 def Checktoken(msg):
-	print msg
-	token = ""
+	#print "received message " + msg
+	token = None
 	try:
 		#print "base3284290385405************************" +msg[u'token']
 		token = base64.b64decode(msg[u'token'])
 		#print msg[u'signatureature']
-		signature = base64.b64decode(msg[u'signatureature'])
+		signature = base64.b64decode(msg[u'signature'])
 		#print "token:******" + token
 		#print "signature:*******" + signature
 		sec = SecurityTools()
@@ -42,10 +42,10 @@ def Checktoken(msg):
 
 def Login():
 	HOST, PORT = "localhost", 9999
-	data = {"name":"zero","password":"123456"}
-	encode_data = json.dumps(data)
-	#sec = SecurityTools()
-	#encode_data = sec.LoginEncrypt("zero","123456")
+	#data = {"name":"zero","password":"123456"}
+	#encode_data = json.dumps(data)
+	sec = SecurityTools()
+	encode_data = sec.LoginEncrypt("zero","123456")
 
 	# Create a socket (SOCK_STREAM means a TCP socket)
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -53,8 +53,8 @@ def Login():
 	try:
 	    # Connect to server and send data
 	    sock.connect((HOST, PORT))
-	    sock.sendall(encode_data + "\n")
-
+	    sock.sendall(base64.b64encode(encode_data)+ "\n")
+	    #print "send sucess"
 	    # Receive data from the server and shut down
 	    received = sock.recv(1024)
 	    #
@@ -105,7 +105,7 @@ def ActionClient(token):
 	sock.sendto(message + "\n", (HOST, PORT))
 	received = sock.recv(1024)
 
-	print "Sent:     {}".format(message)
+	#print "Sent:     {}".format(message)
 	print "Received: {}".format(received)
 
 if __name__ == "__main__":
@@ -114,8 +114,9 @@ if __name__ == "__main__":
 	#Client_login.join()
 	token = Login()
 	print "token = name + login_time: {}".format(token)
-	print "login Success!"
+	
 	if token != "":
+		print "login Success!"
 		ActionClient(token)
 	
 
