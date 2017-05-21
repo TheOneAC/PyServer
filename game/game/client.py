@@ -15,51 +15,53 @@ import traceback
 import configure
 import security
 from security import SecurityTools
-def CheckTokenID(msg):
-	print msg
-	tokenID = ""
+def Checktoken(msg):
+	#print "received message " + msg
+	token = None
 	try:
-		print "base3284290385405************************" +msg[u'token']
-		tokenID = base64.b64decode(msg[u'token'])
-		print msg[u'signature']
-		sign = base64.b64decode(msg[u'signature'])
-		print "tokenID:******" + tokenID
-		print "sign:*******" + sign
+		#print "base3284290385405************************" +msg[u'token']
+		token = base64.b64decode(msg[u'token'])
+		#print msg[u'signatureature']
+		signature = base64.b64decode(msg[u'signature'])
+		#print "token:******" + token
+		#print "signature:*******" + signature
 		sec = SecurityTools()
-		sha = sec.EnHash(tokenID)
-		print "hash**********" + sha
-		de_sign = sec.PublicVerify(sign)
-		if sha != de_sign:
-			raise Exception("SIGN VERIFY ERROR")
+		#sha = sec.EnHash(token)
+		#print "hash**********" + sha
+		verify = sec.PublicVerify(token, signature)
+		if not verify:
+			raise Exception("signature VERIFY ERROR")
 		else:
 
-			tokenID = sec.AESDecrypt(tokenID) 
-			#print "tokenID+++" + tokenID
+			token = sec.AESDecrypt(token) 
+			#print "token+++" + token
 	except:
-		logging.warning('tokenID checkout failed, traceback: %s' % traceback.format_exc()) 
+		logging.warning('token checkout failed, traceback: %s' % traceback.format_exc()) 
 	finally:
-		return tokenID
+		return token
 
 def Login():
 	HOST, PORT = "localhost", 9999
-	data = {"name":"zero","password":"123456"}
-	encode_data = json.dumps(data)
+	#data = {"name":"zero","password":"123456"}
+	#encode_data = json.dumps(data)
+	sec = SecurityTools()
+	encode_data = sec.LoginEncrypt("zero","123456")
 
 	# Create a socket (SOCK_STREAM means a TCP socket)
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	tokenID = ""
+	token = ""
 	try:
 	    # Connect to server and send data
 	    sock.connect((HOST, PORT))
-	    sock.sendall(encode_data + "\n")
-
+	    sock.sendall(base64.b64encode(encode_data)+ "\n")
+	    #print "send sucess"
 	    # Receive data from the server and shut down
 	    received = sock.recv(1024)
 	    #
 	    received = json.loads(received)
 	    #b64_received = base64.b64decode(received)
 	    #print type(received)
-	    tokenID = CheckTokenID(received)
+	    token = Checktoken(received)
 	    
 	except:
 		logging.warning('login response failed, traceback: %s' % traceback.format_exc()) 
@@ -71,9 +73,9 @@ def Login():
 	#print "Sent:     {}".format(encode_data)
 	#print "Received: {}".format(received)
 
-	return tokenID
+	return token
 
-def UpdateUDPMessage(tokenID):
+def UpdateUDPMessage(token):
 	monsterID = "monster100"
 	behavior = {
 		"target" : monsterID,
@@ -81,13 +83,13 @@ def UpdateUDPMessage(tokenID):
 		
 	}
 	message = {
-		"tokenID":  tokenID,
+		"token":  token,
 		"time":     time.time(),
 		"behavior": behavior
 	}
 	return message
 		
-def ActionClient(tokenID):
+def ActionClient(token):
 	HOST, PORT = "219.219.220.224", 9998
 	
 
@@ -97,23 +99,24 @@ def ActionClient(tokenID):
 	# As you can see, there is no connect() call; UDP has no connections.
 	# Instead, data is directly sent to the recipient via sendto().
 	
-	message = UpdateUDPMessage(tokenID)
+	message = UpdateUDPMessage(token)
 	
 	message = json.dumps(message) 
 	sock.sendto(message + "\n", (HOST, PORT))
 	received = sock.recv(1024)
 
-	print "Sent:     {}".format(message)
+	#print "Sent:     {}".format(message)
 	print "Received: {}".format(received)
 
 if __name__ == "__main__":
 	#Client_login = Process(target=login)
 	#Client_login.start()
 	#Client_login.join()
-	tokenID = Login()
-	print "tokenID = name + login_time: {}".format(tokenID)
-	print "login Success!"
-	if tokenID != "":
-		ActionClient(tokenID)
+	token = Login()
+	print "token = name + login_time: {}".format(token)
+	
+	if token != "":
+		print "login Success!"
+		ActionClient(token)
 	
 
