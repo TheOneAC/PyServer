@@ -7,21 +7,25 @@ from M2Crypto import *
 from M2Crypto.EVP import Cipher  
 from M2Crypto import m2  
 from M2Crypto import util  
-from configure import enKey,RSAPub, RSAPri, salt
+import configure 
+#from configure import RSAPub, RSAPri
 import  hashlib
 import json
 import base64
 from base64 import b64encode, b64decode
+
+from Crypto.Cipher import AES
+
 ENC = 1 # 加密操作 
 DEC = 0 # 解密操作 
 
 
 class SecurityTools():
 
-	rsaPub = RSAPub
-	rsaPri = RSAPri
-	privateKey = enKey 
-	iv = '\0' * 16
+	rsaPub = configure.RSAPub
+	rsaPri = configure.RSAPri
+	aesKey = configure.enKey 
+	iv ='' #'\0' * 16
 
 
   	@classmethod
@@ -72,6 +76,33 @@ class SecurityTools():
 		#print('明文:%s'% txtPri)
 		return txtPri
 
+	@classmethod
+	def AesEncrypt(cls, password):
+		key = cls.aesKey
+		mode = AES.MODE_CBC
+		encryptor = AES.new(key, mode,key)
+		plain_text = password * 16
+		ciphertext = encryptor.encrypt(plain_text)
+		#print ciphertext
+		encry_base64 = ciphertext.encode('base64').replace('\n','')
+		return encry_base64
+
+	@classmethod
+	def AesDecrypt(cls, encrypted_msg):
+		key = cls.aesKey
+		mode = AES.MODE_CBC
+		decryptor = AES.new(key, mode,key)
+		plain = decryptor.decrypt(encrypted_msg.decode('base64'))
+		return plain[0:len(plain)/16]
+
+	@classmethod
+	def TestEncryption(cls, msg):
+		#text = input_passwd()
+		encrypted_msg = cls.AesEncrypt(msg)
+		print encrypted_msg
+
+		plain_msg = cls.AesDecrypt(encrypted_msg)
+		print plain_msg
 
 
 
@@ -79,21 +110,23 @@ class SecurityTools():
 	@classmethod
 	def AESEncrypt(cls, data):  
 	  '使用aes_128_ecb算法对数据加密'  
-	  cipher = Cipher(alg = 'aes_128_ecb', key = cls.privateKey, iv = cls.iv, op = ENC)  
+	  cipher = Cipher(alg = 'aes_256_ecb', key = cls.aesKey, iv = cls.iv, op = ENC)  
 	  txt = cipher.update(data)  
 	  txt = txt + cipher.final()  
 	  del cipher  
 	  # 将明文从字节流转为16进制  
-	  output = ''  
-	  for i in txt:  
-	    output += '%02X' % (ord(i))  
-	  return output  
+	  #output = ''  
+	  #for i in txt:  
+	  #  output += '%02X' % (ord(i))  
+	  #return output  
+	  return b64encode(txt)
  	@classmethod
 	def AESDecrypt(cls, data):  
 	  '使用aes_128_ecb算法对数据解密'  
 	  # 将密文从16进制转为字节流  
-	  data = util.h2b(data)  
-	  cipher = Cipher(alg = 'aes_128_ecb', key = cls.privateKey, iv = cls.iv, op = DEC)  
+	  #data = util.h2b(data) 
+	  data = b64decode(data)
+	  cipher = Cipher(alg = 'aes_256_ecb', key = cls.aesKey, iv = cls.iv, op = DEC)  
 	  txt = cipher.update(data)  
 	  txt = txt + cipher.final()  
 	  del cipher  
@@ -106,7 +139,7 @@ class SecurityTools():
 	def AESEncrypt(cls, msg):
 		#Decode the key and iv
 		#key = b64decode(key)
-		key = cls.privateKey
+		key = cls.aesKey
 		iv = cls.iv
 		# Return the encryption function
 		#def encrypt(data):
@@ -152,7 +185,7 @@ class SecurityTools():
 	
 	@classmethod
 	def Encrypt(cls, msg):
-		aesMsg = cls.AESEncrypt(msg)
+		aesMsg = cls.AesEncrypt(msg)
 		#hashMsg = cls.EnHash(aesMsg)
 		#print "sha_msg :" +sha_msg
 		signMsg = cls.SecretSign(aesMsg)
@@ -160,7 +193,7 @@ class SecurityTools():
 		return aesMsg, signMsg
 	@classmethod
 	def LoginEncrypt(cls, userName, password):
-		message = {"userName": userName, "password":base64.b64encode(cls.EnHash(password + salt))}
+		message = {"userName": userName, "password":base64.b64encode(cls.EnHash(password + configure.salt))}
 		return cls.AESEncrypt(json.dumps(message))
 
 	
@@ -182,6 +215,7 @@ if __name__ == "__main__":
 	sec1 = SecurityTools()
 	msg = "hello"
 	aes_msg, sign_msg = sec.Encrypt(msg)
+	print aes_msg
 	pub_msg = sec1.PublicVerify(aes_msg,sign_msg)
 	#sec_msg = sec1.EnHash(aes_msg)
 	if pub_msg:
@@ -189,6 +223,8 @@ if __name__ == "__main__":
 	else:
 		print pub_msg
 		print "No"
-	en = sec.AESEncrypt(msg)
-	de = sec.AESDecrypt(en)
+	en = sec1.AESEncrypt(msg*16)
+	print b64encode(en)
+	de = sec1.AESDecrypt(en)
 	print de
+	sec1.TestEncryption("hello")

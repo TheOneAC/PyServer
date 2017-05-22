@@ -16,22 +16,38 @@ from configure import *
 from log import LoggerTools
 from security import SecurityTools
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class users(object):
 	"""所有玩家的集合,负责玩家登陆,同时实例化每一个玩家,放在列表中
     并接受每个玩家的请求,用多程"""
     
 	def __init__(self):
-		
-		self.__userMsgQueue = {}
 		self.__log = LoggerTools()
 		self.__log.Init()
 		self.__sec = SecurityTools()
+
 		user = User()
 		user.userName = "zero"
 		user.password = self.__sec.EnHash("123456" + salt)
 		self.__user = {
 			user.userName: user
 		}
+		self.__loginThreadLock = threading.Lock()
+		self.__tokenDict = {}
+		self.__userMsgQueue = {}
 	
 	def log():
 	    doc = "The __log property."
@@ -59,8 +75,15 @@ class users(object):
 	def GetUser(self, userName):
 		return self.__user[userName]
 
-	def HandlerActionMessage(self, message):
+	def HandlerActionMsg(self, token):
 		#print message
+		
+		#while True: 
+		#	while (not self.__userMsgQueue[token].empty()):
+
+
+
+
 
 		return "HandlerUDPMessage"
 
@@ -80,15 +103,28 @@ class users(object):
 			if self.GetUser(decode_message[u'userName']).password == base64.b64decode(decode_message['password']):
 				self.__log.info("new user: %s login success" % decode_message['userName'])
 
-				tokenID = decode_message[u'userName'] + decode_message['password'] + str(time.time())
-				token,signature = self.sec.Encrypt(tokenID)
+				token = decode_message[u'userName'] + ' ' + str(time.time())
+				
+				token,signature = self.sec.Encrypt(token)
 				tokenMessage = {"token": base64.b64encode(token), "signature":base64.b64encode(signature)}
 		except:
 			self.__log.warn('login security check failed, traceback: %s' % traceback.format_exc())
+		try:
+			if self.__loginThreadLock.acquire():
+				self.__tokenDict[token] = decode_message[u'userName']
+				self.__userMsgQueue[token] = Queue.Queue()
+				self.__loginThreadLock.release()
+
+		except:
+			self.__log.error("user server thread init failure")
+			if self.__loginThreadLock.acquire():
+				del self.__userMsgQueue[token]
+				del self.__tokenDict[token]
+				self.__loginThreadLock.release()
 		finally:	
 			return tokenMessage
 	def LoginHandeler(self, CheckPassword,error):
-		class MyTCPHandler(SocketServer.BaseRequestHandler):
+		class MyTCPHandler(SocketServer.StreamRequestHandler):
 			"""
 			The request handler class for our server.
 
@@ -120,7 +156,7 @@ class users(object):
 
 		# Create the server, binding to localhost on port 9999
 		try:
-			loginServer = SocketServer.TCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, self.log.error))
+			loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, self.log.error))
 
 		# Activate the server; this will keep running until you
 		# interrupt the program with Ctrl-C
@@ -150,7 +186,7 @@ class users(object):
 
 	def ActionServer(self):
 		#HOST, PORT = "localhost", 9998
-		actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.HandlerActionMessage))
+		actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.HandlerActionMsg))
 		actionServer.serve_forever()
 
 

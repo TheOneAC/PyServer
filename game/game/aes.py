@@ -3,7 +3,7 @@
 
 
 from Crypto.Cipher import AES
-from configure import EN_KEY, RSA_PRIVATE_KEY,RSA_PUBLIC_KEY
+from configure import enKey, RSA_PRIVATE_KEY,RSA_PUBLIC_KEY
 import  math
 import base64
 
@@ -56,7 +56,7 @@ def Parse_hex(hex_key):
     return iv
 
 def AESEncrypt(password):
-    encryptor = AES.new(EN_KEY, AES.MODE_CBC,Parse_hex(EN_KEY))
+    encryptor = AES.new(enKey, AES.MODE_CBC,Parse_hex(enKey))
     plain_text = password * 16
     ciphertext = encryptor.encrypt(plain_text)
     encry_base64 = ciphertext.encode('base64').replace('\n','')
@@ -64,7 +64,7 @@ def AESEncrypt(password):
 
 
 def AESDecrypt(encrypted_msg):
-    decryptor = AES.new(EN_KEY, AES.MODE_CBC,Parse_hex(EN_KEY))
+    decryptor = AES.new(enKey, AES.MODE_CBC,Parse_hex(enKey))
     plain = decryptor.decrypt(encrypted_msg.decode('base64'))
     data = plain[0:len(plain)/16]
     return data

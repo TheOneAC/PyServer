@@ -16,7 +16,7 @@ import configure
 import security
 from security import SecurityTools
 def Checktoken(msg):
-	#print "received message " + msg
+	#print "received msg " + msg
 	token = None
 	try:
 		#print "base3284290385405************************" +msg[u'token']
@@ -75,19 +75,19 @@ def Login():
 
 	return token
 
-def UpdateUDPMessage(token):
+def Actionmsg(token):
 	monsterID = "monster100"
 	behavior = {
 		"target" : monsterID,
 		"operator": "hit" # enum
 		
 	}
-	message = {
+	msg = {
 		"token":  token,
 		"time":     time.time(),
 		"behavior": behavior
 	}
-	return message
+	return msg
 		
 def ActionClient(token):
 	HOST, PORT = "219.219.220.224", 9998
@@ -99,13 +99,16 @@ def ActionClient(token):
 	# As you can see, there is no connect() call; UDP has no connections.
 	# Instead, data is directly sent to the recipient via sendto().
 	
-	message = UpdateUDPMessage(token)
+	msg = Actionmsg(token)
+
+
+	msgFmt = {"token":token, "md5 logintime + msg": ,"msg": msg}
 	
-	message = json.dumps(message) 
-	sock.sendto(message + "\n", (HOST, PORT))
+	msg = json.dumps(msg) 
+	sock.sendto(msg + "\n", (HOST, PORT))
 	received = sock.recv(1024)
 
-	#print "Sent:     {}".format(message)
+	#print "Sent:     {}".format(msg)
 	print "Received: {}".format(received)
 
 if __name__ == "__main__":
