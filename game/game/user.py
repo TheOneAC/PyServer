@@ -3,15 +3,15 @@
 class User():
     '''一个玩家，包括玩家的物品，任务进度，位置，血量，装备等所有信息'''
     def __init__(self):
-    	
-    	self.__name = "zero"
-    	self.__password = None
-    	self.__blood_value = 10000
-    	self.__position = ()
-    	self.__mission = {}
-    	self.__equipment = []
-    	self.__drug = {}
-    	self.__other_goods = {}
+        
+        self.__name = "zero"
+        self.__password = None
+        self.__blood_value = 10000
+        self.__position = ()
+        self.__mission = {}
+        self.__equipment = []
+        self.__drug = {}
+        self.__other_goods = {}
 
     def name():
         doc = "The __name property."

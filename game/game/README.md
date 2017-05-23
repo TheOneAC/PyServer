@@ -8,3 +8,6 @@ solution:
 
 
 sudo apt-get install python-m2crypto
+
+windows
+pip install --egg M2CryptoWin32

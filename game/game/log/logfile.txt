@@ -72,3 +72,681 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 error: [Errno 98] Address already in use
 
 2017-05-20 17:54:55  INFO: Thread-1  new user: zero login success
+2017-05-23 11:09:19  ERROR: MainThread  what
+2017-05-23 11:37:58  INFO: Thread-1  login security decode failed
+2017-05-23 11:37:58  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 75, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == base64.b64decode(decode_message['password']):
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-23 11:39:28  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 131, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 11:49:42  INFO: Thread-2  login security decode failed
+2017-05-23 11:49:42  WARNING: Thread-2  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 75, in CheckPassword
+    Log.info("new user: %s login success" % decode_message['userName'])
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-23 11:58:34  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 111, in handle
+    if message:
+error: [Errno 10054] 
+
+2017-05-23 12:01:38  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 12:02:05  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == base64.b64decode(decode_message['password']):
+KeyError: u'userName'
+
+2017-05-23 12:07:29  INFO: Thread-1  login decode failed
+2017-05-23 12:07:29  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 74, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == decode_message[u'password']:
+KeyError: u'userName'
+
+2017-05-23 12:29:41  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 110, in handle
+    message = self.request.recv(MESSAGE_SIZE)
+error: [Errno 10054] 
+
+2017-05-23 12:37:12  INFO: Thread-1  login decode failed
+2017-05-23 12:37:12  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 75, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == decode_message[u'password']:
+KeyError: u'userName'
+
+2017-05-23 12:39:50  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 131, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 12:40:04  INFO: Thread-1  login decode failed
+2017-05-23 12:40:04  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 75, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == decode_message[u'password']:
+KeyError: u'userName'
+
+2017-05-23 12:41:53  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message[u'userName']
+KeyError: u'userName'
+
+2017-05-23 12:42:27  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message[u'userName']
+KeyError: u'userName'
+
+2017-05-23 12:43:50  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message[u'userName']
+KeyError: u'userName'
+
+2017-05-23 12:45:47  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message[u'userName']
+KeyError: u'userName'
+
+2017-05-23 13:10:54  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message[u'userName']
+KeyError: u'userName'
+
+2017-05-23 13:11:48  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message['userName']
+KeyError: 'userName'
+
+2017-05-23 13:17:21  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    tokenMessage = CheckPassword(message)
+  File "H:\后台\game\game\server.py", line 69, in CheckPassword
+    print decode_message[u'userName']
+KeyError: u'userName'
+
+2017-05-23 13:18:17  INFO: Thread-1  login decode failed
+2017-05-23 13:18:17  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 76, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == decode_message[u'password']:
+KeyError: u'userName'
+
+2017-05-23 13:19:27  INFO: Thread-1  login decode failed
+2017-05-23 13:19:27  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 76, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == decode_message[u'password']:
+KeyError: u'userName'
+
+2017-05-23 13:20:11  INFO: Thread-1  login decode failed
+2017-05-23 13:20:11  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 76, in CheckPassword
+    if self.GetUser(decode_message[u'userName']).password == decode_message[u'password']:
+KeyError: u'userName'
+
+2017-05-23 13:22:10  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 76, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+AttributeError: 'str' object has no attribute 'password'
+
+2017-05-23 13:25:59  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 74, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+  File "H:\后台\game\game\server.py", line 48, in GetUser
+    return self.__user[userName]
+KeyError: u'fdsa'
+
+2017-05-23 13:26:41  INFO: Thread-1  new user: zero login success
+2017-05-23 13:26:41  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 79, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 82, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+TypeError: AESEncrypt() takes exactly 1 argument (2 given)
+
+2017-05-23 13:28:47  INFO: Thread-1  new user: zero login success
+2017-05-23 13:28:47  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 82, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 65, in AESEncrypt
+    encryptor = AES.new(aesKey, AES.MODE_CBC, __ParseHex(aesKey))
+NameError: global name 'aesKey' is not defined
+
+2017-05-23 13:35:05  INFO: Thread-1  new user: zero login success
+2017-05-23 13:35:05  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 82, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 65, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, __ParseHex(cls.aesKey))
+NameError: global name '_SecurityTools__ParseHex' is not defined
+
+2017-05-23 13:38:58  INFO: Thread-1  new user: zero login success
+2017-05-23 13:38:58  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 83, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 66, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, cls.__ParseHex(cls.aesKey))
+TypeError: unbound method __ParseHex() must be called with SecurityTools instance as first argument (got str instance instead)
+
+2017-05-23 13:39:46  INFO: Thread-1  new user: zero login success
+2017-05-23 13:39:46  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, cls.__ParseHex(cls.aesKey))
+TypeError: __ParseHex() takes exactly 1 argument (2 given)
+
+2017-05-23 13:40:13  INFO: Thread-1  new user: zero login success
+2017-05-23 13:40:13  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, __ParseHex(cls.aesKey))
+NameError: global name '_SecurityTools__ParseHex' is not defined
+
+2017-05-23 13:43:15  INFO: Thread-1  new user: zero login success
+2017-05-23 13:43:15  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, _SecurityTools__ParseHex(cls.aesKey))
+NameError: global name '_SecurityTools__ParseHex' is not defined
+
+2017-05-23 13:43:48  INFO: Thread-1  new user: zero login success
+2017-05-23 13:43:48  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, ParseHex(cls.aesKey))
+NameError: global name 'ParseHex' is not defined
+
+2017-05-23 13:44:22  INFO: Thread-1  new user: zero login success
+2017-05-23 13:44:22  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, cls.ParseHex(cls.aesKey))
+TypeError: ParseHex() takes exactly 1 argument (2 given)
+
+2017-05-23 13:45:06  INFO: Thread-1  new user: zero login success
+2017-05-23 13:45:06  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, cls.__ParseHex(cls.aesKey))
+  File "H:\后台\game\game\security.py", line 58, in __ParseHex
+    l = int(math.ceil(len(hex_key)/2))
+NameError: global name 'math' is not defined
+
+2017-05-23 13:45:48  INFO: Thread-1  new user: zero login success
+2017-05-23 13:45:48  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 84, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 69, in AESEncrypt
+    ciphertext = encryptor.encrypt(plain_text)
+  File "E:\Program Files\python27\lib\site-packages\Crypto\Cipher\blockalgo.py", line 244, in encrypt
+    return self._cipher.encrypt(plaintext)
+ValueError: Input strings must be a multiple of 16 in length
+
+2017-05-23 13:52:10  INFO: Thread-1  new user: zero login success
+2017-05-23 13:52:10  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 88, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 69, in AESEncrypt
+    x = len(fs) % 16
+NameError: global name 'fs' is not defined
+
+2017-05-23 13:52:49  INFO: Thread-1  new user: zero login success
+2017-05-23 13:52:49  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 88, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 72, in AESEncrypt
+    ciphertext = encryptor.encrypt(plain_text)
+NameError: global name 'plain_text' is not defined
+
+2017-05-23 13:53:18  INFO: Thread-1  new user: zero login success
+2017-05-23 13:53:18  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    signMsg = cls.SecretSign(aesMsg)
+AttributeError: class SecurityTools has no attribute 'SecretSign'
+
+2017-05-23 13:53:49  INFO: Thread-1  new user: zero login success
+2017-05-23 13:53:49  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    signMsg = cls.SecretSign(aesMsg)
+AttributeError: class SecurityTools has no attribute 'SecretSign'
+
+2017-05-23 13:54:49  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 14:03:15  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 14:03:32  INFO: Thread-1  new user: zero login success
+2017-05-23 14:03:32  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 92, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:04:14  INFO: Thread-1  new user: zero login success
+2017-05-23 14:04:14  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 92, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:07:27  INFO: Thread-1  new user: zero login success
+2017-05-23 14:07:27  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 92, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:13:22  INFO: Thread-1  new user: zero login success
+2017-05-23 14:13:22  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 89, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 74, in AESEncrypt
+    encry_base64 = base64.b64decode(ciphertext)
+NameError: global name 'base64' is not defined
+
+2017-05-23 14:14:21  INFO: Thread-1  new user: zero login success
+2017-05-23 14:14:21  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 92, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:14:51  INFO: Thread-1  new user: zero login success
+2017-05-23 14:14:51  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 92, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:20:25  INFO: Thread-1  new user: zero login success
+2017-05-23 14:20:25  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:23:46  INFO: Thread-1  new user: zero login success
+2017-05-23 14:23:46  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 41, in Sign
+    key = RSA.importKey(RSA_PRIVATE_KEY)
+NameError: global name 'RSA_PRIVATE_KEY' is not defined
+
+2017-05-23 14:24:56  INFO: Thread-1  new user: zero login success
+2017-05-23 14:24:56  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 42, in Sign
+    h = MD5.new(message)
+NameError: global name 'message' is not defined
+
+2017-05-23 14:25:32  INFO: Thread-1  new user: zero login success
+2017-05-23 14:26:10  INFO: Thread-1  new user: zero login success
+2017-05-23 14:26:29  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 108, in handle
+    message = self.request.recv(MESSAGE_SIZE)
+error: [Errno 10054] 
+
+2017-05-23 14:28:37  INFO: Thread-1  new user: zero login success
+2017-05-23 14:30:02  INFO: Thread-1  new user: zero login success
+2017-05-23 14:33:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 14:33:17  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 14:33:40  INFO: Thread-1  new user: zero login success
+2017-05-23 14:39:39  INFO: Thread-1  new user: zero login success
+2017-05-23 14:39:39  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 93, in Encrypt
+    print cls.Verify(aesMsg, signMsg)
+  File "H:\后台\game\game\security.py", line 50, in Verify
+    h = MD5.new(message)
+NameError: global name 'message' is not defined
+
+2017-05-23 14:39:58  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 14:40:14  INFO: Thread-1  new user: zero login success
+2017-05-23 14:40:14  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 93, in Encrypt
+    print cls.Verify(aesMsg, signMsg)
+  File "H:\后台\game\game\security.py", line 52, in Verify
+    if verifier.verify(h, base64.b64decode(signature)):
+NameError: global name 'signature' is not defined
+
+2017-05-23 14:40:45  INFO: Thread-1  new user: zero login success
+2017-05-23 14:41:44  INFO: Thread-1  new user: zero login success
+2017-05-23 15:00:08  INFO: Thread-1  new user: zero login success
+2017-05-23 15:00:39  INFO: Thread-2  new user: zero login success
+2017-05-23 15:02:49  INFO: Thread-1  new user: zero login success
+2017-05-23 15:02:49  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 93, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 43, in Sign
+    for i in h:
+TypeError: iteration over non-sequence
+
+2017-05-23 15:04:47  INFO: Thread-1  new user: zero login success
+2017-05-23 15:07:06  INFO: Thread-1  new user: zero login success
+2017-05-23 15:08:47  INFO: Thread-1  new user: zero login success
+2017-05-23 15:21:43  INFO: Thread-1  new user: zero login success
+2017-05-23 15:21:43  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 99, in Encrypt
+    print cls.PublicVerify(aesMsg, signMsg)
+  File "H:\后台\game\game\security.py", line 57, in PublicVerify
+    m = EVP.MessageDigest("md5")
+NameError: global name 'EVP' is not defined
+
+2017-05-23 15:33:58  INFO: Thread-1  new user: zero login success
+2017-05-23 15:35:17  INFO: Thread-1  new user: zero login success
+2017-05-23 15:45:29  INFO: Thread-1  new user: zero login success
+2017-05-23 15:45:29  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    signMsg = cls.Sign(aesMsg)
+  File "H:\后台\game\game\security.py", line 43, in Sign
+    h.update()
+TypeError: update() takes exactly 2 arguments (1 given)
+
+2017-05-23 15:46:16  INFO: Thread-1  new user: zero login success
+2017-05-23 15:49:34  INFO: Thread-1  new user: zero login success
+2017-05-23 15:55:27  INFO: Thread-1  new user: zero login success
+2017-05-23 15:56:42  INFO: Thread-1  new user: zero login success
+2017-05-23 15:57:08  INFO: Thread-2  new user: zero login success
+2017-05-23 15:59:30  INFO: Thread-1  new user: zero login success
+2017-05-23 16:12:07  INFO: Thread-1  new user: zero login success
+2017-05-23 16:12:44  INFO: Thread-2  new user: zero login success
+2017-05-23 16:13:01  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 108, in handle
+    message = self.request.recv(MESSAGE_SIZE)
+error: [Errno 10054] 
+
+2017-05-23 16:13:02  INFO: Thread-4  login decode failed
+2017-05-23 16:13:02  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-23 16:13:53  INFO: Thread-1  new user: zero login success
+2017-05-23 16:17:06  INFO: Thread-1  new user: zero login success
+2017-05-23 16:17:54  INFO: Thread-1  new user: zero login success
+2017-05-23 16:29:03  INFO: Thread-1  new user: zero login success
+2017-05-23 16:30:03  INFO: Thread-1  new user: zero login success
+2017-05-23 16:32:19  INFO: Thread-1  new user: zero login success
+2017-05-23 16:34:12  INFO: Thread-1  new user: zero login success
+2017-05-23 16:36:43  INFO: Thread-1  new user: zero login success
+2017-05-23 16:39:04  INFO: Thread-1  new user: zero login success
+2017-05-23 16:40:14  INFO: Thread-1  new user: zero login success
+2017-05-23 16:41:27  INFO: Thread-1  new user: zero login success
+2017-05-23 16:52:54  INFO: Thread-1  new user: zero login success
+2017-05-23 17:01:21  INFO: Thread-1  new user: zero login success
+2017-05-23 17:04:34  INFO: Thread-1  new user: zero login success
+2017-05-23 17:19:47  INFO: Thread-1  new user: zero login success
+2017-05-23 17:53:47  INFO: Thread-1  new user: zero login success
+2017-05-23 18:33:22  INFO: Thread-1  new user: zero login success
+2017-05-23 18:33:22  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 86, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 67, in AESEncrypt
+    encryptor = AES.new(cls.aesKey, AES.MODE_ECB, cls.__ParseHex(cls.aesKey))
+NameError: global name 'AES' is not defined
+
+2017-05-23 18:36:50  INFO: Thread-1  new user: zero login success
+2017-05-23 18:36:50  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 76, in AESEncrypt
+    txt = cipher.update(data)
+NameError: global name 'data' is not defined
+
+2017-05-23 18:37:32  INFO: Thread-1  new user: zero login success
+2017-05-23 18:37:32  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 91, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 79, in AESEncrypt
+    return b64encode(txt)
+NameError: global name 'b64encode' is not defined
+
+2017-05-23 18:38:25  INFO: Thread-1  new user: zero login success
+2017-05-23 18:38:25  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 115, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "E:\Program Files\python27\lib\json\__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xa7 in position 3: invalid start byte
+
+2017-05-23 18:40:38  INFO: Thread-1  new user: zero login success
+2017-05-23 18:40:39  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 96, in Encrypt
+    print cls.Verify(aesMsg, signMsg)
+  File "H:\后台\game\game\security.py", line 53, in Verify
+    result = cert.verify(digest, sign, "md5")
+  File "E:\Program Files\python27\lib\site-packages\M2Crypto\RSA.py", line 259, in verify
+    return m2.rsa_verify(self.rsa, data, signature, digest_type)
+RSAError: wrong signature length
+
+2017-05-23 18:41:49  INFO: Thread-1  new user: zero login success
+2017-05-23 18:42:31  INFO: Thread-1  new user: zero login success
+2017-05-23 18:48:56  INFO: Thread-1  new user: zero login success
+2017-05-23 18:50:12  INFO: Thread-1  new user: zero login success
+2017-05-23 18:59:45  INFO: Thread-1  new user: zero login success
+2017-05-23 19:06:21  INFO: Thread-1  new user: zero login success
+2017-05-23 19:14:42  INFO: Thread-1  new user: zero login success
+2017-05-23 19:17:17  INFO: Thread-1  new user: zero login success
+2017-05-23 19:19:58  INFO: Thread-1  new user: zero login success
+2017-05-23 19:24:19  INFO: Thread-1  new user: zero login success
+2017-05-23 19:25:31  INFO: Thread-1  new user: zero login success
+2017-05-23 19:26:49  INFO: Thread-1  new user: zero login success
+2017-05-23 19:35:31  INFO: Thread-1  new user: zero login success
+2017-05-23 19:41:34  INFO: Thread-1  new user: zero login success
+2017-05-23 19:51:41  INFO: Thread-1  new user: zero login success
+2017-05-23 19:55:16  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-23 19:55:38  INFO: Thread-1  new user: zero login success
+2017-05-23 19:56:31  INFO: Thread-1  new user: zero login success
+2017-05-24 00:59:42  INFO: Thread-1  new user: zero login success
+2017-05-24 01:01:10  INFO: Thread-1  new user: zero login success
+2017-05-24 01:05:03  INFO: Thread-1  new user: zero login success
+2017-05-24 01:05:03  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 92, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 80, in AESEncrypt
+    return base64.b64decode(txt)
+  File "E:\Program Files\python27\lib\base64.py", line 78, in b64decode
+    raise TypeError(msg)
+TypeError: Incorrect padding
+
+2017-05-24 01:06:00  INFO: Thread-1  new user: zero login success
+2017-05-24 01:07:49  INFO: Thread-1  new user: zero login success
+2017-05-24 01:08:31  INFO: Thread-1  new user: zero login success
+2017-05-24 01:11:11  INFO: Thread-1  new user: zero login success
+2017-05-24 01:12:42  INFO: Thread-1  new user: zero login success
+2017-05-24 01:14:01  INFO: Thread-1  new user: zero login success
+2017-05-24 01:14:51  INFO: Thread-2  new user: zero login success
+2017-05-24 01:20:08  INFO: Thread-1  new user: zero login success
+2017-05-24 01:24:06  INFO: Thread-1  new user: zero login success
+2017-05-24 01:37:14  INFO: Thread-1  new user: zero login success
+2017-05-24 01:38:35  INFO: Thread-1  new user: zero login success
+2017-05-24 01:45:58  INFO: Thread-1  new user: zero login success
+2017-05-24 01:48:06  INFO: Thread-1  new user: zero login success
+2017-05-24 01:48:06  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 77, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "H:\后台\game\game\security.py", line 89, in Encrypt
+    aesMsg = cls.AESEncrypt(msg)
+  File "H:\后台\game\game\security.py", line 75, in AESEncrypt
+    txt = txt + cipher.final()
+  File "E:\Program Files\python27\lib\site-packages\M2Crypto\EVP.py", line 128, in final
+    return m2.cipher_final(self.ctx)
+EVPError: data not multiple of block length
+
+2017-05-24 01:49:25  INFO: Thread-1  new user: zero login success
+2017-05-24 01:50:05  INFO: Thread-2  new user: zero login success
+2017-05-24 01:51:24  INFO: Thread-3  new user: zero login success
