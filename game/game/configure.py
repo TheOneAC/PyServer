@@ -5,7 +5,7 @@
 LOGIN_HOST, LOGIN_PORT = "0.0.0.0", 9999
 ACTION_HOST, ACTION_PORT = "0.0.0.0", 9998
 MESSAGE_SIZE = 1024
-enKey = "68b329da9893e34099c7d8ad5cb9c940"
+enKey = "68b329da9893e340"
 salt = ""
 
 logFileName = 'log/logfile.txt'
