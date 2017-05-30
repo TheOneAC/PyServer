@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>12735216-dc83-488c-b59b-5f77d4612f84</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>game.py</StartupFile>
+    <StartupFile>server.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,13 +22,28 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="aes.py" />
+    <Compile Include="client.py" />
+    <Compile Include="configure.py" />
     <Compile Include="game.py" />
+    <Compile Include="log.py" />
     <Compile Include="monster.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="users.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="secret\aes.py" />
+    <Compile Include="secret\createRSA.py" />
+    <Compile Include="security.py" />
+    <Compile Include="server.py" />
+    <Compile Include="user.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="secret\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="secret\master-private.pem" />
+    <Content Include="secret\master-public.pem" />
+    <Content Include="secret\private" />
+    <Content Include="secret\public" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
