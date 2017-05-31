@@ -70,14 +70,20 @@ class SecurityTools():
         #ciphertext = encryptor.encrypt(plain)
         #encry_base64 = ciphertext.encode('base64').replace("\n", '')
         #return encry_base64
-        cipher = Cipher(alg = 'aes_128_ecb', key = cls.aesKey, iv = cls.aesKey, op = ENC, padding = 0)  
-        x = len(plain) % 16
-        if x != 0:
-            plain = plain + '0'*(16 - x)
+
+        cipher = Cipher(alg = 'aes_128_cbc', key = cls.aesKey, iv = cls.aesKey, op = ENC)
+        #x = len(plain) % 16
+        #if x != 0:
+        #    plain = plain + '\0'*(16 - x)
+        #txt = cipher.update(plain)
+        #txt = txt + cipher.final()
+        #del cipher
+        #return base64.b64encode(txt)
+        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv='\0'*16, op=ENC, padding= 1)
         txt = cipher.update(plain)
         txt = txt + cipher.final()
-        del cipher  
-        return base64.b64encode(txt)
+        del cipher
+        return txt
 
     @classmethod
     def AESDecrypt(cls, encrypted_msg):
@@ -85,8 +91,15 @@ class SecurityTools():
         #plain = decryptor.decrypt(encrypted_msg.decode('base64'))
         #data = plain[0:len(plain)/16]
         #return data
-        pass
-    
+
+
+        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv='\0'*16, op=DEC)
+        txt = cipher.update(encrypted_msg)
+        txt = txt + cipher.final()
+        del cipher
+        return txt
+
+
     @classmethod
     def Encrypt(cls, msg):
         aesMsg = cls.AESEncrypt(msg)
@@ -101,8 +114,16 @@ class SecurityTools():
         hashObj=EVP.MessageDigest("md5") 
         hashObj.update(msg) 
         return hashObj.digest()
-    
-
+    '''
+    @classmethod
+    def Encrypt(cls, msg):
+        aesMsg = cls.AESEncrypt(msg)
+        #hashMsg = cls.EnHash(aesMsg)
+        #print "sha_msg :" +sha_msg
+        signMsg = cls.Sign(aesMsg)
+        #print "sec_msg :" +sec_msg
+        return aesMsg, signMsg
+    '''
     @classmethod
     def LoginEncrypt(cls, name, password):
         message = {"name": name, "password":base64.b64encode(cls.EnHash(password + configure.salt))}
@@ -114,7 +135,7 @@ class SecurityTools():
 
 
 
-    
+
 
 
 
@@ -127,16 +148,14 @@ if __name__ == "__main__":
     sec1 = SecurityTools()
     msg = "hello"
     aes_msg, sign_msg = sec.Encrypt(msg)
-    print aes_msg
-    pub_msg = sec1.PublicVerify(aes_msg,sign_msg)
+
+    pub_msg = sec1.Verify(base64.b64decode(aes_msg),base64.b64decode(sign_msg))
     #sec_msg = sec1.EnHash(aes_msg)
     if pub_msg:
         print "Yes"
     else:
         print pub_msg
         print "No"
-    en = sec1.AESEncrypt(msg * 16)
-    print b64encode(en)
-    de = sec1.AESDecrypt(en)
-    print de
-    sec1.TestEncryption("hello")
+    print aes_msg
+    aes_msg = base64.b64decode(aes_msg)
+    print sec.AESDecrypt(aes_msg)
