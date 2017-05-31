@@ -750,3 +750,827 @@ EVPError: data not multiple of block length
 2017-05-24 01:49:25  INFO: Thread-1  new user: zero login success
 2017-05-24 01:50:05  INFO: Thread-2  new user: zero login success
 2017-05-24 01:51:24  INFO: Thread-3  new user: zero login success
+2017-05-30 20:49:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "./server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-30 20:52:08  INFO: Thread-1  new user: zero login success
+2017-05-30 20:53:31  INFO: Thread-1  login decode failed
+2017-05-30 20:53:31  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 20:53:31  ERROR: Thread-1  user server thread init failure
+2017-05-30 20:59:56  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "./server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-30 21:01:58  INFO: Thread-1  login decode failed
+2017-05-30 21:01:58  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 21:01:58  ERROR: Thread-1  user server thread init failure
+2017-05-30 21:06:44  INFO: Thread-1  login decode failed
+2017-05-30 21:06:44  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 21:06:44  ERROR: Thread-1  user server thread init failure
+2017-05-30 21:10:53  INFO: Thread-2  login decode failed
+2017-05-30 21:10:53  WARNING: Thread-2  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 21:11:21  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "./server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-30 21:11:38  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "./server.py", line 128, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-30 21:12:51  INFO: Thread-1  login decode failed
+2017-05-30 21:12:51  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 72, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 21:12:51  ERROR: Thread-1  user server thread init failure
+2017-05-30 21:15:09  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "./server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-30 21:15:19  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "./server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-30 21:16:23  INFO: Thread-1  login decode failed
+2017-05-30 21:16:23  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 73, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 21:16:23  ERROR: Thread-1  user server thread init failure
+2017-05-30 21:16:51  INFO: Thread-1  login decode failed
+2017-05-30 21:16:51  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 73, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-05-30 21:16:51  ERROR: Thread-1  user server thread init failure
+2017-05-30 21:24:27  INFO: Thread-1  new user: zero login success
+2017-05-30 21:24:27  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 78, in CheckPassword
+    token,signature = self.__sec.Encrypt(token)
+  File "/media/zero/学习生活/Github/ML/py/prac/multiprocess/unity (复件)/game/game/security.py", line 110, in Encrypt
+    signMsg = cls.SecretSign(aesMsg)
+AttributeError: class SecurityTools has no attribute 'SecretSign'
+
+2017-05-30 21:30:26  INFO: Thread-1  new user: zero login success
+2017-05-30 21:30:26  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xa4 in position 0: invalid start byte
+
+2017-05-30 21:56:15  INFO: Thread-1  new user: zero login success
+2017-05-30 21:56:15  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0x8c in position 1: invalid start byte
+
+2017-05-30 22:19:28  INFO: Thread-1  new user: zero login success
+2017-05-30 22:19:28  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 79, in CheckPassword
+    tokenMessage = {"token": base64.encode(token), "signature": base64.encode(signature)}
+TypeError: encode() takes exactly 2 arguments (1 given)
+
+2017-05-30 22:26:39  INFO: Thread-1  new user: zero login success
+2017-05-31 09:49:18  INFO: Thread-1  new user: zero login success
+2017-05-31 09:49:18  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xc0 in position 1: invalid start byte
+
+2017-05-31 09:50:54  INFO: Thread-1  new user: zero login success
+2017-05-31 09:50:54  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode bytes in position 1-2: invalid continuation byte
+
+2017-05-31 09:52:50  INFO: Thread-1  new user: zero login success
+2017-05-31 09:52:50  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "./server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xaf in position 2: invalid start byte
+
+2017-05-31 10:04:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:04:43  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:04:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:04:56  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:07:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:07:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:07:44  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 10:08:03  INFO: Thread-1  new user: zero login success
+2017-05-31 10:08:03  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xcd in position 2: invalid continuation byte
+
+2017-05-31 10:08:45  INFO: Thread-2  new user: zero login success
+2017-05-31 10:08:45  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xbc in position 0: invalid start byte
+
+2017-05-31 10:09:04  INFO: Thread-3  new user: zero login success
+2017-05-31 10:09:04  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xcf in position 3: invalid continuation byte
+
+2017-05-31 10:09:19  INFO: Thread-4  new user: zero login success
+2017-05-31 10:09:19  ERROR: Thread-4  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xc0 in position 1: invalid start byte
+
+2017-05-31 10:09:25  INFO: Thread-5  new user: zero login success
+2017-05-31 10:09:25  ERROR: Thread-5  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xb0 in position 3: invalid start byte
+
+2017-05-31 10:33:11  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 10:33:54  INFO: Thread-1  new user: zero login success
+2017-05-31 10:33:54  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0x94 in position 1: invalid start byte
+
+2017-05-31 10:36:51  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 10:40:50  INFO: Thread-1  new user: zero login success
+2017-05-31 10:40:50  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0x9d in position 1: invalid start byte
+
+2017-05-31 10:43:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 10:57:33  INFO: Thread-1  new user: zero login success
+2017-05-31 10:57:33  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xcb in position 2: invalid continuation byte
+
+2017-05-31 10:59:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 10:59:46  INFO: Thread-1  new user: zero login success
+2017-05-31 10:59:46  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 116, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "/usr/lib/python2.7/json/__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python2.7/json/encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python2.7/json/encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0x80 in position 0: invalid start byte
+
+2017-05-31 11:08:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 11:08:20  INFO: Thread-1  new user: zero login success
+2017-05-31 11:09:27  INFO: Thread-2  new user: zero login success
+2017-05-31 11:09:55  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 11:10:05  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 11:10:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 11:10:55  INFO: Thread-1  new user: zero login success
+2017-05-31 11:12:01  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 11:21:19  INFO: Thread-1  new user: zero login success
+2017-05-31 11:25:38  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 11:25:48  INFO: Thread-1  new user: zero login success
+2017-05-31 11:27:01  INFO: Thread-2  new user: zero login success
+2017-05-31 11:29:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 11:29:54  INFO: Thread-1  new user: zero login success
+2017-05-31 11:30:59  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 12:01:21  INFO: Thread-1  new user: zero login success
+2017-05-31 12:02:18  INFO: Thread-2  new user: zero login success
+2017-05-31 12:02:42  INFO: Thread-3  new user: zero login success
+2017-05-31 12:02:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 12:02:58  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 12:03:16  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 12:03:42  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 12:03:58  INFO: Thread-1  new user: zero login success
+2017-05-31 12:04:11  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 12:05:23  INFO: Thread-1  new user: zero login success
+2017-05-31 12:36:04  INFO: Thread-2  new user: zero login success
+2017-05-31 12:51:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 12:51:21  INFO: Thread-1  new user: zero login success
+2017-05-31 12:53:23  INFO: Thread-2  new user: zero login success
+2017-05-31 12:53:32  INFO: Thread-3  new user: zero login success
+2017-05-31 12:53:43  INFO: Thread-4  new user: zero login success
+2017-05-31 12:53:47  INFO: Thread-5  new user: zero login success
+2017-05-31 12:53:48  INFO: Thread-6  new user: zero login success
+2017-05-31 12:53:49  INFO: Thread-7  new user: zero login success
+2017-05-31 12:53:49  INFO: Thread-8  new user: zero login success
+2017-05-31 12:53:49  INFO: Thread-9  new user: zero login success
+2017-05-31 12:53:49  INFO: Thread-10  new user: zero login success
+2017-05-31 12:54:07  INFO: Thread-11  new user: zero login success
+2017-05-31 12:54:12  INFO: Thread-12  new user: zero login success
+2017-05-31 12:54:14  INFO: Thread-13  new user: zero login success
+2017-05-31 12:54:18  INFO: Thread-14  new user: zero login success
+2017-05-31 12:54:18  INFO: Thread-15  new user: zero login success
+2017-05-31 12:54:18  INFO: Thread-16  new user: zero login success
+2017-05-31 12:54:39  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 12:54:50  INFO: Thread-17  new user: zero login success
+2017-05-31 12:55:40  INFO: Thread-18  new user: zero login success
+2017-05-31 12:55:50  INFO: Thread-19  new user: zero login success
+2017-05-31 13:32:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 13:32:50  INFO: Thread-1  new user: zero login success
+2017-05-31 13:37:51  INFO: Thread-2  new user: zero login success
+2017-05-31 13:39:06  INFO: Thread-3  new user: zero login success
+2017-05-31 13:39:16  INFO: Thread-4  new user: zero login success
+2017-05-31 13:42:09  INFO: Thread-5  new user: zero login success
+2017-05-31 13:47:36  INFO: Thread-6  new user: zero login success
+2017-05-31 13:48:00  INFO: Thread-7  new user: zero login success
+2017-05-31 13:48:14  INFO: Thread-8  new user: zero login success
+2017-05-31 13:48:18  INFO: Thread-9  new user: zero login success
+2017-05-31 13:48:20  INFO: Thread-10  new user: zero login success
+2017-05-31 13:51:36  INFO: Thread-11  new user: zero login success
+2017-05-31 13:52:00  INFO: Thread-12  new user: zero login success
+2017-05-31 13:55:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 13:55:34  INFO: Thread-1  new user: zero login success
+2017-05-31 13:57:40  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 13:57:40  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 13:57:47  INFO: Thread-1  new user: zero login success
+2017-05-31 13:59:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 14:06:39  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 129, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 14:06:49  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 14:07:02  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 14:07:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 14:07:34  INFO: Thread-1  new user: zero login success
+2017-05-31 14:08:43  INFO: Thread-2  new user: zero login success
+2017-05-31 14:09:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 133, in LoginServer
+    # interrupt the program with Ctrl-C
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 14:09:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 14:09:18  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 14:10:19  INFO: Thread-1  new user: zero login success
+2017-05-31 14:11:46  INFO: Thread-2  new user: zero login success
+2017-05-31 14:12:20  INFO: Thread-3  new user: zero login success
+2017-05-31 14:14:35  INFO: Thread-4  new user: zero login success
+2017-05-31 14:17:59  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 134, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 14:18:42  INFO: Thread-1  new user: zero login success
+2017-05-31 14:22:21  INFO: Thread-2  new user: zero login success
+2017-05-31 14:23:01  INFO: Thread-3  new user: zero login success
+2017-05-31 14:24:19  INFO: Thread-4  new user: zero login success
+2017-05-31 14:24:46  INFO: Thread-5  new user: zero login success
+2017-05-31 14:26:18  INFO: Thread-6  new user: zero login success
+2017-05-31 14:29:27  INFO: Thread-7  new user: zero login success
+2017-05-31 14:30:43  INFO: Thread-8  new user: zero login success
+2017-05-31 14:31:08  INFO: Thread-9  new user: zero login success
+2017-05-31 14:31:20  INFO: Thread-10  new user: zero login success
+2017-05-31 14:41:08  INFO: Thread-11  new user: zero login success
+2017-05-31 14:58:40  INFO: Thread-12  new user: zero login success
+2017-05-31 14:58:44  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 134, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 14:58:51  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 14:59:03  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 14:59:15  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 15:07:00  INFO: Thread-1  new user: zero login success
+2017-05-31 15:07:00  INFO: Thread-2  new user: zero login success
+2017-05-31 15:08:33  INFO: Thread-3  new user: zero login success
+2017-05-31 15:09:13  INFO: Thread-4  new user: zero login success
+2017-05-31 15:10:20  INFO: Thread-5  new user: zero login success
+2017-05-31 15:10:52  INFO: Thread-6  new user: zero login success
+2017-05-31 15:12:17  WARNING: Thread-7  login security check failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 73, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 48, in GetUser
+    return self.__user[userName]
+KeyError: u'123456'
+
+2017-05-31 15:12:17  ERROR: Thread-7  user server thread init failure
+2017-05-31 15:14:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 134, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-05-31 15:14:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-05-31 15:21:11  INFO: Thread-1  new user: zero login success

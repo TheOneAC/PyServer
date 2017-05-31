@@ -20,21 +20,24 @@ def Checktoken(msg):
     token = None
     try:
         #print "base3284290385405************************" +msg[u'token']
+
         token = base64.b64decode(msg[u'token'])
-        #print msg[u'signatureature']
+        print token
+
         signature = base64.b64decode(msg[u'signature'])
+        #print signature
+        #signature = msg[u'signature']
         #print "token:******" + token
         #print "signature:*******" + signature
         sec = SecurityTools()
         #sha = sec.EnHash(token)
         #print "hash**********" + sha
-        verify = sec.PublicVerify(token, signature)
+        verify = sec.Verify(token, signature)
         if not verify:
             raise Exception("signature VERIFY ERROR")
         else:
-
-            token = sec.AESDecrypt(token) 
-            #print "token+++" + token
+            token = sec.AESDecrypt(token)
+            print token
     except:
         logging.warning('token checkout failed, traceback: %s' % traceback.format_exc()) 
     finally:
@@ -53,12 +56,13 @@ def Login():
     try:
         # Connect to server and send data
         sock.connect((HOST, PORT))
-        sock.sendall(base64.b64encode(encode_data)+ "\n")
+        sock.sendall(encode_data+ "\n")
         #print "send sucess"
         # Receive data from the server and shut down
         received = sock.recv(1024)
         #
         received = json.loads(received)
+        print received
         #b64_received = base64.b64decode(received)
         #print type(received)
         token = Checktoken(received)
@@ -101,7 +105,7 @@ def ActionClient(token):
     
     msg = Actionmsg(token)
 
-
+    print msg
     msgFmt = {"token":token, "md5 logintime + msg": "","msg": msg}
     msg = json.dumps(msg) 
     sock.sendto(msg + "\n", (HOST, PORT))
