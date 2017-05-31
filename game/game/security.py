@@ -96,7 +96,19 @@ class SecurityTools():
         #print "sec_msg :" +sec_msg
         return base64.b64encode(aesMsg), base64.b64encode(signMsg)
 
+    @classmethod
+    def EnHash(cls, msg): 
+        hashObj=EVP.MessageDigest("md5") 
+        hashObj.update(msg) 
+        return hashObj.digest()
     
+
+    @classmethod
+    def LoginEncrypt(cls, name, password):
+        message = {"name": name, "password":base64.b64encode(cls.EnHash(password + configure.salt))}
+        print message['password']
+        #return cls.AESEncrypt(json.dumps(message))
+        return json.dumps(message)
 
 
 

@@ -21,14 +21,16 @@ def Checktoken(msg):
     try:
         #print "base3284290385405************************" +msg[u'token']
         token = base64.b64decode(msg[u'token'])
+        #token = msg[u'token']
         #print msg[u'signatureature']
         signature = base64.b64decode(msg[u'signature'])
+        #signature = msg[u'signature']
         #print "token:******" + token
         #print "signature:*******" + signature
         sec = SecurityTools()
         #sha = sec.EnHash(token)
         #print "hash**********" + sha
-        verify = sec.PublicVerify(token, signature)
+        verify = sec.Verify(token, signature)
         if not verify:
             raise Exception("signature VERIFY ERROR")
         else:
@@ -53,7 +55,7 @@ def Login():
     try:
         # Connect to server and send data
         sock.connect((HOST, PORT))
-        sock.sendall(base64.b64encode(encode_data)+ "\n")
+        sock.sendall(encode_data+ "\n")
         #print "send sucess"
         # Receive data from the server and shut down
         received = sock.recv(1024)

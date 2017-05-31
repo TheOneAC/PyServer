@@ -63,6 +63,7 @@ class Users(object):
         tokenMessage = None
         try:
             decode_message = json.loads(message)
+            #print decode_message
             assert decode_message[u'name'] != u'' and decode_message[u'password'] != u''  "filed"
         except:
             Log.info('login decode failed')
@@ -102,7 +103,7 @@ class Users(object):
             client.
             """
             def handle(self):
-                # self.request is the TCP socket connected to the client
+                #self.request is the TCP socket connected to the client
                 
                 try:
                     message = self.request.recv(MESSAGE_SIZE)
@@ -111,7 +112,7 @@ class Users(object):
                         
                         
                         tokenMessage = CheckPassword(message)
-                        
+                        #print tokenMessage
                         self.request.sendall(json.dumps(tokenMessage))
                     else:
                         raise Exception("client is off")  
