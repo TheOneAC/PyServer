@@ -1574,3 +1574,25 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-05-31 15:21:11  INFO: Thread-1  new user: zero login success
+2017-05-31 16:26:51  INFO: Thread-1  new user: zero login success
+2017-05-31 16:27:15  INFO: Thread-2  new user: zero login success
+2017-05-31 16:32:21  INFO: Thread-1  new user: zero login success
+2017-05-31 16:32:44  INFO: Thread-2  new user: zero login success
+2017-05-31 16:33:50  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 130, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-05-31 16:34:12  INFO: Thread-1  new user: zero login success
+2017-05-31 16:39:13  INFO: Thread-1  new user: zero login success
+2017-05-31 17:07:00  INFO: Thread-1  new user: zero login success
+2017-05-31 17:07:40  INFO: Thread-2  new user: zero login success
+2017-05-31 17:08:56  INFO: Thread-3  new user: zero login success
+2017-05-31 17:09:49  INFO: Thread-1  new user: zero login success
+2017-05-31 17:10:12  INFO: Thread-2  new user: zero login success

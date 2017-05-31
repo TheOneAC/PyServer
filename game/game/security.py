@@ -62,24 +62,10 @@ class SecurityTools():
 
     @classmethod
     def AESEncrypt(cls, plain):
-        #encryptor = AES.new(cls.aesKey, AES.MODE_ECB, cls.__ParseHex(cls.aesKey))
-        ##if fs is a multiple of 16
-        #x = len(plain) % 16
-        #if x != 0:
-        #    plain = plain + '0'*(16 - x) #It shoud be 16-x not
-        #ciphertext = encryptor.encrypt(plain)
-        #encry_base64 = ciphertext.encode('base64').replace("\n", '')
-        #return encry_base64
-
-        cipher = Cipher(alg = 'aes_128_cbc', key = cls.aesKey, iv = cls.aesKey, op = ENC)
-        #x = len(plain) % 16
-        #if x != 0:
-        #    plain = plain + '\0'*(16 - x)
-        #txt = cipher.update(plain)
-        #txt = txt + cipher.final()
-        #del cipher
-        #return base64.b64encode(txt)
-        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv='\0'*16, op=ENC, padding= 1)
+        cipher = Cipher(alg = 'aes_128_ecb', key = cls.aesKey, iv = cls.aesKey, op = ENC, padding = 0)
+        x = len(plain) % 16
+        if x != 0:
+            plain = plain + '\0' * (16 - x)
         txt = cipher.update(plain)
         txt = txt + cipher.final()
         del cipher
