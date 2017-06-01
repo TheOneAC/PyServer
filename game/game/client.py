@@ -22,8 +22,9 @@ def Checktoken(msg):
         #print "base3284290385405************************" +msg[u'token']
 
         token = base64.b64decode(msg[u'token'])
-        print token
-
+        if token == "":
+            return token
+        #assert message[u'token'] != u'' and message[u'signature'] != u''  "filed"
         signature = base64.b64decode(msg[u'signature'])
         #print signature
         #signature = msg[u'signature']
@@ -37,7 +38,6 @@ def Checktoken(msg):
             raise Exception("signature VERIFY ERROR")
         else:
             token = sec.AESDecrypt(token)
-            print token
     except:
         logging.warning('token checkout failed, traceback: %s' % traceback.format_exc()) 
     finally:
@@ -91,8 +91,15 @@ def Actionmsg(token):
         "time":     time.time(),
         "behavior": behavior
     }
-    return msg
-        
+
+    loginTime = token.split(' ')[-1]
+    sec = SecurityTools()
+    AESToken = sec.AESEncrypt(token)
+    md5str = sec.EnHash(msg + {"loginTime":loginTime})
+    msgFmt = {"token": token, "md5": md5str, "msg": msg}
+    return msgFmt
+
+
 def ActionClient(token):
     HOST, PORT = "219.219.220.224", 9998
     
@@ -106,7 +113,7 @@ def ActionClient(token):
     msg = Actionmsg(token)
 
     print msg
-    msgFmt = {"token":token, "md5 logintime + msg": "","msg": msg}
+
     msg = json.dumps(msg) 
     sock.sendto(msg + "\n", (HOST, PORT))
     received = sock.recv(1024)
@@ -124,5 +131,6 @@ if __name__ == "__main__":
     if token != "":
         print "login Success!"
         ActionClient(token)
-    
+    else:
+        print "login failure, maybe wrong password"
 
