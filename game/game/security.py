@@ -62,7 +62,10 @@ class SecurityTools():
 
     @classmethod
     def AESEncrypt(cls, plain):
+
+        print type(plain)
         cipher = Cipher(alg = 'aes_128_ecb', key = cls.aesKey, iv = cls.aesKey, op = ENC, padding = 0)
+        print plain
         x = len(plain) % 16
         if x != 0:
             plain = plain + '\0' * (16 - x)
@@ -79,10 +82,15 @@ class SecurityTools():
         #return data
 
 
-        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv='\0'*16, op=DEC)
+        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv = cls.aesKey, op=DEC,padding= 0)
         txt = cipher.update(encrypted_msg)
+        print type(txt)
         txt = txt + cipher.final()
         del cipher
+        txt = txt.rstrip('\0')
+        #txt = txt.replace('\0','')
+        #txt = txt.decode('utf-32')
+
         return txt
 
 
@@ -132,9 +140,12 @@ class SecurityTools():
 if __name__ == "__main__":
     sec = SecurityTools()
     sec1 = SecurityTools()
-    msg = "hello"
+    msg = "hello"*5
     aes_msg, sign_msg = sec.Encrypt(msg)
-
+    testmsg = {"aes":aes_msg,"sign":sign_msg}
+    send = json.dumps(testmsg)
+    receive = json.loads(send)
+    aes_msg = receive[u'aes']
     pub_msg = sec1.Verify(base64.b64decode(aes_msg),base64.b64decode(sign_msg))
     #sec_msg = sec1.EnHash(aes_msg)
     if pub_msg:
@@ -145,3 +156,4 @@ if __name__ == "__main__":
     print aes_msg
     aes_msg = base64.b64decode(aes_msg)
     print sec.AESDecrypt(aes_msg)
+

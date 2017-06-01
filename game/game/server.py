@@ -72,22 +72,27 @@ class Users(object):
             #if True:
             if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
                 Log.info("new user: %s login success" % decode_message[u'name'])
+                userName = decode_message[u'name']
+                token = userName + ' ' + str(time.time())
 
-                token = decode_message[u'name'] + ' ' + str(time.time())
-                print token
+                token = token.encode('utf-8')
                 token,signature = self.__sec.Encrypt(token)
-                print token
                 tokenMessage = {"token": token, "signature":signature}
+            else:
+                Log.info("user %s login with wrong password" % userName)
+                tokenMessage = {"token": "", "signature": ""}
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
         try:
             if self.__loginThreadLock.acquire():
-                self.__tokenDict[token] = decode_message[u'name']
+                self.__tokenDict[token] = userName
                 self.__userMsgQueue[token] = Queue.Queue()
                 self.__loginThreadLock.release()
+                #print self.__tokenDict[token]
+
 
         except:
-            Log.error("user server thread init failure")
+            Log.error("userinfo info failure")
             if self.__loginThreadLock.acquire():
                 del self.__userMsgQueue[token]
                 del self.__tokenDict[token]
@@ -113,7 +118,7 @@ class Users(object):
                         
                         
                         tokenMessage = CheckPassword(message)
-                        print tokenMessage
+                        #print tokenMessage
                         self.request.sendall(json.dumps(tokenMessage))
                     else:
                         raise Exception("client is off")  
