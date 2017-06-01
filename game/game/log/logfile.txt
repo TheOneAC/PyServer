@@ -1596,3 +1596,4 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 2017-05-31 17:08:56  INFO: Thread-3  new user: zero login success
 2017-05-31 17:09:49  INFO: Thread-1  new user: zero login success
 2017-05-31 17:10:12  INFO: Thread-2  new user: zero login success
+2017-05-31 17:16:18  INFO: Thread-1  new user: zero login success
