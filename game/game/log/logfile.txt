@@ -1596,3 +1596,79 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 2017-05-31 17:08:56  INFO: Thread-3  new user: zero login success
 2017-05-31 17:09:49  INFO: Thread-1  new user: zero login success
 2017-05-31 17:10:12  INFO: Thread-2  new user: zero login success
+2017-06-02 09:16:48  INFO: Thread-1  new user: zero login success
+2017-06-02 09:17:31  INFO: Thread-2  new user: zero login success
+2017-06-02 09:21:02  INFO: Thread-3  new user: zero login success
+2017-06-02 09:25:04  INFO: Thread-4  new user: zero login success
+2017-06-02 09:32:44  INFO: Thread-5  new user: zero login success
+2017-06-02 09:33:07  INFO: Thread-6  new user: zero login success
+2017-06-02 09:33:55  INFO: Thread-7  new user: zero login success
+2017-06-02 09:34:15  INFO: Thread-8  new user: zero login success
+2017-06-02 09:34:32  WARNING: Thread-9  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 82, in CheckPassword
+    Log.info("user %s login with wrong password" % userName)
+UnboundLocalError: local variable 'userName' referenced before assignment
+
+2017-06-02 09:34:32  ERROR: Thread-9  userinfo info failure
+2017-06-02 09:37:40  INFO: Thread-1  new user: zero login success
+2017-06-02 09:37:56  ERROR: Thread-2  userinfo info failure
+2017-06-02 09:39:58  ERROR: Thread-1  userinfo info failure
+2017-06-02 09:41:57  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 82, in CheckPassword
+    Log.info("user %s login with wrong password" % userName)
+UnboundLocalError: local variable 'userName' referenced before assignment
+
+2017-06-02 09:41:57  ERROR: Thread-1  userinfo info failure
+2017-06-02 09:42:50  INFO: Thread-2  new user: zero login success
+2017-06-02 09:44:46  INFO: Thread-1  user gdyb21LQTcIANtvYMT7QVQ== login with wrong password
+2017-06-02 09:44:51  INFO: Thread-2  user wHBLALvr5fiFIcF7rRrwLQ== login with wrong password
+2017-06-02 09:44:57  INFO: Thread-3  new user: zero login success
+2017-06-02 09:45:07  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 73, in CheckPassword
+    if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
+  File "H:\后台\game\game\server.py", line 48, in GetUser
+    return self.__user[userName]
+KeyError: u'rewq'
+
+2017-06-02 09:45:07  ERROR: Thread-4  userinfo info failure
+2017-06-02 09:55:06  INFO: Thread-1  user zero login with wrong password
+2017-06-02 09:55:10  INFO: Thread-2  user 321 login with wrong password
+2017-06-02 09:55:11  INFO: Thread-3  user 321 login with wrong password
+2017-06-02 09:55:16  INFO: Thread-4  user zero login with wrong password
+2017-06-02 09:55:19  INFO: Thread-5  user zero login with wrong password
+2017-06-02 09:55:25  INFO: Thread-6  user zero login with wrong password
+2017-06-02 09:55:36  INFO: Thread-7  user zero login with wrong password
+2017-06-02 09:56:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 138, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "E:\Program Files\python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "E:\Program Files\python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "E:\Program Files\python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-02 09:57:08  INFO: Thread-1  user fsda login with wrong password
+2017-06-02 09:57:10  INFO: Thread-2  user fsda login with wrong password
+2017-06-02 09:57:13  INFO: Thread-3  user zero login with wrong password
+2017-06-02 09:57:16  INFO: Thread-4  new user: zero login success
+2017-06-02 11:10:40  INFO: Thread-1  new user: zero login success
+2017-06-02 11:12:38  INFO: Thread-2  new user: zero login success
+2017-06-02 11:12:54  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 118, in handle
+    message = self.request.recv(MESSAGE_SIZE)
+error: [Errno 10054] 
+
+2017-06-02 11:12:55  INFO: Thread-4  login decode failed
+2017-06-02 11:12:55  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 74, in CheckPassword
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-02 11:12:55  ERROR: Thread-4  userinfo info failure
+2017-06-02 11:14:31  INFO: Thread-5  new user: zero login success
+2017-06-02 11:15:28  INFO: Thread-1  new user: zero login success
+2017-06-02 11:23:02  INFO: Thread-1  new user: zero login success
+2017-06-02 11:27:56  INFO: Thread-1  new user: zero login success
+2017-06-02 11:29:07  INFO: Thread-2  new user: zero login success

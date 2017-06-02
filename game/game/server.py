@@ -45,6 +45,8 @@ class Users(object):
     
 
     def GetUser(self, userName):
+        if not self.__user.has_key(userName):
+            return None
         return self.__user[userName]
 
     def HandlerActionMsg(self, token):
@@ -69,18 +71,19 @@ class Users(object):
             Log.info('login decode failed')
             
         try:    
-            #if True:
-            if self.GetUser(decode_message[u'name']).password == decode_message[u'password']:
-                Log.info("new user: %s login success" % decode_message[u'name'])
-                userName = decode_message[u'name']
+            user_name = decode_message[u'name']
+            user_server = self.GetUser(user_name)
+            if user_server and user_server.password == decode_message[u'password']:
+                Log.info("new user: %s login success" % user_name)
+                userName = user_name
                 token = userName + ' ' + str(time.time())
-
                 token = token.encode('utf-8')
                 token,signature = self.__sec.Encrypt(token)
                 tokenMessage = {"token": token, "signature":signature}
             else:
-                Log.info("user %s login with wrong password" % userName)
+                Log.info("user %s login with wrong password" % user_name)
                 tokenMessage = {"token": "", "signature": ""}
+                return tokenMessage
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
         try:
