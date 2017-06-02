@@ -26,13 +26,7 @@ def Checktoken(msg):
             return token
         #assert message[u'token'] != u'' and message[u'signature'] != u''  "filed"
         signature = base64.b64decode(msg[u'signature'])
-        #print signature
-        #signature = msg[u'signature']
-        #print "token:******" + token
-        #print "signature:*******" + signature
         sec = SecurityTools()
-        #sha = sec.EnHash(token)
-        #print "hash**********" + sha
         verify = sec.Verify(token, signature)
         if not verify:
             raise Exception("signature VERIFY ERROR")
@@ -86,17 +80,14 @@ def Actionmsg(token):
         "operator": "hit" # enum
         
     }
-    msg = {
-        "token":  token,
-        "time":     time.time(),
-        "behavior": behavior
-    }
 
-    loginTime = token.split(' ')[-1]
+
+    loginTime = token.rsplit(' ')[-1]
+    print loginTime
     sec = SecurityTools()
     AESToken = sec.AESEncrypt(token)
-    md5str = sec.EnHash(msg + {"loginTime":loginTime})
-    msgFmt = {"token": token, "md5": md5str, "msg": msg}
+    md5str = sec.EnHash(str(behavior) + loginTime)
+    msgFmt = {"token":  base64.b64encode(AESToken), "md5": base64.b64encode(md5str), "action": behavior}
     return msgFmt
 
 
@@ -115,7 +106,7 @@ def ActionClient(token):
     print msg
 
     msg = json.dumps(msg) 
-    sock.sendto(msg + "\n", (HOST, PORT))
+    sock.sendto(msg, (HOST, PORT))
     received = sock.recv(1024)
 
     #print "Sent:     {}".format(msg)

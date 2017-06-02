@@ -25,7 +25,9 @@ class Users(object):
         self.__sec = SecurityTools()
         user = User()
         user.userName = "zero"
-        user.password = "4QrcOUm6Wau+VuBX8g+IPg=="
+        rawPassword = '123456'
+        #user.password = "4QrcOUm6Wau+VuBX8g+IPg=="
+        user.password = base64.b64encode(self.__sec.EnHash(rawPassword + salt))
         self.__user = {
             user.userName: user
         }
@@ -47,8 +49,15 @@ class Users(object):
     def GetUser(self, userName):
         return self.__user[userName]
 
-    def HandlerActionMsg(self, token):
-        #print message
+    def ActionMsgDispatcher(self, msg):
+        print msg
+        #token = base64.b64decode(msg[u'token'])
+        #token = self.__AESDecrypt(token)
+       # print  "token"+token
+        #loginTime = token.rsplit(' ')[-1]
+        #print loginTime
+        #if self.__sec.EnHash(str( msg[u'action']) + loginTime) == base64.b64decode(msg[u'md5']):
+            #self.__userMsgQueue[token].
         
         #while True: 
         #    while (not self.__userMsgQueue[token].empty()):
@@ -74,10 +83,11 @@ class Users(object):
                 Log.info("new user: %s login success" % decode_message[u'name'])
                 userName = decode_message[u'name']
                 token = userName + ' ' + str(time.time())
-
                 token = token.encode('utf-8')
                 token,signature = self.__sec.Encrypt(token)
                 tokenMessage = {"token": token, "signature":signature}
+
+
             else:
                 Log.info("user %s login with wrong password" % userName)
                 tokenMessage = {"token": "", "signature": ""}
@@ -88,9 +98,6 @@ class Users(object):
                 self.__tokenDict[token] = userName
                 self.__userMsgQueue[token] = Queue.Queue()
                 self.__loginThreadLock.release()
-                #print self.__tokenDict[token]
-
-
         except:
             Log.error("userinfo info failure")
             if self.__loginThreadLock.acquire():
@@ -154,6 +161,7 @@ class Users(object):
                 message = json.dumps(data)
                 response = HandlerUDPMessage(message)
                 socket = self.request[1]
+                print socket
                 print "{} wrote:".format(self.client_address[0])
                 print response
                 socket.sendto(json.dumps(response), self.client_address)
@@ -162,7 +170,7 @@ class Users(object):
 
     def ActionServer(self):
         #HOST, PORT = "localhost", 9998
-        actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.HandlerActionMsg))
+        actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.ActionMsgDispatcher))
         actionServer.serve_forever()
 
 
@@ -173,6 +181,9 @@ if __name__ == "__main__":
     #userset.sec = 
     LoginProcess = Process(target=userset.LoginServer)
     LoginProcess.start()
+    ListenUDPProcess = Process(target=userset.ActionServer)
+    ListenUDPProcess.start()
+
     
 
     
