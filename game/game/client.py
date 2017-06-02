@@ -75,7 +75,7 @@ def Login():
 
 def Actionmsg(token):
     monsterID = "monster100"
-    behavior = {
+    action = {
         "target" : monsterID,
         "operator": "hit" # enum
         
@@ -86,8 +86,8 @@ def Actionmsg(token):
     print loginTime
     sec = SecurityTools()
     AESToken = sec.AESEncrypt(token)
-    md5str = sec.EnHash(str(behavior) + loginTime)
-    msgFmt = {"token":  base64.b64encode(AESToken), "md5": base64.b64encode(md5str), "action": behavior}
+    md5str = sec.EnHash(json.dumps(action) + loginTime)
+    msgFmt = {"token":  base64.b64encode(AESToken), "md5": base64.b64encode(md5str), "action":action }
     return msgFmt
 
 

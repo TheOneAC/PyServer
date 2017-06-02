@@ -51,24 +51,8 @@ class Users(object):
             return None
         return self.__user[userName]
 
-    def ActionMsgDispatcher(self, msg):
-        print msg
-        #token = base64.b64decode(msg[u'token'])
-        #token = self.__AESDecrypt(token)
-       # print  "token"+token
-        #loginTime = token.rsplit(' ')[-1]
-        #print loginTime
-        #if self.__sec.EnHash(str( msg[u'action']) + loginTime) == base64.b64decode(msg[u'md5']):
-            #self.__userMsgQueue[token].
-        
-        #while True: 
-        #    while (not self.__userMsgQueue[token].empty()):
 
 
-
-
-
-        return "HandlerUDPMessage"
 
     def CheckPassword(self, message):
         tokenMessage = None
@@ -84,11 +68,10 @@ class Users(object):
             user_server = self.GetUser(user_name)
             if user_server and user_server.password == decode_message[u'password']:
                 Log.info("new user: %s login success" % user_name)
-                userName = user_name
-                token = userName + ' ' + str(time.time())
+                token = user_name + ' ' + str(time.time())
                 token = token.encode('utf-8')
-                token,signature = self.__sec.Encrypt(token)
-                tokenMessage = {"token": token, "signature":signature}
+                en_token,signature = self.__sec.Encrypt(token)
+                tokenMessage = {"token": en_token, "signature":signature}
 
 
             else:
@@ -97,10 +80,14 @@ class Users(object):
                 return tokenMessage
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
+            return None
+
         try:
             if self.__loginThreadLock.acquire():
-                self.__tokenDict[token] = userName
+                self.__tokenDict[token] = user_name
+                print  "input  **********" + token
                 self.__userMsgQueue[token] = Queue.Queue()
+                # queue(maxsize = 0) : queue 队列无限大
                 self.__loginThreadLock.release()
         except:
             Log.error("userinfo info failure")
@@ -108,8 +95,14 @@ class Users(object):
                 del self.__userMsgQueue[token]
                 del self.__tokenDict[token]
                 self.__loginThreadLock.release()
-        finally:    
-            return tokenMessage
+        try:
+            userthread = threading.Thread(target=self.UserThread, args=(token,))
+            userthread.start()
+        except:
+            Log.error("Error: unable to start thread for %s" % user_name)
+            return None
+
+        return tokenMessage
     def LoginHandeler(self, CheckPassword, error):
         class Handler(SocketServer.StreamRequestHandler):
             """
@@ -151,6 +144,29 @@ class Users(object):
         except :
             Log.error('port ERROR, traceback: %s' % traceback.format_exc())
 
+    def UserThread(self, token):
+        print "thread  init " + token
+        que = self.__userMsgQueue.get(token)
+        while que and not que.empty():
+            msg = que.get()
+            print str(msg)
+
+    def ActionMsgDispatcher(self, msg):
+        assert msg[u'token'] != u'' and msg[u'action'] != u''  "blank Action"
+        try:
+            token = base64.b64decode(msg[u'token'])
+            token = self.__sec.AESDecrypt(token)
+            loginTime = token.rsplit(' ')[-1]
+            action = msg[u'action']
+        except:
+            Log.info("wrong msg parsing ")
+        if self.__sec.EnHash(json.dumps(action) + loginTime) == base64.b64decode(msg[u'md5']):
+            que = self.__userMsgQueue.get(token.encode('utf-8'))
+            if que:
+                 print que.qsize()
+                 que.put(action)
+            else:
+                print "**********msg cannot put into queue because of token keyerror"
 
     def ActionHandler(self, HandlerUDPMessage):
         class MyActionHandler(SocketServer.BaseRequestHandler):
@@ -162,13 +178,15 @@ class Users(object):
             """
             def handle(self):
                 data = self.request[0]
-                message = json.dumps(data)
-                response = HandlerUDPMessage(message)
-                socket = self.request[1]
-                print socket
-                print "{} wrote:".format(self.client_address[0])
-                print response
-                socket.sendto(json.dumps(response), self.client_address)
+                message = json.loads(data)
+                HandlerUDPMessage(message)
+
+
+                #socket = self.request[1]
+                #print socket
+                #print self.client_address
+                #print "{} wrote:".format(self.client_address[0])
+                #socket.sendto(json.dumps(response), self.client_address)
 
         return MyActionHandler
 
