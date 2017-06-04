@@ -72,15 +72,14 @@ class Users(object):
                 token = token.encode('utf-8')
                 en_token,signature = self.__sec.Encrypt(token)
                 tokenMessage = {"token": en_token, "signature":signature}
-
-
             else:
                 Log.info("user %s login with wrong password" % user_name)
                 tokenMessage = {"token": "", "signature": ""}
-                return tokenMessage
+            return tokenMessage
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
-            return None
+
+
 
         try:
             if self.__loginThreadLock.acquire():
@@ -100,9 +99,9 @@ class Users(object):
             userthread.start()
         except:
             Log.error("Error: unable to start thread for %s" % user_name)
-            return None
 
-        return tokenMessage
+
+
     def LoginHandeler(self, CheckPassword, error):
         class Handler(SocketServer.StreamRequestHandler):
             """
@@ -116,13 +115,10 @@ class Users(object):
                 #self.request is the TCP socket connected to the client
                 
                 try:
-                    message = self.request.recv(MESSAGE_SIZE)
+                    message = self.rfile.readline()
                     if message:
                         print "{} wrote:".format(self.client_address[0])
-                        
-                        
                         tokenMessage = CheckPassword(message)
-                        #print tokenMessage
                         self.request.sendall(json.dumps(tokenMessage))
                     else:
                         raise Exception("client is off")  
