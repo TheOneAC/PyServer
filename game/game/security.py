@@ -12,11 +12,10 @@ from M2Crypto.EVP import Cipher
 from M2Crypto import m2  
 from M2Crypto import util 
 
-ENC = 1 # 加密操作
-DEC = 0 # 解密操作
 
-class SecurityTools():
-
+class SecurityTools:
+    ENC = 1 # 加密操作
+    DEC = 0 # 解密操作
     #辅助类的类成员
     rsaPub = RSA.load_pub_key(configure.publicKey)
     rsaPri = RSA.load_key(configure.privateKey)
@@ -62,7 +61,7 @@ class SecurityTools():
 
     @classmethod
     def AESEncrypt(cls, plain):
-        cipher = Cipher(alg = 'aes_128_ecb', key = cls.aesKey, iv = cls.aesKey, op = ENC, padding = 0)
+        cipher = Cipher(alg = 'aes_128_ecb', key = cls.aesKey, iv = cls.aesKey, op = cls.ENC, padding = 0)
         x = len(plain) % 16
         if x != 0:
             plain = plain + '\0' * (16 - x)
@@ -79,7 +78,7 @@ class SecurityTools():
         #return data
 
 
-        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv = cls.aesKey, op=DEC,padding= 0)
+        cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv = cls.aesKey, op = cls.DEC, padding = 0)
         txt = cipher.update(encrypted_msg)
         print type(txt)
         txt = txt + cipher.final()

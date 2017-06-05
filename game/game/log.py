@@ -5,7 +5,7 @@ import logging.handlers
 
 from configure import logFileName
 
-class LoggerTools():
+class LoggerTools:
     logTool = None
 
     @classmethod

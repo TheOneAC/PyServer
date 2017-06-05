@@ -6,15 +6,15 @@ class User:
         
         self.__name = "zero"
         self.__password = None
-        self.__blood_value = 10000
         self.__position = ()
-        self.__mission = {}
-        self.__equipment = []
-        self.__drug = {}
-        self.__other_goods = {}
+        self.__missions = {}
+        self.__equip = []
+        self.__items = {}
+        self.token = ''
+        self.sign = ''
 
     def name():
-        doc = "The __name property."
+        doc = "用户名"
         def fget(self):
             return self.__name
         def fset(self, value):
@@ -25,7 +25,7 @@ class User:
     name = property(**name())
 
     def password():
-        doc = "The __password property."
+        doc = "密码"
         def fget(self):
             return self.__password
         def fset(self, value):
@@ -34,22 +34,9 @@ class User:
             del self.__password
         return locals()
     password = property(**password())
-
-    
-    def blood_value():
-        doc = "The __blood_value property."
-        def fget(self):
-            return self.__blood_value
-        def fset(self, value):
-            self.__blood_value = value
-        def fdel(self):
-            del self.__blood_value
-        return locals()
-    blood_value = property(**blood_value())
-
     
     def position():
-        doc = "The __position property."
+        doc = "位置坐标"
         def fget(self):
             return self.__position
         def fset(self, value):
@@ -58,13 +45,46 @@ class User:
             del self.__position
         return locals()
     position = property(**position())
+
+    def missions():
+        doc = "任务."
+        def fget(self):
+            return self.__missions
+        def fset(self, value):
+            self.__missions = value
+        def fdel(self):
+            del self.__missions
+        return locals()
+    missions = property(**missions())
+
+    def equip():
+        doc = "装备"
+        def fget(self):
+            return self.__equip
+        def fset(self, value):
+            self.__equip = value
+        def fdel(self):
+            del self.__equip
+        return locals()
+    equip = property(**equip())
+
+    def items():
+        doc = "物品"
+        def fget(self):
+            return self.__items
+        def fset(self, value):
+            self.__items = value
+        def fdel(self):
+            del self.__items
+        return locals()
+    items = property(**items())
     
     @classmethod
     def rename(self,newname):
         self.__name = newname
 
     
-    
+
     
 
 if __name__ == "__main__":

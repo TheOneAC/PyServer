@@ -14,68 +14,44 @@ import Queue, threading
 from user import User
 from configure import *
 from log import LoggerTools as Log
-from security import SecurityTools
-
+from security import SecurityTools as SecTools
+from data import DataDriver
 
 class Users(object):
     """所有玩家的集合,负责玩家登陆,同时实例化每一个玩家,放在列表中
     并接受每个玩家的请求,用多程"""
     
     def __init__(self):
-        self.__sec = SecurityTools()
-        user = User()
-        user.userName = "zero"
-        rawPassword = '123456'
-        #user.password = "4QrcOUm6Wau+VuBX8g+IPg=="
-        user.password = base64.b64encode(self.__sec.EnHash(rawPassword + salt))
-        self.__user = {
-            user.userName: user
-        }
         self.__tokenDict = {}
         self.__userMsgQueue = {}
-    
-    def sec():
-        doc = "The __sec property."
-        def fget(self):
-            return self.__sec
-        def fset(self, value):
-            self.__sec = value
-        def fdel(self):
-            del self.__sec
-        return locals()
-    sec = property(**sec())
-    
 
-    def GetUser(self, userName):
-        if not self.__user.has_key(userName):
-            return None
-        return self.__user[userName]
-
-
-
+    def GetUser(self, user_name):
+        tmp = DataDriver.GetUserInfo(user_name)
+        return tmp
 
     def CheckPassword(self, message):
         tokenMessage = None
         try:
             decode_message = json.loads(message)
             #print decode_message
-            assert decode_message[u'name'] != u'' and decode_message[u'password'] != u''  "filed"
+            assert decode_message[u'name'] != u'' and decode_message[u'password'] != u''  u"filed"
         except:
             Log.info('login decode failed')
             
         try:    
             user_name = decode_message[u'name']
             user_server = self.GetUser(user_name)
-            if user_server and user_server.password == decode_message[u'password']:
+            if user_server and user_server[u'password'] == decode_message[u'password']:
                 Log.info("new user: %s login success" % user_name)
                 token = user_name + ' ' + str(time.time())
                 token = token.encode('utf-8')
-                en_token,signature = self.__sec.Encrypt(token)
-                tokenMessage = {"token": en_token, "signature":signature}
+                en_token, signature = SecTools.Encrypt(token)
+                token_message = {"token": en_token, "signature":signature, 'equipped':user_server['equip'], 'itemskey':user_server['items'].keys(), 'itemsvalue':user_server['items'].values(),
+                                 'missionskey':user_server['missions'].keys(), 'missionsvalue':user_server['missions'].values(), 'coordinate':list(user_server['coordinate'])}
             else:
                 Log.info("user %s login with wrong password" % user_name)
-                tokenMessage = {"token": "", "signature": ""}
-            return tokenMessage
+                tokenMessage = {"token": "", "signature": "", 'equipped':[], 'items':{}, 'missions':{}, 'coordinate':[]}
+            return token_message
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
 
@@ -119,6 +95,8 @@ class Users(object):
                     if message:
                         print "{} wrote:".format(self.client_address[0])
                         tokenMessage = CheckPassword(message)
+                        print tokenMessage
+                        print json.dumps(tokenMessage)
                         self.request.sendall(json.dumps(tokenMessage))
                     else:
                         raise Exception("client is off")  
@@ -127,10 +105,10 @@ class Users(object):
 
         return Handler
     def LoginServer(self):
-        #HOST, PORT = "0.0.0.0", 9999
-        self.__loginThreadLock = threading.Lock()
+        #在登陆进程中初始化相关的工具
+        DataDriver.InitDB()
         Log.Init()
-        # Create the server, binding to localhost on port 9999
+        self.__loginThreadLock = threading.Lock()
         try:
             loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
 
@@ -151,12 +129,12 @@ class Users(object):
         assert msg[u'token'] != u'' and msg[u'action'] != u''  "blank Action"
         try:
             token = base64.b64decode(msg[u'token'])
-            token = self.__sec.AESDecrypt(token)
+            token = SecTools.AESDecrypt(token)
             loginTime = token.rsplit(' ')[-1]
             action = msg[u'action']
         except:
             Log.info("wrong msg parsing ")
-        if self.__sec.EnHash(json.dumps(action) + loginTime) == base64.b64decode(msg[u'md5']):
+        if SecTools.EnHash(json.dumps(action) + loginTime) == base64.b64decode(msg[u'md5']):
             que = self.__userMsgQueue.get(token.encode('utf-8'))
             if que:
                  print que.qsize()
@@ -197,9 +175,9 @@ if __name__ == "__main__":
     userset = Users()
     #userset.log = LoggerTools()
     #userset.sec = 
-    LoginProcess = Process(target=userset.LoginServer)
+    LoginProcess = Process(target = userset.LoginServer)
     LoginProcess.start()
-    ListenUDPProcess = Process(target=userset.ActionServer)
+    ListenUDPProcess = Process(target = userset.ActionServer)
     ListenUDPProcess.start()
 
     
