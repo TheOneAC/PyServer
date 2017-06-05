@@ -3,15 +3,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>12735216-dc83-488c-b59b-5f77d4612f84</ProjectGuid>
+    <ProjectGuid>7eb6ff50-51c4-45ad-8d08-e4cdc4287b6d</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.py</StartupFile>
+    <StartupFile>pyTest.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>game</Name>
-    <RootNamespace>game</RootNamespace>
+    <Name>pyTest</Name>
+    <RootNamespace>pyTest</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,32 +22,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="aes.py" />
-    <Compile Include="client.py" />
-    <Compile Include="configure.py" />
-    <Compile Include="game.py" />
-    <Compile Include="log.py" />
-    <Compile Include="monster.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="secret\aes.py" />
-    <Compile Include="secret\createRSA.py" />
-    <Compile Include="security.py" />
-    <Compile Include="server.py" />
-    <Compile Include="user.py" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="secret\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="secret\master-private.pem" />
-    <Content Include="secret\master-public.pem" />
-    <Content Include="secret\private" />
-    <Content Include="secret\public" />
+    <Compile Include="pyTest.py" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in
        the BeforeBuild and AfterBuild targets below. -->
@@ -56,5 +38,4 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
