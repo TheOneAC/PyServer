@@ -63,7 +63,6 @@ class SecurityTools():
     @classmethod
     def AESEncrypt(cls, plain):
         cipher = Cipher(alg = 'aes_128_ecb', key = cls.aesKey, iv = cls.aesKey, op = ENC, padding = 0)
-        print plain
         x = len(plain) % 16
         if x != 0:
             plain = plain + '\0' * (16 - x)
