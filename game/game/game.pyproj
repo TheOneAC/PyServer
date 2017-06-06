@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>game</Name>
     <RootNamespace>game</RootNamespace>
+    <InterpreterId>Global|PythonCore|2.7-32</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +51,9 @@
     <Content Include="secret\master-public.pem" />
     <Content Include="secret\private" />
     <Content Include="secret\public" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|2.7-32" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

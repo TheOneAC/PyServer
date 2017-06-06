@@ -397,3 +397,143 @@ KeyError: 'position'
 2017-06-06 01:30:25  INFO: Thread-1  new user: zero login success
 2017-06-06 01:40:04  INFO: Thread-1  new user: zero login success
 2017-06-06 01:41:50  INFO: Thread-2  new user: zero login success
+2017-06-06 13:56:11  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 43, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "K:\后台\game\game\server.py", line 29, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "K:\后台\game\game\data.py", line 22, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "D:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "D:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 127.0.0.1:9997: timed out
+
+2017-06-06 13:56:11  ERROR: Thread-1  userinfo info failure
+2017-06-06 13:57:43  INFO: Thread-1  new user: zero login success
+2017-06-06 14:00:33  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 113, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "D:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "D:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "D:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-06 14:00:47  INFO: Thread-1  user fdsa login with wrong password
+2017-06-06 14:00:47  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 54, in CheckPassword
+    return token_message
+UnboundLocalError: local variable 'token_message' referenced before assignment
+
+2017-06-06 14:00:47  ERROR: Thread-1  userinfo info failure
+2017-06-06 14:02:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 113, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "D:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "D:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "D:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-06 14:02:26  INFO: Thread-1  user fdsa login with wrong password
+2017-06-06 14:02:28  INFO: Thread-2  user fdsa login with wrong password
+2017-06-06 14:02:33  INFO: Thread-3  user zero login with wrong password
+2017-06-06 14:02:34  INFO: Thread-4  user zero login with wrong password
+2017-06-06 14:02:38  INFO: Thread-5  new user: zero login success
+2017-06-06 14:11:55  INFO: Thread-1  new user: zero login success
+2017-06-06 14:14:28  INFO: Thread-2  new user: zero login success
+2017-06-06 14:32:20  INFO: Thread-3  new user: zero login success
+2017-06-06 14:33:11  INFO: Thread-4  new user: zero login success
+2017-06-06 14:34:10  INFO: Thread-5  new user: zero login success
+2017-06-06 14:55:59  INFO: Thread-6  new user: zero login success
+2017-06-06 14:59:08  INFO: Thread-1  new user: zero login success
+2017-06-06 15:30:20  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 43, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "K:\后台\game\game\server.py", line 29, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "K:\后台\game\game\data.py", line 30, in GetUserInfo
+    Log.error('DataBase error: %s' % traceback.format_exc())
+NameError: global name 'Log' is not defined
+
+2017-06-06 15:30:20  ERROR: Thread-1  userinfo info failure
+2017-06-06 15:30:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 109, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "D:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "D:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "D:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-06 15:31:11  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 43, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "K:\后台\game\game\server.py", line 29, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "K:\后台\game\game\data.py", line 30, in GetUserInfo
+    Log.error('DataBase error: %s' % traceback.format_exc())
+NameError: global name 'Log' is not defined
+
+2017-06-06 15:31:11  ERROR: Thread-1  userinfo info failure
+2017-06-06 15:33:32  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
+  File "K:\后台\game\game\data.py", line 24, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "D:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "D:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 127.0.0.1:9987: [Errno 10061] 
+
+2017-06-06 15:33:32  INFO: Thread-1  user zero login with wrong password
+2017-06-06 15:37:02  INFO: Thread-1  new user: zero login success
+2017-06-06 15:40:12  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
+  File "K:\后台\game\game\data.py", line 24, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "D:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "D:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 127.0.0.1:9997: timed out
+
+2017-06-06 15:40:12  INFO: Thread-1  user zero login with wrong password
+2017-06-06 15:43:29  INFO: Thread-1  new user: zero login success
+2017-06-06 15:48:49  INFO: Thread-1  new user: zero login success

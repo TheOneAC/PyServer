@@ -50,7 +50,7 @@ class Users(object):
                                  'missionskey':user_server['missions'].keys(), 'missionsvalue':user_server['missions'].values(), 'coordinate':list(user_server['coordinate'])}
             else:
                 Log.info("user %s login with wrong password" % user_name)
-                tokenMessage = {"token": "", "signature": "", 'equipped':[], 'items':{}, 'missions':{}, 'coordinate':[]}
+                token_message = {"token": "", "signature": "", 'equipped':[], 'itemskey':[], 'itemsvalue':[], 'missionskey':[], 'misionsvalue':[], 'coordinate':[]}
             return token_message
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
@@ -88,18 +88,15 @@ class Users(object):
             client.
             """
             def handle(self):
-                #self.request is the TCP socket connected to the client
-                
                 try:
                     message = self.rfile.readline()
                     if message:
                         print "{} wrote:".format(self.client_address[0])
-                        tokenMessage = CheckPassword(message)
-                        print tokenMessage
-                        print json.dumps(tokenMessage)
-                        self.request.sendall(json.dumps(tokenMessage))
+                        token_message = CheckPassword(message)
+                        print token_message
+                        self.request.sendall(json.dumps(token_message))
                     else:
-                        raise Exception("client is off")  
+                        raise Exception("client is off")
                 except :
                     error('login response failed, traceback: %s' % traceback.format_exc())
 
@@ -173,8 +170,6 @@ class Users(object):
 
 if __name__ == "__main__":
     userset = Users()
-    #userset.log = LoggerTools()
-    #userset.sec = 
     LoginProcess = Process(target = userset.LoginServer)
     LoginProcess.start()
     ListenUDPProcess = Process(target = userset.ActionServer)

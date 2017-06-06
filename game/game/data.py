@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from pymongo import MongoClient
-import log
+from log import LoggerTools as Log
 import configure
+import traceback
 
 class DataDriver:
     """数据库操作类"""
@@ -18,8 +19,14 @@ class DataDriver:
 
     @classmethod #登陆时获取用户的所有信息
     def GetUserInfo(cls, user_name):
-        users = cls.__db[u'users'] #确定集合
-        tmp = users.find_one({u'name':user_name})
-        tmp.pop('_id')
-        return tmp
+        try:
+            users = cls.__db[u'users'] #确定集合
+            tmp = users.find_one({u'name':user_name})
+            if tmp == None:
+                return None
+            tmp.pop('_id')
+            return tmp
+        except:
+            Log.error('DataBase error: %s' % traceback.format_exc())
+            return None
       

@@ -13,6 +13,5 @@ DB_NAME = "game"
 
 logFileName = 'log/logfile.txt'
 
-from M2Crypto import RSA
 publicKey = 'secret/public'
 privateKey = 'secret/private'
