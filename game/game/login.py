@@ -5,11 +5,10 @@ import time
 
 import socket
 import SocketServer
-from multiprocessing import Process
 import logging, traceback  
 
 import json, base64
-import Queue, threading
+import threading
 
 from user import User
 from configure import *
@@ -17,13 +16,11 @@ from log import LoggerTools as Log
 from security import SecurityTools as SecTools
 from data import DataDriver
 
-class Users(object):
-    """所有玩家的集合,负责玩家登陆,同时实例化每一个玩家,放在列表中
-    并接受每个玩家的请求,用多程"""
+class Login(object):
+    """负责玩家登陆"""
     
     def __init__(self):
-        self.__tokenDict = {}
-        self.__userMsgQueue = {}
+        pass
 
     def GetUser(self, user_name):
         tmp = DataDriver.GetUserInfo(user_name)
@@ -115,68 +112,5 @@ class Users(object):
         except :
             Log.error('port ERROR, traceback: %s' % traceback.format_exc())
 
-    def UserThread(self, token):
-        print "thread  init " + token
-        que = self.__userMsgQueue.get(token)
-        while que and not que.empty():
-            msg = que.get()
-            print str(msg)
-
-    def ActionMsgDispatcher(self, msg):
-        assert msg[u'token'] != u'' and msg[u'action'] != u''  "blank Action"
-        try:
-            token = base64.b64decode(msg[u'token'])
-            token = SecTools.AESDecrypt(token)
-            loginTime = token.rsplit(' ')[-1]
-            action = msg[u'action']
-        except:
-            Log.info("wrong msg parsing ")
-        if SecTools.EnHash(json.dumps(action) + loginTime) == base64.b64decode(msg[u'md5']):
-            que = self.__userMsgQueue.get(token.encode('utf-8'))
-            if que:
-                 print que.qsize()
-                 que.put(action)
-            else:
-                print "**********msg cannot put into queue because of token keyerror"
-
-    def ActionHandler(self, HandlerUDPMessage):
-        class MyActionHandler(SocketServer.BaseRequestHandler):
-            """
-            This class works similar to the TCP handler class, except that
-            self.request consists of a pair of data and client socket, and since
-            there is no connection the client address must be given explicitly
-            when sending data back via sendto().
-            """
-            def handle(self):
-                data = self.request[0]
-                message = json.loads(data)
-                HandlerUDPMessage(message)
-
-
-                #socket = self.request[1]
-                #print socket
-                #print self.client_address
-                #print "{} wrote:".format(self.client_address[0])
-                #socket.sendto(json.dumps(response), self.client_address)
-
-        return MyActionHandler
-
-    def ActionServer(self):
-        #HOST, PORT = "localhost", 9998
-        actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.ActionMsgDispatcher))
-        actionServer.serve_forever()
-
-
-
-if __name__ == "__main__":
-    userset = Users()
-    LoginProcess = Process(target = userset.LoginServer)
-    LoginProcess.start()
-    ListenUDPProcess = Process(target = userset.ActionServer)
-    ListenUDPProcess.start()
-
     
 
-    
-
-    

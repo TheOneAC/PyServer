@@ -1,0 +1,541 @@
+2017-06-04 10:24:46  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 143, in LoginServer
+    Log.Init()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:25:49  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 127, in handle
+    if message == "":
+NameError: global name 'message' is not defined
+
+2017-06-04 10:25:51  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 150, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:26:24  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 135, in handle
+    raise Exception("client is off")
+Exception: client is off
+
+2017-06-04 10:26:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 150, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:27:23  INFO: Thread-1  new user: zero login success
+2017-06-04 10:27:25  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 150, in LoginServer
+    # interrupt the program with Ctrl-C
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:28:25  INFO: Thread-1  new user: zero login success
+2017-06-04 10:28:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 151, in LoginServer
+    # interrupt the program with Ctrl-C
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:43:02  INFO: Thread-1  new user: zero login success
+2017-06-04 10:43:04  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 152, in LoginServer
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:43:22  INFO: Thread-1  login decode failed
+2017-06-04 10:43:22  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 67, in CheckPassword
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-04 10:43:28  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 149, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:44:51  INFO: Thread-1  login decode failed
+2017-06-04 10:44:51  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 67, in CheckPassword
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-04 10:44:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 149, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:45:05  INFO: Thread-1  new user: zero login success
+2017-06-04 10:51:38  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 149, in LoginServer
+    try:
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:53:24  INFO: Thread-2  new user: zero login success
+2017-06-04 10:53:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 154, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:53:32  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 150, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-06-04 10:54:07  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 150, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-06-04 10:55:04  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 121, in handle
+    buf = self.request.read(5)
+AttributeError: '_socketobject' object has no attribute 'read'
+
+2017-06-04 10:55:34  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 154, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:56:15  INFO: Thread-1  new user: zero login success
+2017-06-04 10:56:17  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 154, in LoginServer
+    # interrupt the program with Ctrl-C
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:57:22  INFO: Thread-1  new user: zero login success
+2017-06-04 10:57:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 155, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:59:07  INFO: Thread-1  new user: zero login success
+2017-06-04 10:59:09  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 155, in LoginServer
+    # interrupt the program with Ctrl-C
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 10:59:45  INFO: Thread-1  new user: zero login success
+2017-06-04 10:59:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 156, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:00:50  INFO: Thread-1  new user: zero login success
+2017-06-04 11:04:05  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 156, in LoginServer
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:04:11  INFO: Thread-1  new user: zero login success
+2017-06-04 11:06:06  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 159, in LoginServer
+    # interrupt the program with Ctrl-C
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:07:19  INFO: Thread-1  new user: zero login success
+2017-06-04 11:07:21  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 160, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:07:27  INFO: Thread-1  new user: zero login success
+2017-06-04 11:08:19  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 160, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:12:30  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 134, in handle
+    def LoginServer(self):
+TypeError: cannot concatenate 'str' and 'list' objects
+
+2017-06-04 11:12:32  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 160, in LoginServer
+    loginTime = token.rsplit(' ')[-1]
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:12:40  INFO: Thread-1  new user: zero login success
+2017-06-04 11:13:04  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 144, in LoginServer
+    loginServer.serve_forever()
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:13:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 140, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-06-04 11:13:15  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 140, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 98] Address already in use
+
+2017-06-04 11:14:42  INFO: Thread-1  new user: zero login success
+2017-06-04 11:28:59  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 142, in LoginServer
+  File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
+    poll_interval)
+  File "/usr/lib/python2.7/SocketServer.py", line 150, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+
+2017-06-04 11:35:33  INFO: Thread-1  new user: zero login success
+2017-06-04 11:36:31  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/server.py", line 118, in handle
+    message = self.rfile.readline()
+  File "/usr/lib/python2.7/socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 104] Connection reset by peer
+
+2017-06-04 11:38:25  INFO: Thread-3  new user: zero login success
+2017-06-05 23:30:07  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 53, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "H:\后台\game\game\server.py", line 30, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "H:\后台\game\game\data.py", line 21, in GetUserInfo
+    users = db[u'users']
+NameError: global name 'db' is not defined
+
+2017-06-05 23:30:07  ERROR: Thread-1  userinfo info failure
+2017-06-05 23:32:12  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 53, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "H:\后台\game\game\server.py", line 30, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "H:\后台\game\game\data.py", line 21, in GetUserInfo
+    users = cls.__db[u'users'] #纭畾闆嗗悎
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+2017-06-05 23:32:12  ERROR: Thread-1  userinfo info failure
+2017-06-05 23:39:58  INFO: Thread-1  new user: zero login success
+2017-06-05 23:41:36  INFO: Thread-1  new user: zero login success
+2017-06-05 23:42:58  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 57, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "H:\后台\game\game\server.py", line 39, in GetUser
+    print user.equip + '\n'
+TypeError: can only concatenate list (not "str") to list
+
+2017-06-05 23:42:58  ERROR: Thread-1  userinfo info failure
+2017-06-05 23:43:55  INFO: Thread-1  new user: zero login success
+2017-06-05 23:54:21  INFO: Thread-1  new user: zero login success
+2017-06-06 00:05:33  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 64, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "H:\后台\game\game\server.py", line 37, in GetUser
+    for key, value in user.items:
+ValueError: too many values to unpack
+
+2017-06-06 00:05:33  ERROR: Thread-1  userinfo info failure
+2017-06-06 00:06:34  INFO: Thread-1  new user: zero login success
+2017-06-06 00:10:27  INFO: Thread-1  new user: zero login success
+2017-06-06 00:11:57  INFO: Thread-1  new user: zero login success
+2017-06-06 00:20:02  INFO: Thread-1  new user: zero login success
+2017-06-06 00:20:03  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 118, in handle
+    print json.dumps(tokenMessage)
+  File "E:\Program Files\python27\lib\json\__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <user.User instance at 0x03655670> is not JSON serializable
+
+2017-06-06 00:27:09  INFO: Thread-1  new user: zero login success
+2017-06-06 00:27:09  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 117, in handle
+    print json.dumps(tokenMessage)
+  File "E:\Program Files\python27\lib\json\__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: ObjectId('59356b201d6f7c4518d45d55') is not JSON serializable
+
+2017-06-06 00:28:41  INFO: Thread-1  new user: zero login success
+2017-06-06 00:28:41  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 118, in handle
+    self.request.sendall(json.dumps(tokenMessage))
+  File "E:\Program Files\python27\lib\json\__init__.py", line 244, in dumps
+    return _default_encoder.encode(obj)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 207, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 270, in iterencode
+    return _iterencode(o, 0)
+  File "E:\Program Files\python27\lib\json\encoder.py", line 184, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: ObjectId('59356b201d6f7c4518d45d55') is not JSON serializable
+
+2017-06-06 00:31:19  INFO: Thread-1  new user: zero login success
+2017-06-06 00:41:15  INFO: Thread-1  new user: zero login success
+2017-06-06 00:41:15  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "H:\后台\game\game\server.py", line 49, in CheckPassword
+    token_message = {"token": en_token, "signature":signature, 'equipped':user_server['equip'], 'items':user_server['items'], 'missions':user_server['missions'], 'coordinate':list(user_server['position'])}
+KeyError: 'position'
+
+2017-06-06 00:42:23  INFO: Thread-1  new user: zero login success
+2017-06-06 00:44:34  INFO: Thread-1  new user: zero login success
+2017-06-06 00:50:32  INFO: Thread-1  new user: zero login success
+2017-06-06 01:01:50  INFO: Thread-1  new user: zero login success
+2017-06-06 01:02:34  INFO: Thread-1  new user: zero login success
+2017-06-06 01:04:03  INFO: Thread-2  new user: zero login success
+2017-06-06 01:08:29  INFO: Thread-3  new user: zero login success
+2017-06-06 01:20:55  INFO: Thread-1  new user: zero login success
+2017-06-06 01:27:31  INFO: Thread-1  new user: zero login success
+2017-06-06 01:30:25  INFO: Thread-1  new user: zero login success
+2017-06-06 01:40:04  INFO: Thread-1  new user: zero login success
+2017-06-06 01:41:50  INFO: Thread-2  new user: zero login success
+2017-06-06 13:56:11  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 43, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "K:\后台\game\game\server.py", line 29, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "K:\后台\game\game\data.py", line 22, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "D:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "D:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 127.0.0.1:9997: timed out
+
+2017-06-06 13:56:11  ERROR: Thread-1  userinfo info failure
+2017-06-06 13:57:43  INFO: Thread-1  new user: zero login success
+2017-06-06 14:00:33  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 113, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "D:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "D:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "D:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-06 14:00:47  INFO: Thread-1  user fdsa login with wrong password
+2017-06-06 14:00:47  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 54, in CheckPassword
+    return token_message
+UnboundLocalError: local variable 'token_message' referenced before assignment
+
+2017-06-06 14:00:47  ERROR: Thread-1  userinfo info failure
+2017-06-06 14:02:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 113, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "D:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "D:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "D:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-06 14:02:26  INFO: Thread-1  user fdsa login with wrong password
+2017-06-06 14:02:28  INFO: Thread-2  user fdsa login with wrong password
+2017-06-06 14:02:33  INFO: Thread-3  user zero login with wrong password
+2017-06-06 14:02:34  INFO: Thread-4  user zero login with wrong password
+2017-06-06 14:02:38  INFO: Thread-5  new user: zero login success
+2017-06-06 14:11:55  INFO: Thread-1  new user: zero login success
+2017-06-06 14:14:28  INFO: Thread-2  new user: zero login success
+2017-06-06 14:32:20  INFO: Thread-3  new user: zero login success
+2017-06-06 14:33:11  INFO: Thread-4  new user: zero login success
+2017-06-06 14:34:10  INFO: Thread-5  new user: zero login success
+2017-06-06 14:55:59  INFO: Thread-6  new user: zero login success
+2017-06-06 14:59:08  INFO: Thread-1  new user: zero login success
+2017-06-06 15:30:20  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 43, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "K:\后台\game\game\server.py", line 29, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "K:\后台\game\game\data.py", line 30, in GetUserInfo
+    Log.error('DataBase error: %s' % traceback.format_exc())
+NameError: global name 'Log' is not defined
+
+2017-06-06 15:30:20  ERROR: Thread-1  userinfo info failure
+2017-06-06 15:30:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 109, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+  File "D:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "D:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "D:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+
+2017-06-06 15:31:11  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\server.py", line 43, in CheckPassword
+    user_server = self.GetUser(user_name)
+  File "K:\后台\game\game\server.py", line 29, in GetUser
+    tmp = DataDriver.GetUserInfo(user_name)
+  File "K:\后台\game\game\data.py", line 30, in GetUserInfo
+    Log.error('DataBase error: %s' % traceback.format_exc())
+NameError: global name 'Log' is not defined
+
+2017-06-06 15:31:11  ERROR: Thread-1  userinfo info failure
+2017-06-06 15:33:32  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
+  File "K:\后台\game\game\data.py", line 24, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "D:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "D:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 127.0.0.1:9987: [Errno 10061] 
+
+2017-06-06 15:33:32  INFO: Thread-1  user zero login with wrong password
+2017-06-06 15:37:02  INFO: Thread-1  new user: zero login success
+2017-06-06 15:40:12  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
+  File "K:\后台\game\game\data.py", line 24, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "D:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "D:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "D:\Python27\lib\site-packages\pymongo\mongo_client.py", line 888, in _send_message_with_response
+    server = topology.select_server(selector)
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "D:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 127.0.0.1:9997: timed out
+
+2017-06-06 15:40:12  INFO: Thread-1  user zero login with wrong password
+2017-06-06 15:43:29  INFO: Thread-1  new user: zero login success
+2017-06-06 15:48:49  INFO: Thread-1  new user: zero login success
+2017-06-07 15:14:36  INFO: Thread-1  new user: zero login success
+2017-06-07 15:15:45  INFO: Thread-2  new user: zero login success

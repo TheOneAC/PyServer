@@ -1,9 +1,12 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+import Queue
+
 class User:
     '''一个玩家，包括玩家的物品，任务进度，位置，血量，装备等所有信息'''
     def __init__(self):
-        
+        self.__queue = Queue()
+
         self.__name = "zero"
         self.__password = None
         self.__position = ()
@@ -78,12 +81,14 @@ class User:
             del self.__items
         return locals()
     items = property(**items())
-    
-    @classmethod
-    def rename(self,newname):
-        self.__name = newname
 
-    
+    #由action线程调用，添加msg
+    def AddMsg(self, msg):
+        pass
+
+    #读取自己的msg，并处理，同时负责定时存储
+    def StartUser(self, token):
+        pass
 
     
 
