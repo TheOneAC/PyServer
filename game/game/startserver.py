@@ -6,6 +6,7 @@ from login import Login
 from action import Action
 
 if __name__ == '__main__':
+    #打开登录服务器
     login = Login()
     login_process = Process(target = login.LoginServer)
     login_process.start()
