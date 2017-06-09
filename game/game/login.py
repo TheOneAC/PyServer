@@ -54,25 +54,6 @@ class Login(object):
 
 
 
-        try:
-            if self.__loginThreadLock.acquire():
-                self.__tokenDict[token] = user_name
-                print  "input  **********" + token
-                self.__userMsgQueue[token] = Queue.Queue()
-                # queue(maxsize = 0) : queue 队列无限大
-                self.__loginThreadLock.release()
-        except:
-            Log.error("userinfo info failure")
-            if self.__loginThreadLock.acquire():
-                del self.__userMsgQueue[token]
-                del self.__tokenDict[token]
-                self.__loginThreadLock.release()
-        try:
-            userthread = threading.Thread(target=self.UserThread, args=(token,))
-            userthread.start()
-        except:
-            Log.error("Error: unable to start thread for %s" % user_name)
-
 
 
     def LoginHandeler(self, CheckPassword, error):
@@ -100,8 +81,9 @@ class Login(object):
         return Handler
     def LoginServer(self):
         #在登陆进程中初始化相关的工具
-        DataDriver.InitDB()
         Log.Init()
+        DataDriver.InitDB()
+
         self.__loginThreadLock = threading.Lock()
         try:
             loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))

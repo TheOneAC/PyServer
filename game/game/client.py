@@ -85,9 +85,9 @@ def Actionmsg(token):
     loginTime = token.rsplit(' ')[-1]
     print loginTime
     sec = SecurityTools()
-    AESToken = sec.AESEncrypt(token)
+    #AESToken = sec.AESEncrypt(token)
     md5str = sec.EnHash(json.dumps(action) + loginTime)
-    msgFmt = {"token":  base64.b64encode(AESToken), "md5": base64.b64encode(md5str), "action":action }
+    msgFmt = {"token":  base64.b64encode(token), "md5": base64.b64encode(md5str), "action":action }
     return msgFmt
 
 

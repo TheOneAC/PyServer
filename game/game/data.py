@@ -14,6 +14,7 @@ class DataDriver:
         try:
             client = MongoClient(configure.DB_HOST, configure.DB_PORT)
             cls.__db = client[configure.DB_NAME]
+            cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
         except:
             Log.error("DB connection failed")
 
@@ -21,6 +22,17 @@ class DataDriver:
     def GetUserInfo(cls, user_name):
         try:
             users = cls.__db[u'users'] #确定集合
+            tmp = users.find_one({u'name':user_name})
+            if tmp == None:
+                return None
+            tmp.pop('_id')
+            return tmp
+        except:
+            Log.error('DataBase error: %s' % traceback.format_exc())
+            return None
+    def GetUserInfo(cls, user_name):
+        try:
+            users = cls.__db[u'logintime'] #确定集合
             tmp = users.find_one({u'name':user_name})
             if tmp == None:
                 return None

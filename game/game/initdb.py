@@ -7,6 +7,7 @@ import pymongo
 client = MongoClient(configure.DB_HOST, configure.DB_PORT)
 db = client[configure.DB_NAME]
 users = db[u'users']
+#login = db[u'logintime']
 
 users.remove({u'name':'zero'})
 items = {u'2001':10, u'2002':10, u'3001':1, u'4001':1}
