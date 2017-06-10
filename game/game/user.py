@@ -2,11 +2,15 @@
 # -*- coding: UTF-8 -*-
 import Queue
 from data import DataDriver
+from log import LoggerTools as Log
+import threading
+
+
 
 class User:
     '''一个玩家，包括玩家的物品，任务进度，位置，血量，装备等所有信息'''
     def __init__(self):
-        self.__queue = Queue()
+        self.__queue = Queue.Queue()
 
         self.__name = "zero"
         self.__password = None
@@ -101,19 +105,34 @@ class User:
 
     #读取自己的msg，并处理，同时负责定时存储
     def StartUser(self, token):
-        pass
+        print "thread  start yes"
+        while not self.__queue.empty():
+            print "size of queue" + self.queue.qsize()
+            msg = self.__queue.get()
+            print msg
 
     def init(self,token):
         try:
             userinfo = DataDriver.GetUserInfo(token)
-            logintime = DataDriver.GetULoginInfo(token)
+            logintime = DataDriver.GetLoginInfo(token)
         except:
             Log.error("Error: Get info for %s from DB failure" % token)
-        #init
+        try:
+            self.__name = userinfo['name']
+            self.__password = userinfo['password']
+            self.__position = userinfo['coordinate']
+            self.__missions = userinfo['missions']
+            self.__equip = userinfo['equip']
+            self.__items = userinfo['items']
+            self.__login_time = logintime['logintime']
+        except:
+            Log.error("Error: userinfo cached in server for %s failure" % token)
         try:
             userthread = threading.Thread(target=self.StartUser(), args=None)
             userthread.start()
+            print "thread  start ??"
             self.__threadId = userthread.ident()
+            print "thread id" + self.__threadId
         except:
             Log.error("Error: unable to start thread for %s" % token)
 

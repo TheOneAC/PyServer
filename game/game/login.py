@@ -26,8 +26,11 @@ class Login(object):
         tmp = DataDriver.GetUserInfo(user_name)
         return tmp
 
-    def CheckPassword(self, message):
-        tokenMessage = None
+    def UpLoginInfo(self,user_name, logintime):
+        DataDriver.UpdateLoginInfo(user_name, logintime)
+
+    def GetToken(self, message):
+        token_message = None
         try:
             decode_message = json.loads(message)
             #print decode_message
@@ -40,7 +43,9 @@ class Login(object):
             user_server = self.GetUser(user_name)
             if user_server and user_server[u'password'] == decode_message[u'password']:
                 Log.info("new user: %s login success" % user_name)
-                token = user_name + ' ' + str(time.time())
+                nowtime = str(time.time())
+                self.UpLoginInfo(user_name, nowtime)
+                token = user_name + ' ' + nowtime
                 token = token.encode('utf-8')
                 en_token, signature = SecTools.Encrypt(token)
                 token_message = {"token": en_token, "signature":signature, 'equipped':user_server['equip'], 'itemskey':user_server['items'].keys(), 'itemsvalue':user_server['items'].values(),
@@ -48,15 +53,16 @@ class Login(object):
             else:
                 Log.info("user %s login with wrong password" % user_name)
                 token_message = {"token": "", "signature": "", 'equipped':[], 'itemskey':[], 'itemsvalue':[], 'missionskey':[], 'misionsvalue':[], 'coordinate':[]}
-            return token_message
         except:
             Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
+        finally:
+            return token_message
 
 
 
 
 
-    def LoginHandeler(self, CheckPassword, error):
+    def LoginHandeler(self, GetToken, error):
         class Handler(SocketServer.StreamRequestHandler):
             """
             The request handler class for our server.
@@ -70,7 +76,7 @@ class Login(object):
                     message = self.rfile.readline()
                     if message:
                         print "{} wrote:".format(self.client_address[0])
-                        token_message = CheckPassword(message)
+                        token_message = GetToken(message)
                         print token_message
                         self.request.sendall(json.dumps(token_message))
                     else:
@@ -83,10 +89,9 @@ class Login(object):
         #在登陆进程中初始化相关的工具
         Log.Init()
         DataDriver.InitDB()
-
         self.__loginThreadLock = threading.Lock()
         try:
-            loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
+            loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
 
         # Activate the server; this will keep running until you
         # interrupt the program with Ctrl-C

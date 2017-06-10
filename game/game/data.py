@@ -30,10 +30,21 @@ class DataDriver:
         except:
             Log.error('DataBase error: %s' % traceback.format_exc())
             return None
-    def GetUserInfo(cls, user_name):
+
+    @classmethod
+    def UpdateLoginInfo(cls,user_name,logintime):
         try:
-            users = cls.__db[u'logintime'] #确定集合
-            tmp = users.find_one({u'name':user_name})
+            login =  cls.__db[u'logintime']
+            login.remove({u'name':user_name})
+            login.save({u'name':user_name,u'logintime':logintime})
+        except:
+            Log.error('DataBase error: %s' % traceback.format_exc())
+
+    @classmethod
+    def GetLoginInfo(cls, user_name):
+        try:
+            logininfo = cls.__db[u'logintime'] #确定集合
+            tmp = logininfo.find_one({u'name':user_name})
             if tmp == None:
                 return None
             tmp.pop('_id')

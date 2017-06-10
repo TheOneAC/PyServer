@@ -25,15 +25,24 @@ class Action(object):
         except:
             Log.info("wrong msg parsing ")
         if token in self.__users.keys():
-            loginTime = self.__users.get(token).login_time
-            if loginTime and  SecTools.EnHash(json.dumps(action) + loginTime) == base64.b64decode(msg[u'md5']):
-                user = self.__users.get(token)
-                if user:
-                     user.AddMsg(action)
+            try:
+                loginTime = self.__users.get(token).login_time
+                if loginTime and  SecTools.EnHash(json.dumps(action) + loginTime) == base64.b64decode(msg[u'md5']):
+                    user = self.__users.get(token)
+                    if user:
+                         user.AddMsg(action)
+                    else:
+                        print "no user " + token
+            except:
+                Log.error("Error: %s msg put into user msgqueue failure" % token)
         else:
-            user = User()
-            user.init(token)
-            self.__users[token] = user
+            try:
+                user = User()
+                user.init(token)
+                self.__users[token] = user
+            except:
+                Log.error("Error: user  %s init failure" % token)
+
 
 
     def ActionHandler(self, HandlerUDPMessage):

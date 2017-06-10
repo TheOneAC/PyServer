@@ -80,14 +80,13 @@ def Actionmsg(token):
         "operator": "hit" # enum
         
     }
-
-
+    username = token.split(' ')[0]
     loginTime = token.rsplit(' ')[-1]
-    print loginTime
+    #print username
     sec = SecurityTools()
     #AESToken = sec.AESEncrypt(token)
     md5str = sec.EnHash(json.dumps(action) + loginTime)
-    msgFmt = {"token":  base64.b64encode(token), "md5": base64.b64encode(md5str), "action":action }
+    msgFmt = {"token":  base64.b64encode(username), "md5": base64.b64encode(md5str), "action":action }
     return msgFmt
 
 
@@ -100,7 +99,6 @@ def ActionClient(token):
 
     # As you can see, there is no connect() call; UDP has no connections.
     # Instead, data is directly sent to the recipient via sendto().
-    
     msg = Actionmsg(token)
 
     print msg
@@ -119,7 +117,7 @@ if __name__ == "__main__":
     token = Login()
     print "token = name + login_time: {}".format(token)
     
-    if token != "":
+    if token:
         print "login Success!"
         ActionClient(token)
     else:
