@@ -22,7 +22,7 @@ class User:
         self.token = ''
         self.sign = ''
         self.__login_time = ''
-        self.__socket = ''
+        self.__userthread = None
         self.__client_address = ''
 
     def name():
@@ -101,6 +101,16 @@ class User:
             del self.__login_time
         return locals()
     login_time = property(**login_time())
+    def userthread():
+        doc = "用户线程"
+        def fget(self):
+            return self.__userthread
+        def fset(self, value):
+            self.__userthread = value
+        def fdel(self):
+            del self.__userthread
+        return locals()
+    userthread = property(**userthread())
 
     #由action线程调用，添加msg
     def AddMsg(self, msg):
@@ -116,10 +126,12 @@ class User:
                 if client_address != self.__client_address:
                     self.__client_address = client_address
                 if msg['action'] != "end":
+                    print msg
                     socket.sendto(json.dumps(msg['action']), self.__client_address)
                 else:
-                    pass
-                print msg
+                    break
+        ####写会数据库
+
 
     def init(self,token, client_address):
         try:
@@ -140,8 +152,9 @@ class User:
             Log.error("Error: userinfo cached in server for %s failure" % token)
         try:
             userthread = threading.Thread(target=self.StartUser,args= (token,))
+            userthread.setDaemon(True)
             userthread.start()
-            self.__threadId = userthread.ident
+            self.__userthread = userthread
         except:
             Log.error("Error: unable to start thread for %s" % token)
 
