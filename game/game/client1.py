@@ -42,7 +42,7 @@ def Login():
     #data = {"name":"zero","password":"123456"}
     #encode_data = json.dumps(data)
     sec = SecurityTools()
-    encode_data = sec.LoginEncrypt("zero","123456")
+    encode_data = sec.LoginEncrypt("one","123456")
 
     # Create a socket (SOCK_STREAM means a TCP socket)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

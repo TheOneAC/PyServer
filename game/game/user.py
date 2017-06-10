@@ -4,6 +4,7 @@ import Queue
 from data import DataDriver
 from log import LoggerTools as Log
 import threading
+import  json
 
 
 
@@ -21,6 +22,8 @@ class User:
         self.token = ''
         self.sign = ''
         self.__login_time = ''
+        self.__socket = ''
+        self.__client_address = ''
 
     def name():
         doc = "用户名"
@@ -105,13 +108,20 @@ class User:
 
     #读取自己的msg，并处理，同时负责定时存储
     def StartUser(self, token):
-        print "thread  start yes"
-        while not self.__queue.empty():
-            print "size of queue" + self.queue.qsize()
-            msg = self.__queue.get()
-            print msg
+        while True:
+            if not self.__queue.empty():
+                msg = self.__queue.get()
+                socket = msg['socket']
+                client_address = msg['client_address']
+                if client_address != self.__client_address:
+                    self.__client_address = client_address
+                if msg['action'] != "end":
+                    socket.sendto(json.dumps(msg['action']), self.__client_address)
+                else:
+                    pass
+                print msg
 
-    def init(self,token):
+    def init(self,token, client_address):
         try:
             userinfo = DataDriver.GetUserInfo(token)
             logintime = DataDriver.GetLoginInfo(token)
@@ -125,14 +135,13 @@ class User:
             self.__equip = userinfo['equip']
             self.__items = userinfo['items']
             self.__login_time = logintime['logintime']
+            self.__client_address = client_address
         except:
             Log.error("Error: userinfo cached in server for %s failure" % token)
         try:
-            userthread = threading.Thread(target=self.StartUser(), args=None)
+            userthread = threading.Thread(target=self.StartUser,args= (token,))
             userthread.start()
-            print "thread  start ??"
-            self.__threadId = userthread.ident()
-            print "thread id" + self.__threadId
+            self.__threadId = userthread.ident
         except:
             Log.error("Error: unable to start thread for %s" % token)
 
