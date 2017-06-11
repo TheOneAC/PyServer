@@ -149,13 +149,13 @@ class User:
         except:
             Log.error("Error: Get info for %s from DB failure" % token)
         try:
-            self.__name = userinfo['name']
-            self.__password = userinfo['password']
-            self.__position = userinfo['coordinate']
-            self.__missions = userinfo['missions']
-            self.__equip = userinfo['equip']
-            self.__items = userinfo['items']
-            self.__login_time = logintime['logintime']
+            self.__name = userinfo[u'name']
+            self.__password = userinfo[u'password']
+            self.__position = userinfo[u'coordinate']
+            self.__missions = userinfo[u'missions']
+            self.__equip = userinfo[u'equip']
+            self.__items = userinfo[u'items']
+            self.__login_time = logintime[u'logintime']
             self.__client_address = client_address
         except:
             Log.error("Error: userinfo cached in server for %s failure" % token)

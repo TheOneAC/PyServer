@@ -9,7 +9,6 @@ from log import LoggerTools as Log
 from data import DataDriver
 from user import User
 from configure import *
-import  chardet
 
 class Action(object):
     """负责接受用户的行为信息，用udp"""
@@ -40,12 +39,13 @@ class Action(object):
             loginTime = self.__users.get(token).login_time
             tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
             print tomd5
+            #tomd5 = tomd5.encode("utf-8")
             #print chardet.detect(u"hello")
             #print chardet.detect(tomd5)
 
             #print chardet.detect(loginTime)
             #tomd5 = unicode(tomd5, "utf-8")
-            print base64.b64encode(SecTools.EnHash(unicode(str(tomd5),"ascii")))
+            print base64.b64encode(SecTools.EnHash(tomd5.encode("utf-8")))
             print msg[u'md5']
             if loginTime:
                 #load = false

@@ -11,7 +11,6 @@ from M2Crypto import *
 from M2Crypto.EVP import Cipher  
 from M2Crypto import m2  
 from M2Crypto import util 
-import  chardet
 
 class SecurityTools:
     ENC = 1 # 加密操作
@@ -134,8 +133,7 @@ class SecurityTools:
 
 
 if __name__ == "__main__":
-    msg = u"hello"
-    print chardet.detect(msg)
+    msg = u"hello".encode("utf-8")
 
     sec = SecurityTools()
     hashmsg = sec.EnHash(msg)
