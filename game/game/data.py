@@ -14,7 +14,7 @@ class DataDriver:
         try:
             client = MongoClient(configure.DB_HOST, configure.DB_PORT)
             cls.__db = client[configure.DB_NAME]
-            cls.__db.authenticate("xyd", "ffffffff")
+            cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
         except:
             Log.error("DB connection failed")
 
@@ -23,6 +23,38 @@ class DataDriver:
         try:
             users = cls.__db[u'users'] #确定集合
             tmp = users.find_one({u'name':user_name})
+            if tmp == None:
+                return None
+            tmp.pop('_id')
+            return tmp
+        except:
+            Log.error('DataBase error: %s' % traceback.format_exc())
+            return None
+
+    @classmethod  # 登陆时获取用户的所有信息
+    def DumpUserInfo(cls,username, userinfo):
+        try:
+            users = cls.__db[u'users']  # 确定集合
+            users.remove({u'name': username})
+            users.save(userinfo)
+        except:
+            Log.error('User Dump Error: %s' % traceback.format_exc())
+            return None
+
+    @classmethod
+    def UpdateLoginInfo(cls,user_name,logintime):
+        try:
+            login =  cls.__db[u'logintime']
+            login.remove({u'name':user_name})
+            login.save({u'name':user_name,u'logintime':logintime})
+        except:
+            Log.error('DataBase error: %s' % traceback.format_exc())
+
+    @classmethod
+    def GetLoginInfo(cls, user_name):
+        try:
+            logininfo = cls.__db[u'logintime'] #确定集合
+            tmp = logininfo.find_one({u'name':user_name})
             if tmp == None:
                 return None
             tmp.pop('_id')

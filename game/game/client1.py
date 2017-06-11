@@ -76,20 +76,17 @@ def Login():
 def Actionmsg(token):
     monsterID = "monster100"
     action = {
-        u"operate" : u"hit",
-        u"para1": u'',
-        u"para2": u""
+        "operate" : "hit",
+        "para1":'o',
+        "para2": ""
     }
     username = token.split(' ')[0]
     loginTime = token.rsplit(' ')[-1]
     #print username
     sec = SecurityTools()
     #AESToken = sec.AESEncrypt(token)
-    tomd5 = action["operate"] + action['para1'] + action['para2'] + loginTime
-    print base64.b64encode(sec.EnHash(tomd5))
-    #print msg[u'md5']
-    md5str = sec.EnHash(str(tomd5))
-    msgFmt = {"name": username, "md5": base64.b64encode(md5str), "action":action }
+    md5str = sec.EnHash(str(json.dumps(action) + loginTime))
+    msgFmt = {"token":  base64.b64encode(username), "md5": base64.b64encode(md5str), "action":action }
     return msgFmt
 
 
@@ -111,6 +108,11 @@ def ActionClient(token):
     received = sock.recv(1024)
     print "Received: {}".format(received)
 
+    sock.sendto(msg, (HOST, PORT))
+    received1 = sock.recv(1024)
+
+    #print "Sent:     {}".format(msg)
+    print "Received: {}".format(received1)
 
 if __name__ == "__main__":
     #Client_login = Process(target=login)
