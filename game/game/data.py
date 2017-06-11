@@ -14,6 +14,7 @@ class DataDriver:
         try:
             client = MongoClient(configure.DB_HOST, configure.DB_PORT)
             cls.__db = client[configure.DB_NAME]
+            cls.__db.authenticate("xyd", "ffffffff")
         except:
             Log.error("DB connection failed")
 

@@ -6,6 +6,7 @@ import pymongo
 
 client = MongoClient(configure.DB_HOST, configure.DB_PORT)
 db = client[configure.DB_NAME]
+db.authenticate("xyd","ffffffff")
 users = db[u'users']
 
 users.remove({u'name':'zero'})
