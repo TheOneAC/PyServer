@@ -1,11 +1,17 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import Queue
+from data import DataDriver
+from log import LoggerTools as Log
+import threading
+import  json, time
+
+
 
 class User:
     '''一个玩家，包括玩家的物品，任务进度，位置，血量，装备等所有信息'''
     def __init__(self):
-        self.__queue = Queue()
+        self.__queue = Queue.Queue()
 
         self.__name = "zero"
         self.__password = None
@@ -15,6 +21,9 @@ class User:
         self.__items = {}
         self.token = ''
         self.sign = ''
+        self.__login_time = ''
+        self.__userthread = None
+        self.__client_address = ''
 
     def name():
         doc = "用户名"
@@ -82,22 +91,88 @@ class User:
         return locals()
     items = property(**items())
 
+    def login_time():
+        doc = "登录时间"
+        def fget(self):
+            return self.__login_time
+        def fset(self, value):
+            self.__items = value
+        def fdel(self):
+            del self.__login_time
+        return locals()
+    login_time = property(**login_time())
+    def userthread():
+        doc = "用户线程"
+        def fget(self):
+            return self.__userthread
+        def fset(self, value):
+            self.__userthread = value
+        def fdel(self):
+            del self.__userthread
+        return locals()
+    userthread = property(**userthread())
+
+    def DumpUserInfo(self,username):
+        userinfo = users.save({u'name':self.__name, u'password':self.__password,
+                               u'equip':[3001], u'items':items, u'missions':{}, u'coordinate':(0,0)})
+        DataDriver.DumpUserInfo(username, userinfo)
+
+
     #由action线程调用，添加msg
     def AddMsg(self, msg):
-        pass
+        self.__queue.put(msg)
 
     #读取自己的msg，并处理，同时负责定时存储
     def StartUser(self, token):
-        pass
+        #worktime = time.
+        while True:
+            #if time.time()
+            if not self.__queue.empty():
+                msg = self.__queue.get()
+                socket = msg['socket']
+                client_address = msg['client_address']
+                if client_address != self.__client_address:
+                    self.__client_address = client_address
+                if msg['action'] != "end":
+                    print  msg['action']
+                    socket.sendto(json.dumps(msg['action']), self.__client_address)
+                else:
+                    break
+        ####写会数据库
+        self.DumpUserInfo(token)
 
-    
+
+    def init(self,token, client_address):
+        try:
+            userinfo = DataDriver.GetUserInfo(token)
+            logintime = DataDriver.GetLoginInfo(token)
+        except:
+            Log.error("Error: Get info for %s from DB failure" % token)
+        try:
+            self.__name = userinfo['name']
+            self.__password = userinfo['password']
+            self.__position = userinfo['coordinate']
+            self.__missions = userinfo['missions']
+            self.__equip = userinfo['equip']
+            self.__items = userinfo['items']
+            self.__login_time = logintime['logintime']
+            self.__client_address = client_address
+        except:
+            Log.error("Error: userinfo cached in server for %s failure" % token)
+        try:
+            userthread = threading.Thread(target=self.StartUser,args= (token,))
+            userthread.setDaemon(True)
+            userthread.start()
+            self.__userthread = userthread
+        except:
+            Log.error("Error: unable to start thread for %s" % token)
 
 if __name__ == "__main__":
     user = User()
-    
+    user.init("zero")
     print user.name
-    user.rename("one")
-    print user.name
+
+
     
 
 

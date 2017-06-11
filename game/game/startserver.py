@@ -11,6 +11,6 @@ if __name__ == '__main__':
     login_process = Process(target = login.LoginServer)
     login_process.start()
 
-    #actions = Action()
-    #listen_udp_process = Process(target = actions.ActionServer)
-    #listen_udp_process.start()
+    actions = Action()
+    listen_udp_process = Process(target = actions.ActionServer)
+    listen_udp_process.start()
