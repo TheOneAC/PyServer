@@ -42,7 +42,7 @@ def Login():
     #data = {"name":"zero","password":"123456"}
     #encode_data = json.dumps(data)
     sec = SecurityTools()
-    encode_data = sec.LoginEncrypt("zero","123456")
+    encode_data = sec.LoginEncrypt("one","123456")
 
     # Create a socket (SOCK_STREAM means a TCP socket)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -76,17 +76,20 @@ def Login():
 def Actionmsg(token):
     monsterID = "monster100"
     action = {
-        "operate" : "hit",
-        "para1":'o',
-        "para2": ""
+        u"operate" : u"hit",
+        u"para1": u'',
+        u"para2": u""
     }
     username = token.split(' ')[0]
     loginTime = token.rsplit(' ')[-1]
     #print username
     sec = SecurityTools()
     #AESToken = sec.AESEncrypt(token)
-    md5str = sec.EnHash(str(json.dumps(action) + loginTime))
-    msgFmt = {"token":  base64.b64encode(username), "md5": base64.b64encode(md5str), "action":action }
+    tomd5 = action["operate"] + action['para1'] + action['para2'] + loginTime
+    print base64.b64encode(sec.EnHash(tomd5))
+    #print msg[u'md5']
+    md5str = sec.EnHash(str(tomd5))
+    msgFmt = {"name": username, "md5": base64.b64encode(md5str), "action":action }
     return msgFmt
 
 
@@ -108,11 +111,6 @@ def ActionClient(token):
     received = sock.recv(1024)
     print "Received: {}".format(received)
 
-    sock.sendto(msg, (HOST, PORT))
-    received1 = sock.recv(1024)
-
-    #print "Sent:     {}".format(msg)
-    print "Received: {}".format(received1)
 
 if __name__ == "__main__":
     #Client_login = Process(target=login)

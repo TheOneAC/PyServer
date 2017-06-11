@@ -1015,3 +1015,486 @@ error: [Errno 10054]
 2017-06-10 11:12:17  INFO: Thread-4  new user: one login success
 2017-06-10 11:13:04  INFO: Thread-1  new user: one login success
 2017-06-10 11:13:11  INFO: Thread-2  new user: zero login success
+2017-06-10 12:33:43  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 76, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-10 12:33:44  INFO: Thread-4  login decode failed
+2017-06-10 12:33:44  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 12:33:44  INFO: Thread-5  login decode failed
+2017-06-10 12:33:44  WARNING: Thread-5  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 14:43:54  INFO: Thread-6  login decode failed
+2017-06-10 14:43:54  WARNING: Thread-6  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 16:03:42  ERROR: Thread-7  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 76, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-10 16:03:42  INFO: Thread-8  login decode failed
+2017-06-10 16:03:42  WARNING: Thread-8  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 16:03:43  INFO: Thread-9  login decode failed
+2017-06-10 16:03:43  WARNING: Thread-9  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 19:32:18  ERROR: Thread-10  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 76, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-10 19:32:19  INFO: Thread-11  login decode failed
+2017-06-10 19:32:19  WARNING: Thread-11  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 19:32:19  INFO: Thread-12  login decode failed
+2017-06-10 19:32:19  WARNING: Thread-12  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 23:01:18  ERROR: Thread-13  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 76, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-10 23:01:18  INFO: Thread-14  login decode failed
+2017-06-10 23:01:18  WARNING: Thread-14  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-10 23:01:18  INFO: Thread-15  login decode failed
+2017-06-10 23:01:18  WARNING: Thread-15  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-11 18:54:25  ERROR: MainThread  DB connection failed
+2017-06-11 18:54:25  ERROR: MainThread  DB connection failed
+2017-06-11 18:54:25  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 18:56:09  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 18:56:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 18:57:42  ERROR: MainThread  DB connection failed
+2017-06-11 18:57:42  ERROR: MainThread  DB connection failed
+2017-06-11 18:57:42  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 18:59:40  ERROR: MainThread  DB connection failed
+2017-06-11 18:59:40  ERROR: MainThread  DB connection failed
+2017-06-11 18:59:40  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 19:10:30  ERROR: MainThread  DB connection failed
+2017-06-11 19:10:30  ERROR: MainThread  DB connection failed
+2017-06-11 19:16:18  ERROR: MainThread  DB connection failed
+2017-06-11 19:16:18  ERROR: MainThread  DB connection failed
+2017-06-11 19:17:39  ERROR: MainThread  DB connection failed
+2017-06-11 19:17:39  ERROR: MainThread  DB connection failed
+2017-06-11 19:21:04  INFO: Thread-1  new user: zero login success
+2017-06-11 19:26:32  INFO: Thread-2  new user: zero login success
+2017-06-11 19:26:49  INFO: Thread-1  new user: zero login success
+2017-06-11 19:43:42  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 19:43:49  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 19:44:01  INFO: Thread-1  new user: zero login success
+2017-06-11 19:44:41  INFO: Thread-2  new user: zero login success
+2017-06-11 19:46:19  INFO: Thread-1  new user: zero login success
+2017-06-11 19:46:52  INFO: Thread-2  new user: zero login success
+2017-06-11 19:46:57  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 25, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:46:57  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 47, in GetLoginInfo
+    tmp = logininfo.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:46:57  ERROR: MainThread  Error: userinfo cached in server for Íêè failure
+2017-06-11 19:48:56  INFO: Thread-1  new user: zero login success
+2017-06-11 19:49:10  INFO: Thread-2  new user: zero login success
+2017-06-11 19:49:13  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 25, in GetUserInfo
+    tmp = users.find_one({u'name':user_name.encode('utf-8')})
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xcd in position 0: ordinal not in range(128)
+
+2017-06-11 19:49:13  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 47, in GetLoginInfo
+    tmp = logininfo.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:49:13  ERROR: MainThread  Error: userinfo cached in server for Íêè failure
+2017-06-11 19:51:40  INFO: Thread-1  new user: zero login success
+2017-06-11 19:52:14  INFO: Thread-2  new user: zero login success
+2017-06-11 19:52:17  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 25, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:52:17  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 47, in GetLoginInfo
+    tmp = logininfo.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:52:17  ERROR: MainThread  Error: userinfo cached in server for Íêè failure
+2017-06-11 19:55:31  INFO: Thread-1  new user: zero login success
+2017-06-11 19:55:39  INFO: Thread-2  new user: zero login success
+2017-06-11 19:55:43  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 25, in GetUserInfo
+    tmp = users.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:55:43  ERROR: MainThread  DataBase error: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\data.py", line 47, in GetLoginInfo
+    tmp = logininfo.find_one({u'name':user_name})
+  File "C:\Python27\lib\site-packages\pymongo\collection.py", line 1102, in find_one
+    for result in cursor.limit(-1):
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1114, in next
+    if len(self.__data) or self._refresh():
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 1036, in _refresh
+    self.__collation))
+  File "C:\Python27\lib\site-packages\pymongo\cursor.py", line 873, in __send_message
+    **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 905, in _send_message_with_response
+    exhaust)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 916, in _reset_on_error
+    return func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\pymongo\server.py", line 124, in send_message_with_response
+    set_slave_okay, sock_info.is_mongos, use_find_cmd)
+  File "C:\Python27\lib\site-packages\pymongo\message.py", line 291, in get_message
+    spec, self.fields, self.codec_options)
+InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
+
+2017-06-11 19:55:43  ERROR: MainThread  Error: userinfo cached in server for Íêè failure
+2017-06-11 20:02:29  INFO: Thread-1  new user: zero login success
+2017-06-11 20:02:56  INFO: Thread-2  new user: zero login success
+2017-06-11 20:04:18  INFO: Thread-1  new user: zero login success
+2017-06-11 20:04:32  INFO: Thread-2  new user: zero login success
+2017-06-11 20:21:29  INFO: Thread-1  new user: zero login success
+2017-06-11 20:22:41  INFO: Thread-1  new user: zero login success
+2017-06-11 20:24:17  INFO: Thread-1  new user: zero login success
+2017-06-11 20:25:59  INFO: Thread-1  new user: zero login success
+2017-06-11 20:27:22  INFO: Thread-1  new user: zero login success
+2017-06-11 20:28:52  INFO: Thread-1  new user: zero login success
+2017-06-11 20:31:20  INFO: Thread-1  new user: zero login success
+2017-06-11 20:33:49  INFO: Thread-1  new user: zero login success
+2017-06-11 20:36:00  INFO: Thread-1  new user: zero login success
+2017-06-11 20:37:29  INFO: Thread-2  user zero login with wrong password
+2017-06-11 20:37:32  INFO: Thread-3  new user: zero login success
+2017-06-11 20:38:56  INFO: Thread-1  new user: zero login success
+2017-06-11 20:40:52  INFO: Thread-2  new user: zero login success
+2017-06-11 20:50:40  INFO: Thread-3  new user: zero login success
+2017-06-11 20:51:53  INFO: Thread-4  new user: zero login success
+2017-06-11 20:57:08  INFO: Thread-5  new user: zero login success
+2017-06-11 21:00:52  INFO: Thread-6  new user: zero login success
+2017-06-11 21:03:12  INFO: Thread-1  new user: zero login success
+2017-06-11 21:03:17  INFO: Thread-2  new user: zero login success
+2017-06-11 21:04:39  INFO: Thread-1  new user: zero login success
+2017-06-11 21:04:49  INFO: Thread-2  new user: zero login success
+2017-06-11 21:07:09  INFO: Thread-1  new user: zero login success
+2017-06-11 21:07:11  INFO: Thread-2  new user: zero login success
+2017-06-11 21:09:24  INFO: Thread-3  new user: zero login success
+2017-06-11 21:09:53  INFO: Thread-4  new user: zero login success
+2017-06-11 21:10:12  INFO: Thread-5  new user: zero login success
+2017-06-11 21:10:20  INFO: Thread-6  new user: zero login success
+2017-06-11 21:10:35  INFO: Thread-1  new user: zero login success
+2017-06-11 21:10:37  INFO: Thread-2  new user: zero login success
+2017-06-11 21:11:18  INFO: Thread-3  new user: zero login success
+2017-06-11 21:21:20  INFO: Thread-4  new user: zero login success
+2017-06-11 21:21:40  INFO: Thread-1  new user: zero login success
+2017-06-11 21:22:06  INFO: Thread-1  new user: zero login success
+2017-06-11 21:22:38  INFO: Thread-2  user two login with wrong password
+2017-06-11 21:22:45  INFO: Thread-1  new user: one login success
+2017-06-11 21:23:23  INFO: Thread-1  new user: one login success
+2017-06-11 21:23:56  INFO: Thread-1  new user: one login success
+2017-06-11 21:24:11  INFO: Thread-2  new user: zero login success
+2017-06-11 21:24:43  INFO: Thread-3  user two login with wrong password
+2017-06-11 21:24:44  INFO: Thread-4  user two login with wrong password
+2017-06-11 21:24:45  INFO: Thread-5  user two login with wrong password
+2017-06-11 21:25:08  INFO: Thread-6  new user: zero login success
+2017-06-11 21:27:27  INFO: Thread-1  new user: zero login success
+2017-06-11 21:29:11  INFO: Thread-1  new user: one login success
+2017-06-11 21:29:24  INFO: Thread-2  new user: zero login success
+2017-06-11 21:31:12  INFO: Thread-1  new user: one login success
+2017-06-11 21:32:40  INFO: Thread-1  new user: one login success
+2017-06-11 21:34:20  INFO: Thread-1  new user: one login success
+2017-06-11 21:34:52  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
+    loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
+  File "C:\Python27\lib\SocketServer.py", line 417, in __init__
+    self.server_bind()
+  File "C:\Python27\lib\SocketServer.py", line 431, in server_bind
+    self.socket.bind(self.server_address)
+  File "C:\Python27\lib\socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 10048] Í¨³£Ã¿¸öÌ×½Ó×ÖµØÖ·(Ð­Òé/ÍøÂçµØÖ·/¶Ë¿Ú)
+
+2017-06-11 21:35:06  INFO: Thread-1  new user: one login success
+2017-06-11 21:36:08  INFO: Thread-1  new user: one login success
+2017-06-11 21:36:27  INFO: Thread-1  new user: one login success
+2017-06-11 21:36:45  INFO: Thread-1  new user: one login success
+2017-06-11 21:37:06  INFO: Thread-1  new user: one login success
+2017-06-11 21:37:07  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 21:38:01  INFO: Thread-1  new user: one login success
+2017-06-11 21:38:26  INFO: Thread-2  new user: zero login success
+2017-06-11 21:39:32  INFO: Thread-1  new user: one login success
+2017-06-11 21:39:43  INFO: Thread-2  new user: zero login success
+2017-06-11 21:42:08  INFO: Thread-1  new user: one login success
+2017-06-11 21:42:08  INFO: Thread-2  new user: zero login success
+2017-06-11 21:43:34  INFO: Thread-1  new user: one login success
+2017-06-11 21:43:38  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 76, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-11 21:43:39  INFO: Thread-3  login decode failed
+2017-06-11 21:43:39  WARNING: Thread-3  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-11 21:43:39  INFO: Thread-4  login decode failed
+2017-06-11 21:43:39  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 42, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-11 21:43:48  INFO: Thread-5  new user: zero login success
+2017-06-11 21:46:40  INFO: Thread-1  new user: one login success
+2017-06-11 21:47:00  INFO: Thread-2  new user: zero login success
+2017-06-11 21:47:19  INFO: Thread-1  new user: one login success
+2017-06-11 21:47:24  INFO: Thread-2  new user: zero login success
+2017-06-11 21:50:38  INFO: Thread-1  new user: one login success
+2017-06-11 21:50:39  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 21:51:32  INFO: Thread-1  new user: one login success
+2017-06-11 21:51:34  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 21:52:45  INFO: Thread-1  new user: one login success
+2017-06-11 21:53:25  INFO: Thread-2  new user: zero login success
+2017-06-11 21:54:43  INFO: Thread-1  new user: one login success
+2017-06-11 21:55:53  INFO: Thread-2  new user: zero login success
+2017-06-11 21:57:39  INFO: Thread-3  new user: zero login success
+2017-06-11 22:05:57  INFO: Thread-1  new user: one login success
+2017-06-11 22:06:05  INFO: Thread-2  new user: one login success
+2017-06-11 22:06:10  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:07:08  INFO: Thread-1  new user: one login success
+2017-06-11 22:07:10  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:08:14  INFO: Thread-1  new user: one login success
+2017-06-11 22:08:15  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:08:28  INFO: Thread-1  new user: one login success
+2017-06-11 22:08:29  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:08:41  INFO: Thread-1  new user: one login success
+2017-06-11 22:08:43  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:09:04  INFO: Thread-1  new user: one login success
+2017-06-11 22:09:05  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:10:04  INFO: Thread-1  new user: one login success
+2017-06-11 22:10:06  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:11:43  INFO: Thread-1  new user: one login success
+2017-06-11 22:11:45  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:12:49  INFO: Thread-1  new user: one login success
+2017-06-11 22:12:50  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:13:04  INFO: Thread-1  new user: one login success
+2017-06-11 22:13:05  ERROR: MainThread  Error: one msg put into user msgqueue failure
+2017-06-11 22:15:05  INFO: Thread-1  new user: one login success
+2017-06-11 22:15:26  INFO: Thread-1  new user: one login success
+2017-06-11 22:16:21  INFO: Thread-1  new user: one login success
+2017-06-11 22:18:57  INFO: Thread-1  new user: one login success
+2017-06-11 22:19:02  INFO: Thread-2  new user: one login success
+2017-06-11 22:19:16  INFO: Thread-1  new user: one login success
+2017-06-11 22:20:21  INFO: Thread-2  new user: zero login success
+2017-06-11 22:21:47  INFO: Thread-1  new user: one login success
+2017-06-11 22:21:56  INFO: Thread-2  new user: zero login success
+2017-06-11 22:24:03  INFO: Thread-1  new user: one login success
+2017-06-11 22:24:30  INFO: Thread-2  new user: zero login success
+2017-06-11 22:25:21  INFO: Thread-3  new user: zero login success
+2017-06-11 22:26:31  INFO: Thread-4  new user: zero login success

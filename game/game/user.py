@@ -4,7 +4,7 @@ import Queue
 from data import DataDriver
 from log import LoggerTools as Log
 import threading
-import  json
+import  json, time
 
 
 
@@ -112,13 +112,21 @@ class User:
         return locals()
     userthread = property(**userthread())
 
+    def DumpUserInfo(self,username):
+        userinfo = users.save({u'name':self.__name, u'password':self.__password,
+                               u'equip':[3001], u'items':items, u'missions':{}, u'coordinate':(0,0)})
+        DataDriver.DumpUserInfo(username, userinfo)
+
+
     #由action线程调用，添加msg
     def AddMsg(self, msg):
         self.__queue.put(msg)
 
     #读取自己的msg，并处理，同时负责定时存储
     def StartUser(self, token):
+        #worktime = time.
         while True:
+            #if time.time()
             if not self.__queue.empty():
                 msg = self.__queue.get()
                 socket = msg['socket']
@@ -126,11 +134,12 @@ class User:
                 if client_address != self.__client_address:
                     self.__client_address = client_address
                 if msg['action'] != "end":
-                    print msg
+                    print  msg['action']
                     socket.sendto(json.dumps(msg['action']), self.__client_address)
                 else:
                     break
         ####写会数据库
+        self.DumpUserInfo(token)
 
 
     def init(self,token, client_address):

@@ -9,6 +9,7 @@ from log import LoggerTools as Log
 from data import DataDriver
 from user import User
 from configure import *
+import  chardet
 
 class Action(object):
     """负责接受用户的行为信息，用udp"""
@@ -17,9 +18,10 @@ class Action(object):
         pass
 
     def ActionMsgDispatcher(self, msg, socket, client_address):
-        assert msg[u'token'] != u'' and msg[u'action'] != u''  "blank Action"
+        assert msg[u'name'] != u'' and msg[u'action'] != u''  "blank Action"
         try:
-            token = base64.b64decode(msg[u'token'])
+            print msg
+            token = msg[u'name']
             #token = SecTools.AESDecrypt(token)
             action = msg[u'action']
         except:
@@ -30,19 +32,37 @@ class Action(object):
                 user = User()
                 user.init(token, client_address)
                 self.__users[token] = user
+                self.__thread.append(user.userthread)
             except:
                 Log.error("Error: user  %s init failure" % token)
-        try:
+        #try:
+        if True:
             loginTime = self.__users.get(token).login_time
-            if loginTime and base64.b64encode(SecTools.EnHash(str(json.dumps(action) + loginTime))) ==  msg[u'md5']:
-                user = self.__users.get(token)
-                msg = {'action':action,'socket':socket,'client_address':client_address}
-                if user:
-                    user.AddMsg(msg)
+            tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
+            print tomd5
+            #print chardet.detect(u"hello")
+            #print chardet.detect(tomd5)
+
+            #print chardet.detect(loginTime)
+            #tomd5 = unicode(tomd5, "utf-8")
+            print base64.b64encode(SecTools.EnHash(unicode(str(tomd5),"ascii")))
+            print msg[u'md5']
+            if loginTime:
+                #load = false
+                if base64.b64encode(SecTools.EnHash(tomd5)) ==  msg[u'md5']:
+                #if base64.b64encode(SecTools.EnHash(action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime)) ==  msg[u'md5']:
+                    user = self.__users.get(token)
+                    msg = {'action':action,'socket':socket,'client_address':client_address}
+                    if user:
+                        user.AddMsg(msg)
+                    else:
+                        pass
                 else:
-                    pass
-        except:
-            Log.error("Error: %s msg put into user msgqueue failure" % token)
+                    logininfo = DataDriver.GetLoginInfo(token)
+                    loginTime = logininfo['logintime']
+
+        #except:
+        #    Log.error("Error: %s msg put into user msgqueue failure" % token)
 
 
 
@@ -59,7 +79,6 @@ class Action(object):
                 data = self.request[0]
                 message = json.loads(data)
                 socket = self.request[1]
-                print "hhhhhh"
                 HandlerUDPMessage(message,socket,self.client_address)
                 #print self.server.socket
 
@@ -74,5 +93,6 @@ class Action(object):
         Log.Init()
         DataDriver.InitDB()
         self.__users = {} #token为key，user为value，user里面存队列
+        self.__thread = []
         actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.ActionMsgDispatcher))
         actionServer.serve_forever()

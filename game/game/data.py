@@ -31,6 +31,16 @@ class DataDriver:
             Log.error('DataBase error: %s' % traceback.format_exc())
             return None
 
+    @classmethod  # 登陆时获取用户的所有信息
+    def DumpUserInfo(cls,username, userinfo):
+        try:
+            users = cls.__db[u'users']  # 确定集合
+            users.remove({u'name': username})
+            users.save(userinfo)
+        except:
+            Log.error('User Dump Error: %s' % traceback.format_exc())
+            return None
+
     @classmethod
     def UpdateLoginInfo(cls,user_name,logintime):
         try:
