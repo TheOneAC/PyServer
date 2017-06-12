@@ -18,51 +18,35 @@ class Action(object):
 
     def ActionMsgDispatcher(self, msg, socket, client_address):
         assert msg[u'name'] != u'' and msg[u'action'] != u''  "blank Action"
-        try:
-            print msg
-            token = msg[u'name']
-            #token = SecTools.AESDecrypt(token)
-            action = msg[u'action']
-        except:
-            Log.info("wrong msg parsing ")
+        token = msg[u'name']
+        action = msg[u'action']
 
-        if token not in self.__users.keys():
+        #if token not in self.__users.keys():
+        if not self.__users.get(token, None):
             try:
                 user = User()
-                user.init(token, client_address)
+                user.Init(token, client_address)
                 self.__users[token] = user
                 self.__thread.append(user.userthread)
-            except:
+            except Exception, e:
                 Log.error("Error: user  %s init failure" % token)
-        #try:
-        if True:
-            loginTime = self.__users.get(token).login_time
+                Log.error(e.message)
+        try:
+            user = self.__users[token]
+            loginTime = user.login_time
             tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
-            print tomd5
-            #tomd5 = tomd5.encode("utf-8")
-            #print chardet.detect(u"hello")
-            #print chardet.detect(tomd5)
-
-            #print chardet.detect(loginTime)
-            #tomd5 = unicode(tomd5, "utf-8")
-            print base64.b64encode(SecTools.EnHash(tomd5.encode("utf-8")))
-            print msg[u'md5']
             if loginTime:
                 #load = false
-                if base64.b64encode(SecTools.EnHash(tomd5)) ==  msg[u'md5']:
-                #if base64.b64encode(SecTools.EnHash(action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime)) ==  msg[u'md5']:
-                    user = self.__users.get(token)
+                if base64.b64encode(SecTools.EnHash(tomd5.encode("utf-8"))) == msg[u'md5']:
                     msg = {'action':action,'socket':socket,'client_address':client_address}
-                    if user:
-                        user.AddMsg(msg)
-                    else:
-                        pass
+                    user.AddMsg(msg)
                 else:
                     logininfo = DataDriver.GetLoginInfo(token)
                     loginTime = logininfo['logintime']
 
-        #except:
-        #    Log.error("Error: %s msg put into user msgqueue failure" % token)
+        except Exception, e:
+            Log.error("Error: %s msg put into user msgqueue failure" % token)
+            Log.error(e.message)
 
 
 
@@ -77,9 +61,13 @@ class Action(object):
             """
             def handle(self):
                 data = self.request[0]
-                message = json.loads(data)
                 socket = self.request[1]
-                HandlerUDPMessage(message,socket,self.client_address)
+                try:
+                    message = json.loads(data)
+                except Exception, e:
+                    Log.error("faild to parse action info")
+                    Log.error(e.message)
+                HandlerUDPMessage(message, socket, self.client_address)
                 #print self.server.socket
 
                 #print socket
