@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-DB_HOST, DB_PORT = "211.86.158.47", 9997
+DB_HOST, DB_PORT = "211.86.158.61", 9997
 LOGIN_HOST, LOGIN_PORT = "0.0.0.0", 9999
 ACTION_HOST, ACTION_PORT = "0.0.0.0", 9998
 MESSAGE_SIZE = 10240
