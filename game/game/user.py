@@ -5,6 +5,7 @@ from data import DataDriver
 from log import LoggerTools as Log
 import threading
 import  json, time
+import configure
 
 
 
@@ -24,6 +25,7 @@ class User:
         self.__login_time = ''
         self.__userthread = None
         self.__client_address = ''
+        self.__socket = None
 
     def name():
         doc = "用户名"
@@ -113,8 +115,9 @@ class User:
     userthread = property(**userthread())
 
     def DumpUserInfo(self,username):
-        userinfo = users.save({u'name':self.__name, u'password':self.__password,
-                               u'equip':[3001], u'items':items, u'missions':{}, u'coordinate':(0,0)})
+        userinfo = {u'name':self.__name, u'password':self.__password,
+                    u'equip':self.__equip, u'items':self.__items,
+                    u'missions':self.__missions, u'coordinate':self.__position}
         DataDriver.DumpUserInfo(username, userinfo)
 
 
@@ -122,27 +125,46 @@ class User:
     def AddMsg(self, msg):
         self.__queue.put(msg)
 
+    # 处理action，action由用户线程从msg里面取出来
+    def ProcessAction(self, action):
+        if action[u'operate'] == "move":
+            self.__position = (action[u'para1'], action[u'para2'])
+            action[u'operate'] = "position"
+            self.__socket.sendto(json.dumps(action) , self.__client_address)
+
     #读取自己的msg，并处理，同时负责定时存储
-    def StartUser(self, token):
-        #worktime = time.
+    def StartUser(self, token, AddLogoutUser):
+        lasttime = time.time()
         while True:
-            #if time.time()
             if not self.__queue.empty():
                 msg = self.__queue.get()
-                socket = msg['socket']
-                client_address = msg['client_address']
+                lasttime = time.time()
+                socket = msg[u'socket']
+                if socket != self.__socket:
+                    self.__socket = socket
+                client_address = msg[u'client_address']
                 if client_address != self.__client_address:
                     self.__client_address = client_address
-                if msg['action'] != "end":
-                    print  msg['action']
-                    socket.sendto(json.dumps(msg['action']), self.__client_address)
+
+                if not msg[u'action'] :
+                    Log.debug(u'action不见了')
+                    continue
+                elif msg[u'action'][u'operate'] == "":
+                    continue
+                elif msg[u'action'][u'operate'] != "end":
+                    print msg[u'action']
+                    self.ProcessAction(msg[u'action'])
                 else:
-                    break
-        ####写会数据库
+                    continue
+            elif time.time() - lasttime > configure.MSG_WAIT_SECONDS:
+                break
+
+        #用户信息写回数据库,并告诉主线程清理用户数据
         self.DumpUserInfo(token)
+        AddLogoutUser(self.__name)
 
 
-    def init(self,token, client_address):
+    def init(self,token, client_address, AddLogoutUser):
         try:
             userinfo = DataDriver.GetUserInfo(token)
             logintime = DataDriver.GetLoginInfo(token)
@@ -160,12 +182,14 @@ class User:
         except:
             Log.error("Error: userinfo cached in server for %s failure" % token)
         try:
-            userthread = threading.Thread(target=self.StartUser,args= (token,))
-            userthread.setDaemon(True)
+            userthread = threading.Thread(target=self.StartUser,args= (token,AddLogoutUser))
+            #userthread.setDaemon(True)
             userthread.start()
             self.__userthread = userthread
         except:
             Log.error("Error: unable to start thread for %s" % token)
+
+
 
 if __name__ == "__main__":
     user = User()

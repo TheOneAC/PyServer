@@ -31,6 +31,7 @@ class Login(object):
 
     def GetToken(self, message):
         token_message = None
+
         try:
             decode_message = json.loads(message)
             #print decode_message
@@ -74,6 +75,7 @@ class Login(object):
             def handle(self):
                 try:
                     message = self.rfile.readline()
+                    print message
                     if message:
                         print "{} wrote:".format(self.client_address[0])
                         token_message = GetToken(message)

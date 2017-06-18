@@ -37,11 +37,12 @@ class DataDriver:
             users = cls.__db[u'users']  # 确定集合
             users.remove({u'name': username})
             users.save(userinfo)
+            Log.info('Userinfo for %s dump into DB' % username)
         except:
             Log.error('User Dump Error: %s' % traceback.format_exc())
-            return None
 
-    @classmethod
+
+    @classmethod #把用户数据写回数据库
     def UpdateLoginInfo(cls,user_name,logintime):
         try:
             login =  cls.__db[u'logintime']
@@ -62,4 +63,3 @@ class DataDriver:
         except:
             Log.error('DataBase error: %s' % traceback.format_exc())
             return None
-      
