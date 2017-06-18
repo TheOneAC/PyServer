@@ -31,7 +31,7 @@ class DataDriver:
             Log.error('DataBase error: %s' % traceback.format_exc())
             return None
 
-    @classmethod  # 登陆时获取用户的所有信息
+    @classmethod  #把用户数据写回数据库
     def DumpUserInfo(cls,username, userinfo):
         try:
             users = cls.__db[u'users']  # 确定集合

@@ -23,6 +23,7 @@ class User:
         self.__login_time = u''
         self.__userthread = None
         self.__client_address = u''
+        self.__socket = None
 
     def name():
         doc = u"用户名"
@@ -129,17 +130,36 @@ class User:
             #if time.time()
             if not self.__queue.empty():
                 msg = self.__queue.get()
-                socket = msg['socket']
-                client_address = msg['client_address']
+                socket = msg[u'socket']
+                if socket != self.__socket:
+                    self.__socket = socket
+                client_address = msg[u'client_address']
                 if client_address != self.__client_address:
                     self.__client_address = client_address
-                if msg['action'] != "end":
-                    print  msg['action']
-                    socket.sendto(json.dumps(msg['action']), self.__client_address)
+                if msg[u'action'] and msg[u'action'][u'operate'] == "":
+                    print u"心跳"
+                    continue
+                elif msg[u'action'] and msg[u'action'][u'operate'] != "end":
+                    #print  msg['action']
+                    #socket.sendto(json.dumps(msg['action']), self.__client_address)
+                    #把action传进去具体处理
+                    self.ProcessAction(msg[u'action'])
                 else:
+                    if not msg[u'action']:
+                        Log.debug(u'action不见了')
                     break
-        ####写会数据库
+        ####写回数据库
         self.DumpUserInfo(token)
+
+    #处理action，action由用户线程从msg里面取出来
+    def ProcessAction(self, action):
+        if action[u'operate'] == "move":
+            self.__position = (action[u'para1'], action[u'para2'])
+            action[u'operate'] = "position"
+            print u"发送"
+            xxx = self.__socket.sendto(json.dumps(action), self.__client_address)
+            print xxx
+            print json.dumps(action)
 
 
     def Init(self, token, client_address):
