@@ -11,7 +11,6 @@ from M2Crypto import *
 from M2Crypto.EVP import Cipher  
 from M2Crypto import m2  
 from M2Crypto import util 
-import  chardet
 
 class SecurityTools:
     ENC = 1 # 加密操作
@@ -72,31 +71,18 @@ class SecurityTools:
 
     @classmethod
     def AESDecrypt(cls, encrypted_msg):
-        #decryptor = AES.new(aesKey, AES.MODE_ECB, cls.__ParseHex(cls.aesKey))
-        #plain = decryptor.decrypt(encrypted_msg.decode('base64'))
-        #data = plain[0:len(plain)/16]
-        #return data
-
-
         cipher = Cipher(alg='aes_128_ecb', key=cls.aesKey, iv = cls.aesKey, op = cls.DEC, padding = 0)
         txt = cipher.update(encrypted_msg)
         print type(txt)
         txt = txt + cipher.final()
         del cipher
         txt = txt.rstrip('\0')
-        #txt = txt.replace('\0','')
-        #txt = txt.decode('utf-32')
-
         return txt
-
 
     @classmethod
     def Encrypt(cls, msg):
         aesMsg = cls.AESEncrypt(msg)
-        #hashMsg = cls.EnHash(aesMsg)
-        #print "sha_msg :" +sha_msg
         signMsg = cls.Sign(aesMsg)
-        #print "sec_msg :" +sec_msg
         return base64.b64encode(aesMsg), base64.b64encode(signMsg)
 
     @classmethod
@@ -104,16 +90,7 @@ class SecurityTools:
         hashObj=EVP.MessageDigest("md5") 
         hashObj.update(msg) 
         return hashObj.digest()
-    '''
-    @classmethod
-    def Encrypt(cls, msg):
-        aesMsg = cls.AESEncrypt(msg)
-        #hashMsg = cls.EnHash(aesMsg)
-        #print "sha_msg :" +sha_msg
-        signMsg = cls.Sign(aesMsg)
-        #print "sec_msg :" +sec_msg
-        return aesMsg, signMsg
-    '''
+
     @classmethod
     def LoginEncrypt(cls, name, password):
         message = {"name": name, "password":base64.b64encode(cls.EnHash(password + configure.salt))}
@@ -134,8 +111,7 @@ class SecurityTools:
 
 
 if __name__ == "__main__":
-    msg = u"hello"
-    print chardet.detect(msg)
+    msg = u"hello".encode("utf-8")
 
     sec = SecurityTools()
     hashmsg = sec.EnHash(msg)

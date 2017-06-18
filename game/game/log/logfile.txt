@@ -14,7 +14,7 @@
 2017-06-07 16:50:00  INFO: Thread-16  new user: zero login success
 2017-06-07 16:51:54  INFO: Thread-17  new user: zero login success
 2017-06-07 17:01:08  ERROR: Thread-18  login response failed, traceback: Traceback (most recent call last):
-  File "K:\��̨\game\game\server.py", line 99, in handle
+  File "K:\后台\game\game\server.py", line 99, in handle
     raise Exception("client is off")
 Exception: client is off
 
@@ -44,7 +44,7 @@ Exception: client is off
 2017-06-07 21:19:28  INFO: Thread-42  new user: zero login success
 2017-06-07 22:30:12  INFO: Thread-1  new user: zero login success
 2017-06-09 22:44:55  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/data.py", line 24, in GetUserInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/data.py", line 24, in GetUserInfo
     tmp = users.find_one({u'name':user_name})
   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", line 1102, in find_one
     for result in cursor.limit(-1):
@@ -64,7 +64,7 @@ ServerSelectionTimeoutError: 127.0.0.1:9997: [Errno 111] Connection refused
 
 2017-06-09 22:44:55  INFO: Thread-1  user zero login with wrong password
 2017-06-09 22:47:57  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 111, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 111, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -73,7 +73,7 @@ ServerSelectionTimeoutError: 127.0.0.1:9997: [Errno 111] Connection refused
 KeyboardInterrupt
 
 2017-06-09 22:51:35  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/data.py", line 25, in GetUserInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/data.py", line 25, in GetUserInfo
     tmp = users.find_one({u'name':user_name})
   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", line 1102, in find_one
     for result in cursor.limit(-1):
@@ -93,7 +93,7 @@ ServerSelectionTimeoutError: 127.0.0.1:9997: [Errno 111] Connection refused
 
 2017-06-09 22:51:35  INFO: Thread-1  user zero login with wrong password
 2017-06-09 22:51:55  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 111, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 111, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -103,7 +103,7 @@ KeyboardInterrupt
 
 2017-06-09 22:56:49  ERROR: MainThread  DB connection failed
 2017-06-09 23:01:39  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -113,7 +113,7 @@ KeyboardInterrupt
 
 2017-06-09 23:02:19  ERROR: MainThread  DB connection failed
 2017-06-09 23:03:11  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -123,7 +123,7 @@ KeyboardInterrupt
 
 2017-06-09 23:03:36  INFO: Thread-1  new user: zero login success
 2017-06-09 23:03:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -132,7 +132,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-09 23:03:59  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 108, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 108, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -143,7 +143,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-09 23:04:16  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 108, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 108, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -155,7 +155,7 @@ error: [Errno 98] Address already in use
 
 2017-06-09 23:05:08  INFO: Thread-1  new user: zero login success
 2017-06-09 23:05:14  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -165,7 +165,7 @@ KeyboardInterrupt
 
 2017-06-09 23:08:03  INFO: Thread-1  new user: zero login success
 2017-06-09 23:13:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -175,7 +175,7 @@ KeyboardInterrupt
 
 2017-06-09 23:16:04  INFO: Thread-1  new user: zero login success
 2017-06-09 23:16:08  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -185,7 +185,7 @@ KeyboardInterrupt
 
 2017-06-09 23:19:03  INFO: Thread-1  new user: zero login success
 2017-06-09 23:19:06  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -195,7 +195,7 @@ KeyboardInterrupt
 
 2017-06-09 23:23:41  INFO: Thread-1  new user: zero login success
 2017-06-09 23:23:44  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -204,7 +204,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-09 23:24:20  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -215,7 +215,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-09 23:24:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -227,7 +227,7 @@ error: [Errno 98] Address already in use
 
 2017-06-09 23:25:06  INFO: Thread-1  new user: zero login success
 2017-06-09 23:25:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -236,7 +236,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-09 23:25:34  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -247,7 +247,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-09 23:26:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -258,14 +258,14 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-09 23:36:38  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 40, in CheckPassword
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 40, in CheckPassword
     user_server = self.GetUser(user_name)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 26, in GetUser
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 26, in GetUser
     tmp = DataDriver.GetUserInfo(user_name)
 TypeError: unbound method GetUserInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-09 23:37:17  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -275,7 +275,7 @@ KeyboardInterrupt
 
 2017-06-10 13:30:35  ERROR: MainThread  DB connection failed
 2017-06-10 13:30:35  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -287,7 +287,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 13:32:58  ERROR: MainThread  DB connection failed
 2017-06-10 13:32:58  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -299,7 +299,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 13:36:41  ERROR: MainThread  DB connection failed
 2017-06-10 13:36:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -310,7 +310,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:37:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -321,7 +321,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:39:11  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -332,7 +332,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:39:23  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -343,7 +343,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:41:35  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -355,7 +355,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 13:47:05  ERROR: MainThread  DB connection failed
 2017-06-10 13:47:47  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -364,14 +364,14 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 13:47:58  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 40, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 40, in GetToken
     user_server = self.GetUser(user_name)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 26, in GetUser
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 26, in GetUser
     tmp = DataDriver.GetUserInfo(user_name)
 TypeError: unbound method GetUserInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 13:53:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -382,7 +382,7 @@ KeyboardInterrupt
 2017-06-10 13:53:48  INFO: Thread-1  new user: zero login success
 2017-06-10 13:56:51  INFO: Thread-2  new user: zero login success
 2017-06-10 14:08:23  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 70, in handle
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 70, in handle
     def handle(self):
   File "/usr/lib/python2.7/socket.py", line 451, in readline
     data = self._sock.recv(self._rbufsize)
@@ -390,18 +390,18 @@ error: [Errno 104] Connection reset by peer
 
 2017-06-10 14:08:23  INFO: Thread-4  login decode failed
 2017-06-10 14:08:23  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 39, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 39, in GetToken
     user_name = decode_message[u'name']
 UnboundLocalError: local variable 'decode_message' referenced before assignment
 
 2017-06-10 14:08:23  INFO: Thread-5  login decode failed
 2017-06-10 14:08:23  WARNING: Thread-5  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 39, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 39, in GetToken
     user_name = decode_message[u'name']
 UnboundLocalError: local variable 'decode_message' referenced before assignment
 
 2017-06-10 14:09:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
     # Activate the server; this will keep running until you
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -411,7 +411,7 @@ KeyboardInterrupt
 
 2017-06-10 14:09:39  INFO: Thread-1  new user: zero login success
 2017-06-10 14:30:21  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 95, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 95, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -421,12 +421,12 @@ KeyboardInterrupt
 
 2017-06-10 14:30:29  INFO: Thread-1  new user: zero login success
 2017-06-10 14:30:29  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 44, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 44, in GetToken
     DataDriver.UpdateLoginInfo(user_name, nowtime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:37:20  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 95, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 95, in LoginServer
     # Activate the server; this will keep running until you
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -436,14 +436,14 @@ KeyboardInterrupt
 
 2017-06-10 14:37:27  INFO: Thread-1  new user: zero login success
 2017-06-10 14:37:27  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 46, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 46, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 29, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 29, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:55:58  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 97, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 97, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -453,14 +453,14 @@ KeyboardInterrupt
 
 2017-06-10 14:56:04  INFO: Thread-1  new user: zero login success
 2017-06-10 14:56:04  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 46, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 46, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 29, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 29, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:57:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 97, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 97, in LoginServer
     # interrupt the program with Ctrl-C
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -470,14 +470,14 @@ KeyboardInterrupt
 
 2017-06-10 14:57:19  INFO: Thread-1  new user: zero login success
 2017-06-10 14:57:19  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:59:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -486,7 +486,7 @@ TypeError: unbound method UpdateLoginInfo() must be called with DataDriver insta
 KeyboardInterrupt
 
 2017-06-10 14:59:52  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -495,7 +495,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:00:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -505,38 +505,38 @@ KeyboardInterrupt
 
 2017-06-10 15:01:15  INFO: Thread-1  new user: zero login success
 2017-06-10 15:01:15  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:01:55  INFO: Thread-2  new user: zero login success
 2017-06-10 15:01:55  WARNING: Thread-2  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:02:14  INFO: Thread-3  new user: zero login success
 2017-06-10 15:02:14  WARNING: Thread-3  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:04:00  INFO: Thread-4  new user: zero login success
 2017-06-10 15:04:00  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:08:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -546,14 +546,14 @@ KeyboardInterrupt
 
 2017-06-10 15:08:37  INFO: Thread-1  new user: zero login success
 2017-06-10 15:08:37  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:15:01  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     # interrupt the program with Ctrl-C
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -563,14 +563,14 @@ KeyboardInterrupt
 
 2017-06-10 15:15:09  INFO: Thread-1  new user: zero login success
 2017-06-10 15:15:09  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 48, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 48, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:17:50  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 99, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 99, in LoginServer
     except :
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -580,14 +580,14 @@ KeyboardInterrupt
 
 2017-06-10 15:17:57  INFO: Thread-1  new user: zero login success
 2017-06-10 15:17:57  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name.encode('utf-8'), nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got str instance instead)
 
 2017-06-10 15:18:47  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -596,7 +596,7 @@ TypeError: unbound method UpdateLoginInfo() must be called with DataDriver insta
 KeyboardInterrupt
 
 2017-06-10 15:18:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -608,14 +608,14 @@ error: [Errno 98] Address already in use
 
 2017-06-10 15:19:15  INFO: Thread-1  new user: zero login success
 2017-06-10 15:19:15  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(str(user_name), nowtime)
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got str instance instead)
 
 2017-06-10 15:20:14  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -626,7 +626,7 @@ KeyboardInterrupt
 2017-06-10 15:20:22  INFO: Thread-1  new user: zero login success
 2017-06-10 15:21:08  INFO: Thread-2  new user: zero login success
 2017-06-10 15:24:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -638,7 +638,7 @@ KeyboardInterrupt
 2017-06-10 15:24:16  INFO: Thread-2  new user: zero login success
 2017-06-10 15:25:05  INFO: Thread-3  new user: zero login success
 2017-06-10 15:25:48  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -647,7 +647,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:25:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -659,7 +659,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 15:26:14  INFO: Thread-1  new user: zero login success
 2017-06-10 15:26:45  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -668,7 +668,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 15:26:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -680,7 +680,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 15:26:57  ERROR: MainThread  DB connection failed
 2017-06-10 15:27:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -691,7 +691,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 15:27:48  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -700,7 +700,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 15:29:03  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -709,7 +709,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:29:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -718,7 +718,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:30:46  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -727,7 +727,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:33:25  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -736,7 +736,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:36:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -745,7 +745,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:38:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -754,7 +754,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:39:32  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -763,7 +763,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:44:51  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -774,7 +774,7 @@ KeyboardInterrupt
 2017-06-10 15:52:56  ERROR: MainThread  DB connection failed
 2017-06-10 15:52:56  ERROR: MainThread  DB connection failed
 2017-06-10 15:54:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -785,7 +785,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-10 15:54:17  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -794,7 +794,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 15:54:21  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -805,7 +805,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-10 15:54:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -826,7 +826,7 @@ error: [Errno 98] Address already in use
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-10 06:34:22  INFO: Thread-1  new user: zero login success
 2017-06-10 06:35:40  INFO: Thread-1  new user: zero login success
@@ -1108,7 +1108,7 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 18:56:09  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
   File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
@@ -1119,7 +1119,7 @@ error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 18:56:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
   File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
@@ -1130,7 +1130,7 @@ error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 18:57:42  ERROR: MainThread  DB connection failed
 2017-06-11 18:57:42  ERROR: MainThread  DB connection failed
@@ -1143,7 +1143,7 @@ error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 18:59:40  ERROR: MainThread  DB connection failed
 2017-06-11 18:59:40  ERROR: MainThread  DB connection failed
@@ -1156,7 +1156,7 @@ error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 19:10:30  ERROR: MainThread  DB connection failed
 2017-06-11 19:10:30  ERROR: MainThread  DB connection failed
@@ -1176,7 +1176,7 @@ error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 19:43:49  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
   File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
@@ -1187,7 +1187,7 @@ error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 19:44:01  INFO: Thread-1  new user: zero login success
 2017-06-11 19:44:41  INFO: Thread-2  new user: zero login success
@@ -1235,7 +1235,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:46:57  ERROR: MainThread  Error: userinfo cached in server for ��� failure
+2017-06-11 19:46:57  ERROR: MainThread  Error: userinfo cached in server for 完� failure
 2017-06-11 19:48:56  INFO: Thread-1  new user: zero login success
 2017-06-11 19:49:10  INFO: Thread-2  new user: zero login success
 2017-06-11 19:49:13  ERROR: MainThread  DataBase error: Traceback (most recent call last):
@@ -1264,7 +1264,7 @@ UnicodeDecodeError: 'ascii' codec can't decode byte 0xcd in position 0: ordinal 
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:49:13  ERROR: MainThread  Error: userinfo cached in server for ��� failure
+2017-06-11 19:49:13  ERROR: MainThread  Error: userinfo cached in server for 完� failure
 2017-06-11 19:51:40  INFO: Thread-1  new user: zero login success
 2017-06-11 19:52:14  INFO: Thread-2  new user: zero login success
 2017-06-11 19:52:17  ERROR: MainThread  DataBase error: Traceback (most recent call last):
@@ -1309,7 +1309,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:52:17  ERROR: MainThread  Error: userinfo cached in server for ��� failure
+2017-06-11 19:52:17  ERROR: MainThread  Error: userinfo cached in server for 完� failure
 2017-06-11 19:55:31  INFO: Thread-1  new user: zero login success
 2017-06-11 19:55:39  INFO: Thread-2  new user: zero login success
 2017-06-11 19:55:43  ERROR: MainThread  DataBase error: Traceback (most recent call last):
@@ -1354,7 +1354,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:55:43  ERROR: MainThread  Error: userinfo cached in server for ��� failure
+2017-06-11 19:55:43  ERROR: MainThread  Error: userinfo cached in server for 完� failure
 2017-06-11 20:02:29  INFO: Thread-1  new user: zero login success
 2017-06-11 20:02:56  INFO: Thread-2  new user: zero login success
 2017-06-11 20:04:18  INFO: Thread-1  new user: zero login success
@@ -1416,7 +1416,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
+error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
 
 2017-06-11 21:35:06  INFO: Thread-1  new user: one login success
 2017-06-11 21:36:08  INFO: Thread-1  new user: one login success
@@ -1498,6 +1498,7 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 2017-06-11 22:24:30  INFO: Thread-2  new user: zero login success
 2017-06-11 22:25:21  INFO: Thread-3  new user: zero login success
 2017-06-11 22:26:31  INFO: Thread-4  new user: zero login success
+
 2017-06-18 19:33:30  ERROR: MainThread  DB connection failed
 2017-06-18 19:33:30  ERROR: MainThread  DB connection failed
 2017-06-18 19:51:14  INFO: Thread-1  login decode failed

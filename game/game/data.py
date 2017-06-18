@@ -25,7 +25,7 @@ class DataDriver:
             tmp = users.find_one({u'name':user_name})
             if tmp == None:
                 return None
-            tmp.pop('_id')
+            tmp.pop(u'_id')
             return tmp
         except:
             Log.error('DataBase error: %s' % traceback.format_exc())
@@ -58,7 +58,7 @@ class DataDriver:
             tmp = logininfo.find_one({u'name':user_name})
             if tmp == None:
                 return None
-            tmp.pop('_id')
+            tmp.pop(u'_id')
             return tmp
         except:
             Log.error('DataBase error: %s' % traceback.format_exc())

@@ -57,10 +57,6 @@ class Action(object):
             #print "msg" + base64.b64encode(msg[u'md5'])
             if loginTime:
                 tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
-                #if base64.b64encode(SecTools.EnHash(tomd5)) != msg[u'md5']:
-                #    logininfo = DataDriver.GetLoginInfo(token)
-                #    loginTime = logininfo['logintime']
-                #    tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
                 if base64.b64encode(SecTools.EnHash(tomd5.encode("utf-8"))) ==  msg[u'md5']:
                     user = self.__users.get(token)
                     msg = {'action':action,'socket':socket,'client_address':client_address}
@@ -70,9 +66,6 @@ class Action(object):
                         pass
         except:
             Log.error("Error: %s msg put into user msgqueue failure" % token)
-
-
-
 
 
 
@@ -86,9 +79,13 @@ class Action(object):
             """
             def handle(self):
                 data = self.request[0]
-                message = json.loads(data)
                 socket = self.request[1]
-                HandlerUDPMessage(message,socket,self.client_address)
+                try:
+                    message = json.loads(data)
+                except Exception, e:
+                    Log.error("faild to parse action info")
+                    Log.error(e.message)
+                HandlerUDPMessage(message, socket, self.client_address)
                 #print self.server.socket
 
                 #print socket

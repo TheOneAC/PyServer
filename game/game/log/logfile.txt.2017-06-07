@@ -1,0 +1,45 @@
+2017-06-07 15:51:31  INFO: Thread-3  new user: zero login success
+2017-06-07 16:19:13  INFO: Thread-4  new user: zero login success
+2017-06-07 16:20:52  INFO: Thread-5  new user: zero login success
+2017-06-07 16:27:13  INFO: Thread-6  new user: zero login success
+2017-06-07 16:28:27  INFO: Thread-7  new user: zero login success
+2017-06-07 16:29:10  INFO: Thread-8  new user: zero login success
+2017-06-07 16:33:46  INFO: Thread-9  new user: zero login success
+2017-06-07 16:35:17  INFO: Thread-10  new user: zero login success
+2017-06-07 16:37:36  INFO: Thread-11  new user: zero login success
+2017-06-07 16:41:01  INFO: Thread-12  new user: zero login success
+2017-06-07 16:43:07  INFO: Thread-13  new user: zero login success
+2017-06-07 16:45:49  INFO: Thread-14  new user: zero login success
+2017-06-07 16:47:31  INFO: Thread-15  new user: zero login success
+2017-06-07 16:50:00  INFO: Thread-16  new user: zero login success
+2017-06-07 16:51:54  INFO: Thread-17  new user: zero login success
+2017-06-07 17:01:08  ERROR: Thread-18  login response failed, traceback: Traceback (most recent call last):
+  File "K:\ºóÌ¨\game\game\server.py", line 99, in handle
+    raise Exception("client is off")
+Exception: client is off
+
+2017-06-07 17:14:00  INFO: Thread-19  new user: zero login success
+2017-06-07 17:17:21  INFO: Thread-20  new user: zero login success
+2017-06-07 17:19:17  INFO: Thread-21  new user: zero login success
+2017-06-07 17:21:17  INFO: Thread-22  new user: zero login success
+2017-06-07 17:22:00  INFO: Thread-23  new user: zero login success
+2017-06-07 18:54:39  INFO: Thread-24  new user: zero login success
+2017-06-07 20:41:30  INFO: Thread-25  new user: zero login success
+2017-06-07 20:46:17  INFO: Thread-26  new user: zero login success
+2017-06-07 20:46:48  INFO: Thread-27  new user: zero login success
+2017-06-07 20:49:59  INFO: Thread-28  new user: zero login success
+2017-06-07 20:50:50  INFO: Thread-29  new user: zero login success
+2017-06-07 20:52:16  INFO: Thread-30  new user: zero login success
+2017-06-07 20:53:03  INFO: Thread-31  new user: zero login success
+2017-06-07 20:53:52  INFO: Thread-32  new user: zero login success
+2017-06-07 20:59:02  INFO: Thread-33  new user: zero login success
+2017-06-07 21:04:31  INFO: Thread-34  new user: zero login success
+2017-06-07 21:06:11  INFO: Thread-35  new user: zero login success
+2017-06-07 21:09:44  INFO: Thread-36  new user: zero login success
+2017-06-07 21:12:12  INFO: Thread-37  new user: zero login success
+2017-06-07 21:13:42  INFO: Thread-38  new user: zero login success
+2017-06-07 21:14:50  INFO: Thread-39  new user: zero login success
+2017-06-07 21:15:13  INFO: Thread-40  new user: zero login success
+2017-06-07 21:18:11  INFO: Thread-41  new user: zero login success
+2017-06-07 21:19:28  INFO: Thread-42  new user: zero login success
+2017-06-07 22:30:12  INFO: Thread-1  new user: zero login success
