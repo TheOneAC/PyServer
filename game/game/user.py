@@ -185,6 +185,7 @@ class User:
             userthread.start()
             self.__userthread = userthread
         except:
+            
             Log.error("Error: unable to start thread for %s" % token)
 
 if __name__ == "__main__":

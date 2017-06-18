@@ -1977,3 +1977,20 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 2017-06-19 01:10:32  INFO: Thread-17  Userinfo for zero dump into DB
 2017-06-19 01:12:27  INFO: Thread-1  new user: zero login success
 2017-06-19 01:12:35  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 01:14:55  INFO: Thread-2  new user: zero login success
+2017-06-19 01:15:13  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-19 01:15:22  INFO: Thread-3  new user: zero login success
+2017-06-19 01:15:32  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 01:19:07  INFO: Thread-4  new user: zero login success
+2017-06-19 01:19:18  INFO: Thread-4  Userinfo for zero dump into DB
+2017-06-19 01:20:14  INFO: Thread-5  new user: zero login success
+2017-06-19 01:20:30  INFO: Thread-5  Userinfo for zero dump into DB
+2017-06-19 01:20:39  INFO: Thread-6  new user: zero login success
+2017-06-19 01:20:46  INFO: Thread-6  Userinfo for zero dump into DB
+2017-06-19 01:24:25  INFO: Thread-7  new user: zero login success
+2017-06-19 01:24:38  INFO: Thread-7  Userinfo for zero dump into DB
+2017-06-19 01:24:45  INFO: Thread-8  new user: zero login success
+2017-06-19 01:25:05  INFO: Thread-8  Userinfo for zero dump into DB
+2017-06-19 01:25:12  INFO: Thread-9  new user: zero login success
+2017-06-19 01:25:27  INFO: Thread-9  Userinfo for zero dump into DB
+2017-06-19 01:25:34  INFO: Thread-10  new user: zero login success
