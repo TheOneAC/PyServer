@@ -42,7 +42,7 @@ def Login():
     #data = {"name":"zero","password":"123456"}
     #encode_data = json.dumps(data)
     sec = SecurityTools()
-    encode_data = sec.LoginEncrypt("one","123456")
+    encode_data = sec.LoginEncrypt("zero","123456")
 
     # Create a socket (SOCK_STREAM means a TCP socket)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -76,7 +76,7 @@ def Login():
 def Actionmsg(token):
     monsterID = "monster100"
     action = {
-        u"operate" : u"hit",
+        u"operate" : u"move",
         u"para1": u'',
         u"para2": u""
     }
@@ -85,11 +85,12 @@ def Actionmsg(token):
     #print username
     sec = SecurityTools()
     #AESToken = sec.AESEncrypt(token)
-    tomd5 = action["operate"] + action['para1'] + action['para2'] + loginTime
-    print base64.b64encode(sec.EnHash(tomd5))
+    tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
+    print tomd5
+    #print base64.b64encode(sec.EnHash(tomd5))
     #print msg[u'md5']
-    md5str = sec.EnHash(str(tomd5))
-    msgFmt = {"name": username, "md5": base64.b64encode(md5str), "action":action }
+    md5str = sec.EnHash(tomd5.encode("utf-8"))
+    msgFmt = {u"name": username, u"md5": base64.b64encode(md5str), u"action":action }
     return msgFmt
 
 
@@ -102,14 +103,21 @@ def ActionClient(token):
 
     # As you can see, there is no connect() call; UDP has no connections.
     # Instead, data is directly sent to the recipient via sendto().
-    msg = Actionmsg(token)
 
-    print msg
 
-    msg = json.dumps(msg) 
-    sock.sendto(msg, (HOST, PORT))
-    received = sock.recv(1024)
-    print "Received: {}".format(received)
+    #print msg
+    stop = time.clock() + 5
+    while time.clock() < stop:
+        msg = Actionmsg(token)
+
+        msg = json.dumps(msg)
+        sock.sendto(msg, (HOST, PORT))
+        print msg
+        received = sock.recv(1024)
+        #received = sock.recv()
+        print received
+        print "Received: {}".format(received)
+        time.sleep(1)
 
 
 if __name__ == "__main__":
