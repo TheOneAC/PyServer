@@ -158,11 +158,9 @@ class User:
                     continue
             elif time.time() - lasttime > configure.MSG_WAIT_SECONDS:
                 break
-
         #用户信息写回数据库,并告诉主线程清理用户数据
         self.DumpUserInfo(token)
         AddLogoutUser(self.__name)
-
 
     def init(self,token, client_address, AddLogoutUser):
         try:
@@ -188,8 +186,6 @@ class User:
             self.__userthread = userthread
         except:
             Log.error("Error: unable to start thread for %s" % token)
-
-
 
 if __name__ == "__main__":
     user = User()
