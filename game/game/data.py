@@ -42,7 +42,7 @@ class DataDriver:
             Log.error('User Dump Error: %s' % traceback.format_exc())
 
 
-    @classmethod #把用户数据写回数据库
+    @classmethod #更新用户临时表数据，登陆时调用
     def UpdateLoginInfo(cls,user_name,logintime):
         try:
             login =  cls.__db[u'logintime']

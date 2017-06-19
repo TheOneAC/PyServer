@@ -27,7 +27,6 @@ class Action(object):
             action = msg[u'action']
         except:
             Log.info("wrong msg parsing ")
-
         try:
             while not self.__logout_user.empty():
                 username = self.__logout_user.get()
@@ -40,21 +39,12 @@ class Action(object):
         if token not in self.__users.keys():
             try:
                 user = User()
-                user.init(token, client_address, self.AddLogoutUser)
+                user.Init(token, client_address, self.AddLogoutUser)
                 self.__users[token] = user
             except:
                 Log.error("Error: user  %s init failure" % token)
         try:
             loginTime = self.__users.get(token).login_time
-            tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
-            #print tomd5
-            #print chardet.detect(u"hello")
-            #print chardet.detect(tomd5)
-
-            #print chardet.detect(loginTime)
-            #print tomd5
-            #print base64.b64encode(SecTools.EnHash(tomd5))
-            #print "msg" + base64.b64encode(msg[u'md5'])
             if loginTime:
                 tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
                 if base64.b64encode(SecTools.EnHash(tomd5.encode("utf-8"))) ==  msg[u'md5']:
@@ -62,21 +52,12 @@ class Action(object):
                     msg = {'action':action,'socket':socket,'client_address':client_address}
                     if user:
                         user.AddMsg(msg)
-                    else:
-                        pass
         except:
             Log.error("Error: %s msg put into user msgqueue failure" % token)
 
 
-
     def ActionHandler(self, HandlerUDPMessage):
         class MyActionHandler(SocketServer.BaseRequestHandler):
-            """
-            This class works similar to the TCP handler class, except that
-            self.request consists of a pair of data and client socket, and since
-            there is no connection the client address must be given explicitly
-            when sending data back via sendto().
-            """
             def handle(self):
                 data = self.request[0]
                 socket = self.request[1]
@@ -86,19 +67,14 @@ class Action(object):
                     Log.error("faild to parse action info")
                     Log.error(e.message)
                 HandlerUDPMessage(message, socket, self.client_address)
-                #print self.server.socket
-
-                #print socket
-                #print self.client_address
-                #print "{} wrote:".format(self.client_address[0])
-                #socket.sendto(json.dumps(message), self.client_address)
-
         return MyActionHandler
 
+    #user线程用一个logout队列与主线程通信，
+    #用户退出时把自己的id放入队列中，主线程从user队列中清除已退出的user对象
     def AddLogoutUser(self, username):
         self.__logout_user.put(username)
 
-
+    #初始化action进程
     def ActionServer(self):
         Log.Init()
         DataDriver.InitDB()
