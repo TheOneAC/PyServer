@@ -34,9 +34,11 @@ class LoggerTools:
     @classmethod
     def warn(cls, msg):
         cls.logTool.warn(msg)    
+
     @classmethod
     def debug(cls, msg):
         cls.logTool.debug(msg)
+
     @classmethod
     def error(cls, msg):
         cls.logTool.error(msg)

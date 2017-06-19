@@ -25,13 +25,13 @@ class DataDriver:
             tmp = users.find_one({u'name':user_name})
             if tmp == None:
                 return None
-            tmp.pop('_id')
+            tmp.pop(u'_id')
             return tmp
         except:
             Log.error('DataBase error: %s' % traceback.format_exc())
             return None
 
-    @classmethod  # 登陆时获取用户的所有信息
+    @classmethod  #把用户数据写回数据库
     def DumpUserInfo(cls,username, userinfo):
         try:
             users = cls.__db[u'users']  # 确定集合
@@ -42,7 +42,7 @@ class DataDriver:
             Log.error('User Dump Error: %s' % traceback.format_exc())
 
 
-    @classmethod #把用户数据写回数据库
+    @classmethod #更新用户临时表数据，登陆时调用
     def UpdateLoginInfo(cls,user_name,logintime):
         try:
             login =  cls.__db[u'logintime']
@@ -58,7 +58,7 @@ class DataDriver:
             tmp = logininfo.find_one({u'name':user_name})
             if tmp == None:
                 return None
-            tmp.pop('_id')
+            tmp.pop(u'_id')
             return tmp
         except:
             Log.error('DataBase error: %s' % traceback.format_exc())

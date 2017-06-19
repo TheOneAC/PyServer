@@ -13,22 +13,21 @@ class User:
     '''一个玩家，包括玩家的物品，任务进度，位置，血量，装备等所有信息'''
     def __init__(self):
         self.__queue = Queue.Queue()
-
-        self.__name = "zero"
+        self.__name = u"zero"
         self.__password = None
         self.__position = ()
         self.__missions = {}
         self.__equip = []
         self.__items = {}
-        self.token = ''
-        self.sign = ''
-        self.__login_time = ''
+        self.token = u''
+        self.sign = u''
+        self.__login_time = u''
         self.__userthread = None
         self.__client_address = ''
         self.__socket = None
-
+        
     def name():
-        doc = "用户名"
+        doc = u"用户名"
         def fget(self):
             return self.__name
         def fset(self, value):
@@ -39,7 +38,7 @@ class User:
     name = property(**name())
 
     def password():
-        doc = "密码"
+        doc = u"密码"
         def fget(self):
             return self.__password
         def fset(self, value):
@@ -50,7 +49,7 @@ class User:
     password = property(**password())
     
     def position():
-        doc = "位置坐标"
+        doc = u"位置坐标"
         def fget(self):
             return self.__position
         def fset(self, value):
@@ -61,7 +60,7 @@ class User:
     position = property(**position())
 
     def missions():
-        doc = "任务."
+        doc = u"任务."
         def fget(self):
             return self.__missions
         def fset(self, value):
@@ -72,7 +71,7 @@ class User:
     missions = property(**missions())
 
     def equip():
-        doc = "装备"
+        doc = u"装备"
         def fget(self):
             return self.__equip
         def fset(self, value):
@@ -83,7 +82,7 @@ class User:
     equip = property(**equip())
 
     def items():
-        doc = "物品"
+        doc = u"物品"
         def fget(self):
             return self.__items
         def fset(self, value):
@@ -94,7 +93,7 @@ class User:
     items = property(**items())
 
     def login_time():
-        doc = "登录时间"
+        doc = u"登录时间"
         def fget(self):
             return self.__login_time
         def fset(self, value):
@@ -103,8 +102,9 @@ class User:
             del self.__login_time
         return locals()
     login_time = property(**login_time())
+
     def userthread():
-        doc = "用户线程"
+        doc = u"用户线程"
         def fget(self):
             return self.__userthread
         def fset(self, value):
@@ -114,12 +114,12 @@ class User:
         return locals()
     userthread = property(**userthread())
 
+    #退出时存用户信息
     def DumpUserInfo(self,username):
         userinfo = {u'name':self.__name, u'password':self.__password,
                     u'equip':self.__equip, u'items':self.__items,
                     u'missions':self.__missions, u'coordinate':self.__position}
         DataDriver.DumpUserInfo(username, userinfo)
-
 
     #由action线程调用，添加msg
     def AddMsg(self, msg):
@@ -127,15 +127,59 @@ class User:
 
     # 处理action，action由用户线程从msg里面取出来
     def ProcessAction(self, action):
-        if action[u'operate'] == "move":
+        if action[u'operate'] == "move": #玩家坐标
             self.__position = (action[u'para1'], action[u'para2'])
             action[u'operate'] = "position"
             self.__socket.sendto(json.dumps(action) , self.__client_address)
+        elif action[u'operate'] == "add_item": #增加物品
+            item_id = action[u'para1']
+            if item_id in self.__items.keys():
+                self.__items[item_id] += 1
+            else:
+                self.__items[item_id] = 1
+            self.__socket.sendto("True", self.__client_address)
+        elif action[u'operate'] == "remove_item": #减少物品
+            item_id = action[u'para1']
+            if item_id in self.__items.keys():
+                if self.__items[item_id] == 1:
+                    self.__items.pop(item_id)
+                else:
+                    self.__items[item_id] -= 1
+            self.__socket.sendto("True", self.__client_address)
+        elif action[u'operate'] == "equip": #穿脱装备
+            item_id = action[u'para1']
+            if not item_id in self.__items.keys():
+                self.__socket.sendto("False", self.__client_address)
+            else:
+                item_id = int(item_id)
+                #脱装备
+                if item_id in self.__equip:
+                    condition = lambda t: t != item_id
+                    self.__equip = filter(condition, self.__equip)
+                else: #穿装备
+                    for i in xrange(len(self.__equip)):
+                        if self.__equip[i] / 1000 == item_id / 1000:
+                            if self.__equip[i] % 1000 != item_id % 1000:
+                                self.__equip[i] = item_id
+                            break
+                    else:
+                        self.__equip.append(item_id)
+                print self.__equip;
+                self.__socket.sendto("True", self.__client_address)
+        elif action[u'operate'] == "mission": #更新任务
+            mission_id = action[u'para1']
+            if mission_id in self.__missions.keys():
+                self.__missions[mission_id] += 1;
+            else:
+                self.__missions[mission_id] = 1;
+            self.__socket.sendto("True", self.__client_address)
 
     #读取自己的msg，并处理，同时负责定时存储
     def StartUser(self, token, AddLogoutUser):
         lasttime = time.time()
         while True:
+            if time.time() % configure.DUMP_TIME_INTERVAL == 0:
+                self.DumpUserInfo(token)
             if not self.__queue.empty():
                 msg = self.__queue.get()
                 lasttime = time.time()
@@ -156,26 +200,27 @@ class User:
                     self.ProcessAction(msg[u'action'])
                 else:
                     continue
-            elif time.time() - lasttime > configure.MSG_WAIT_SECONDS:
+            elif time.time() - lasttime > configure.TIMEOUT_SECONDS:
                 break
         #用户信息写回数据库,并告诉主线程清理用户数据
         self.DumpUserInfo(token)
         AddLogoutUser(self.__name)
 
-    def init(self,token, client_address, AddLogoutUser):
+    #初始化用户线程，包括读取数据库，初始化话user对象，开用户线程
+    def Init(self,token, client_address, AddLogoutUser):
         try:
             userinfo = DataDriver.GetUserInfo(token)
             logintime = DataDriver.GetLoginInfo(token)
         except:
             Log.error("Error: Get info for %s from DB failure" % token)
         try:
-            self.__name = userinfo['name']
-            self.__password = userinfo['password']
-            self.__position = userinfo['coordinate']
-            self.__missions = userinfo['missions']
-            self.__equip = userinfo['equip']
-            self.__items = userinfo['items']
-            self.__login_time = logintime['logintime']
+            self.__name = userinfo[u'name']
+            self.__password = userinfo[u'password']
+            self.__position = userinfo[u'coordinate']
+            self.__missions = userinfo[u'missions']
+            self.__equip = userinfo[u'equip']
+            self.__items = userinfo[u'items']
+            self.__login_time = logintime[u'logintime']
             self.__client_address = client_address
         except:
             Log.error("Error: userinfo cached in server for %s failure" % token)
@@ -185,12 +230,11 @@ class User:
             userthread.start()
             self.__userthread = userthread
         except:
-            
             Log.error("Error: unable to start thread for %s" % token)
 
 if __name__ == "__main__":
     user = User()
-    user.init("zero")
+    user.Init("zero")
     print user.name
 
 
