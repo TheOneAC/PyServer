@@ -2,7 +2,6 @@
 # -*- coding: UTF-8 -*-
 import random
 import time
-import user
 import math
 
 
@@ -11,6 +10,44 @@ def enum(**enums):
 
 
 MONSTER_STATE = enum(RANDER=1, FOLLOW=2, DEATH=3)
+MONSTER_TYPE = enum(BOSS=1, COMMON=2)
+
+
+class SimpleMonster(object):
+    def __init__(self,id=1,position=(1,2)):
+        super(SimpleMonster, self).__init__()
+        self.__id = id
+        self.__position = position
+
+    @property
+    def id(self):
+        return self.__id
+    @id.setter
+    def id(self, value):
+        self.__id = value
+    @id.deleter
+    def id(self):
+        del self.__id
+
+
+    @property
+    def position(self):
+        return self.__position
+    @position.setter
+    def position(self, value):
+        self.__position = value
+    @position.deleter
+    def position(self):
+        del self.__position
+
+
+    def __str__(self):
+        list = {}
+        list.setdefault('id', self.__id)
+        list.setdefault('position', self.__position)
+
+        return str(list)
+
 
 
 class Monster(object):
@@ -19,16 +56,22 @@ class Monster(object):
 
 
 
-    def __init__(self, id=1, blood_value=100000, position=(1, 2),
-                 state=MONSTER_STATE.RANDER, attack_value=100, defense_value=10, user_value=None):
+    def __init__(self, id=1, blood_value=100000, monster_type=MONSTER_TYPE.COMMON
+                 , position=(1, 2), state=MONSTER_STATE.RANDER, attack_value=100, defense_value=10):
         super(Monster, self).__init__()
         self.__id = id
+        self.__monster_type = monster_type
         self.__blood_value = blood_value
         self.__position = position
         self.__state = state
         self.__attack_value = attack_value
         self.__defense_value = defense_value
-        self.__user = user_value
+
+
+
+    def get_blood_by_tpye(self,monster_type):
+        pass
+
 
     @property
     def id(self):
@@ -96,23 +139,13 @@ class Monster(object):
 
 
 
-    @property
-    def user_value(self):
-        return self.__user
 
-    @user_value.setter
-    def user_value(self, value):
-        self.__user = value
-
-    @user_value.deleter
-    def user_value(self):
-        del self.__user
 
     # 打印所有属性
     def __str__(self):
         list = {}
         list.setdefault('id', self.__id)
-        list.setdefault('blood', self.__blood)
+        list.setdefault('blood_value', self.__blood_value)
         list.setdefault('position', self.__position)
         list.setdefault('state', self.__state)
         list.setdefault('attack_value', self.__attack_value)
