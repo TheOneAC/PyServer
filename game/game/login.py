@@ -2,14 +2,11 @@
 # -*- coding: utf-8 -*-
 import os
 import time
-
 import socket
 import SocketServer
 import logging, traceback  
-
 import json, base64
 import threading
-
 from user import User
 from configure import *
 from log import LoggerTools as Log
@@ -26,19 +23,19 @@ class Login(object):
         tmp = DataDriver.GetUserInfo(user_name)
         return tmp
 
+    #更新临时表
     def UpLoginInfo(self,user_name, logintime):
         DataDriver.UpdateLoginInfo(user_name, logintime)
 
+    #验证用户，并返回给用户一个token
     def GetToken(self, message):
         token_message = None
-
         try:
             decode_message = json.loads(message)
             #print decode_message
             assert decode_message[u'name'] != u'' and decode_message[u'password'] != u''  u"filed"
         except:
             Log.info('login decode failed')
-            
         try:    
             user_name = decode_message[u'name']
             user_server = self.GetUser(user_name)
@@ -59,19 +56,8 @@ class Login(object):
         finally:
             return token_message
 
-
-
-
-
     def LoginHandeler(self, GetToken, error):
         class Handler(SocketServer.StreamRequestHandler):
-            """
-            The request handler class for our server.
-
-            It is instantiated once per connection to the server, and must
-            override the handle() method to implement communication to the
-            client.
-            """
             def handle(self):
                 try:
                     message = self.rfile.readline()
@@ -85,8 +71,9 @@ class Login(object):
                         raise Exception("client is off")
                 except :
                     error('login response failed, traceback: %s' % traceback.format_exc())
-
         return Handler
+
+
     def LoginServer(self):
         #在登陆进程中初始化相关的工具
         Log.Init()
