@@ -1,18 +1,38 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+import SocketServer
 import random
 import time
 import user
 import math
 import monster
+from configure import *
+import socket
+import json
+import threading
 
+'''
+json格式:
+接收 action
+发送 monsteraction
+name : user_id
+action/monsteraction :{
+
+operater : move/hit
+para1 : x / monster_id
+para2 : y / attack_value
+
+}
+
+'''
 #TODO 消息的交互
 class AIController(object):
 
-    def __init__(self,monsters=[],users=[]):
+    def __init__(self,monsters=[],users=[],simple_monsters=[]):
 
         self.__monster_list = monsters
         self.__user_list = users
+        self.__simple_monster = simple_monsters
         self.ratio = 0.5
 
 
@@ -154,6 +174,86 @@ class AIController(object):
     def death(self,monster_item):
         print 'monster_id',monster_item.id, "death"
 
+    def createMonster(self):
+        for i in range(100):
+            mon = monster.Monster(id=i+1,position=(random.randint(0,500), random.randint(0,500) ) )
+            simple_mon = monster.SimpleMonster(mon.id , mon.position)
+            self.__monster_list.append(mon)
+            self.__simple_monster.append(simple_mon)
+            #print simple_mon
+            #print type(simple_mon)
+
+
+    def UpdateUdpMessage(self,msg,socket,client_address):
+
+        user_action = msg[u"action"][u"operate"]
+        if user_action == "move":
+            pass
+        elif user_action == "hit":
+            pass
+        elif user_action == "init_monster_position":
+            #response = {u"name":msg[u"name"],u"monsteraction":[]}
+            monsterinfo = []
+            for monster in self.__simple_monster:
+                one_monster = {}
+                one_monster[u"monsterid"]=monster.id
+                one_monster[u"x"] = monster.position[0]
+                one_monster[u"y"] = monster.position[1]
+                monsterinfo.append(one_monster)
+            response = {u"name":msg[u"name"],u"monsteraction":monsterinfo}
+            print client_address
+            print len(monsterinfo)
+            #print json.dumps(response)
+            socket.sendto(json.dumps(response), client_address)
+            pass
+
+        #socket.sendto(json.dumps(msg), self.client_address)
+
+
+
+    def UpdateHandler(self,UpdateUdpMessage):
+        class MyUpdateHandler(SocketServer.BaseRequestHandler):
+            def handle(self):
+                data = self.request[0].strip()
+                socket = self.request[1]
+                print "{} wrote:".format(self.client_address[0])
+                print data
+
+                user_msg = json.loads(data)
+                UpdateUdpMessage(user_msg,socket,self.client_address)
+
+
+
+        return MyUpdateHandler
+
+    def UpdateServer(self):
+
+        return SocketServer.UDPServer((MONSTER_HOST, MONSTER_PORT), self.UpdateHandler(self.UpdateUdpMessage))
+
+
+    #client test
+    def client(self,ip, port, message):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.sendto(message + "\n", (MONSTER_HOST, MONSTER_PORT))
+        received = sock.recv(1024)
+
+        print "Sent:     {}".format(message)
+        print "Received: {}".format(received)
+
+if __name__ == "__main__":
+
+    '''
+    monster_list=[monster.Monster(),monster.Monster()]
+
+    controller.control()
+    '''
+    controller = AIController()
+    server = controller.UpdateServer()
+    controller.createMonster()
+    controller.createMonster()
+    print 'monster'
+    server.serve_forever()
+    print 'monster'
 
 
 
