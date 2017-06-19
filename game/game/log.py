@@ -57,3 +57,6 @@ if __name__ == "__main__":
     log.Init()
     log.error("what")
     log.debug("hello")
+    one = "hello"
+    two = "world"
+    log.info("%s  : %s" % (one, two))

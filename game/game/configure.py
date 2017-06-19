@@ -19,5 +19,6 @@ enKey = "68b329da9893e340"
 salt = ""
 
 TIMEOUT_SECONDS = 3  #用户心跳信息接收的超时阈值
-
 DUMP_TIME_INTERVAL = 100 #用户信息写回数据库的时间间隔
+
+MOSTER_HOST, MONSTER_PORT = "211.86.158.157",9996

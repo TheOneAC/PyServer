@@ -15,8 +15,8 @@ class DataDriver:
             client = MongoClient(configure.DB_HOST, configure.DB_PORT)
             cls.__db = client[configure.DB_NAME]
             cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
-        except:
-            Log.error("DB connection failed")
+        except Exception as e:
+            Log.error('login security check failed,exception: %s traceback: %s' % (e, traceback.format_exc()))
 
     @classmethod #登陆时获取用户的所有信息
     def GetUserInfo(cls, user_name):
@@ -27,8 +27,8 @@ class DataDriver:
                 return None
             tmp.pop(u'_id')
             return tmp
-        except:
-            Log.error('DataBase error: %s' % traceback.format_exc())
+        except Exception as e:
+            Log.error('DataBase error, exception: %s traceback: %s' % (e, traceback.format_exc()))
             return None
 
     @classmethod  #把用户数据写回数据库
@@ -38,8 +38,8 @@ class DataDriver:
             users.remove({u'name': username})
             users.save(userinfo)
             Log.info('Userinfo for %s dump into DB' % username)
-        except:
-            Log.error('User Dump Error: %s' % traceback.format_exc())
+        except Exception as e:
+            Log.error('User Dump Error, exception: %s traceback: %s' % (e, traceback.format_exc()))
 
 
     @classmethod #更新用户临时表数据，登陆时调用
@@ -48,8 +48,8 @@ class DataDriver:
             login =  cls.__db[u'logintime']
             login.remove({u'name':user_name})
             login.save({u'name':user_name,u'logintime':logintime})
-        except:
-            Log.error('DataBase error: %s' % traceback.format_exc())
+        except Exception as e:
+            Log.error('DataBase error, exception: %s traceback: %s' % (e, traceback.format_exc()))
 
     @classmethod
     def GetLoginInfo(cls, user_name):
@@ -60,6 +60,6 @@ class DataDriver:
                 return None
             tmp.pop(u'_id')
             return tmp
-        except:
-            Log.error('DataBase error: %s' % traceback.format_exc())
+        except Exception as e:
+            Log.error('DataBase error, exception: %s traceback: %s' % (e, traceback.format_exc()))
             return None
