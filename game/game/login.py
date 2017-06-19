@@ -51,8 +51,8 @@ class Login(object):
             else:
                 Log.info("user %s login with wrong password" % user_name)
                 token_message = {"token": "", "signature": "", 'equipped':[], 'itemskey':[], 'itemsvalue':[], 'missionskey':[], 'misionsvalue':[], 'coordinate':[]}
-        except:
-            Log.warn('login security check failed, traceback: %s' % traceback.format_exc())
+        except Exception as e:
+            Log.warn('login security check failed,exception: %s traceback: %s' % (e, traceback.format_exc()))
         finally:
             return token_message
 
