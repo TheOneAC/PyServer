@@ -14,7 +14,7 @@
 2017-06-07 16:50:00  INFO: Thread-16  new user: zero login success
 2017-06-07 16:51:54  INFO: Thread-17  new user: zero login success
 2017-06-07 17:01:08  ERROR: Thread-18  login response failed, traceback: Traceback (most recent call last):
-  File "K:\后台\game\game\server.py", line 99, in handle
+  File "K:\��̨\game\game\server.py", line 99, in handle
     raise Exception("client is off")
 Exception: client is off
 
@@ -44,7 +44,7 @@ Exception: client is off
 2017-06-07 21:19:28  INFO: Thread-42  new user: zero login success
 2017-06-07 22:30:12  INFO: Thread-1  new user: zero login success
 2017-06-09 22:44:55  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/data.py", line 24, in GetUserInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/data.py", line 24, in GetUserInfo
     tmp = users.find_one({u'name':user_name})
   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", line 1102, in find_one
     for result in cursor.limit(-1):
@@ -64,7 +64,7 @@ ServerSelectionTimeoutError: 127.0.0.1:9997: [Errno 111] Connection refused
 
 2017-06-09 22:44:55  INFO: Thread-1  user zero login with wrong password
 2017-06-09 22:47:57  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 111, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 111, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -73,7 +73,7 @@ ServerSelectionTimeoutError: 127.0.0.1:9997: [Errno 111] Connection refused
 KeyboardInterrupt
 
 2017-06-09 22:51:35  ERROR: Thread-1  DataBase error: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/data.py", line 25, in GetUserInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/data.py", line 25, in GetUserInfo
     tmp = users.find_one({u'name':user_name})
   File "/usr/local/lib/python2.7/dist-packages/pymongo/collection.py", line 1102, in find_one
     for result in cursor.limit(-1):
@@ -93,7 +93,7 @@ ServerSelectionTimeoutError: 127.0.0.1:9997: [Errno 111] Connection refused
 
 2017-06-09 22:51:35  INFO: Thread-1  user zero login with wrong password
 2017-06-09 22:51:55  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 111, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 111, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -103,7 +103,7 @@ KeyboardInterrupt
 
 2017-06-09 22:56:49  ERROR: MainThread  DB connection failed
 2017-06-09 23:01:39  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -113,7 +113,7 @@ KeyboardInterrupt
 
 2017-06-09 23:02:19  ERROR: MainThread  DB connection failed
 2017-06-09 23:03:11  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -123,7 +123,7 @@ KeyboardInterrupt
 
 2017-06-09 23:03:36  INFO: Thread-1  new user: zero login success
 2017-06-09 23:03:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -132,7 +132,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-09 23:03:59  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 108, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 108, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -143,7 +143,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-09 23:04:16  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 108, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 108, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -155,7 +155,7 @@ error: [Errno 98] Address already in use
 
 2017-06-09 23:05:08  INFO: Thread-1  new user: zero login success
 2017-06-09 23:05:14  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -165,7 +165,7 @@ KeyboardInterrupt
 
 2017-06-09 23:08:03  INFO: Thread-1  new user: zero login success
 2017-06-09 23:13:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 112, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 112, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -175,7 +175,7 @@ KeyboardInterrupt
 
 2017-06-09 23:16:04  INFO: Thread-1  new user: zero login success
 2017-06-09 23:16:08  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -185,7 +185,7 @@ KeyboardInterrupt
 
 2017-06-09 23:19:03  INFO: Thread-1  new user: zero login success
 2017-06-09 23:19:06  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -195,7 +195,7 @@ KeyboardInterrupt
 
 2017-06-09 23:23:41  INFO: Thread-1  new user: zero login success
 2017-06-09 23:23:44  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -204,7 +204,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-09 23:24:20  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -215,7 +215,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-09 23:24:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -227,7 +227,7 @@ error: [Errno 98] Address already in use
 
 2017-06-09 23:25:06  INFO: Thread-1  new user: zero login success
 2017-06-09 23:25:10  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -236,7 +236,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-09 23:25:34  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -247,7 +247,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-09 23:26:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -258,14 +258,14 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-09 23:36:38  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 40, in CheckPassword
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 40, in CheckPassword
     user_server = self.GetUser(user_name)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 26, in GetUser
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 26, in GetUser
     tmp = DataDriver.GetUserInfo(user_name)
 TypeError: unbound method GetUserInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-09 23:37:17  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -275,7 +275,7 @@ KeyboardInterrupt
 
 2017-06-10 13:30:35  ERROR: MainThread  DB connection failed
 2017-06-10 13:30:35  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -287,7 +287,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 13:32:58  ERROR: MainThread  DB connection failed
 2017-06-10 13:32:58  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -299,7 +299,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 13:36:41  ERROR: MainThread  DB connection failed
 2017-06-10 13:36:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -310,7 +310,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:37:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -321,7 +321,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:39:11  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -332,7 +332,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:39:23  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.CheckPassword, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -343,7 +343,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 13:41:35  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 89, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 89, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -355,7 +355,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 13:47:05  ERROR: MainThread  DB connection failed
 2017-06-10 13:47:47  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -364,14 +364,14 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 13:47:58  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 40, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 40, in GetToken
     user_server = self.GetUser(user_name)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 26, in GetUser
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 26, in GetUser
     tmp = DataDriver.GetUserInfo(user_name)
 TypeError: unbound method GetUserInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 13:53:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -382,7 +382,7 @@ KeyboardInterrupt
 2017-06-10 13:53:48  INFO: Thread-1  new user: zero login success
 2017-06-10 13:56:51  INFO: Thread-2  new user: zero login success
 2017-06-10 14:08:23  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 70, in handle
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 70, in handle
     def handle(self):
   File "/usr/lib/python2.7/socket.py", line 451, in readline
     data = self._sock.recv(self._rbufsize)
@@ -390,18 +390,18 @@ error: [Errno 104] Connection reset by peer
 
 2017-06-10 14:08:23  INFO: Thread-4  login decode failed
 2017-06-10 14:08:23  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 39, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 39, in GetToken
     user_name = decode_message[u'name']
 UnboundLocalError: local variable 'decode_message' referenced before assignment
 
 2017-06-10 14:08:23  INFO: Thread-5  login decode failed
 2017-06-10 14:08:23  WARNING: Thread-5  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 39, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 39, in GetToken
     user_name = decode_message[u'name']
 UnboundLocalError: local variable 'decode_message' referenced before assignment
 
 2017-06-10 14:09:13  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 93, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 93, in LoginServer
     # Activate the server; this will keep running until you
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -411,7 +411,7 @@ KeyboardInterrupt
 
 2017-06-10 14:09:39  INFO: Thread-1  new user: zero login success
 2017-06-10 14:30:21  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 95, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 95, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -421,12 +421,12 @@ KeyboardInterrupt
 
 2017-06-10 14:30:29  INFO: Thread-1  new user: zero login success
 2017-06-10 14:30:29  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 44, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 44, in GetToken
     DataDriver.UpdateLoginInfo(user_name, nowtime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:37:20  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 95, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 95, in LoginServer
     # Activate the server; this will keep running until you
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -436,14 +436,14 @@ KeyboardInterrupt
 
 2017-06-10 14:37:27  INFO: Thread-1  new user: zero login success
 2017-06-10 14:37:27  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 46, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 46, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 29, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 29, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:55:58  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 97, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 97, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -453,14 +453,14 @@ KeyboardInterrupt
 
 2017-06-10 14:56:04  INFO: Thread-1  new user: zero login success
 2017-06-10 14:56:04  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 46, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 46, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 29, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 29, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:57:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 97, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 97, in LoginServer
     # interrupt the program with Ctrl-C
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -470,14 +470,14 @@ KeyboardInterrupt
 
 2017-06-10 14:57:19  INFO: Thread-1  new user: zero login success
 2017-06-10 14:57:19  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 14:59:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -486,7 +486,7 @@ TypeError: unbound method UpdateLoginInfo() must be called with DataDriver insta
 KeyboardInterrupt
 
 2017-06-10 14:59:52  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -495,7 +495,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:00:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -505,38 +505,38 @@ KeyboardInterrupt
 
 2017-06-10 15:01:15  INFO: Thread-1  new user: zero login success
 2017-06-10 15:01:15  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:01:55  INFO: Thread-2  new user: zero login success
 2017-06-10 15:01:55  WARNING: Thread-2  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:02:14  INFO: Thread-3  new user: zero login success
 2017-06-10 15:02:14  WARNING: Thread-3  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:04:00  INFO: Thread-4  new user: zero login success
 2017-06-10 15:04:00  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:08:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -546,14 +546,14 @@ KeyboardInterrupt
 
 2017-06-10 15:08:37  INFO: Thread-1  new user: zero login success
 2017-06-10 15:08:37  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:15:01  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     # interrupt the program with Ctrl-C
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -563,14 +563,14 @@ KeyboardInterrupt
 
 2017-06-10 15:15:09  INFO: Thread-1  new user: zero login success
 2017-06-10 15:15:09  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 48, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 48, in GetToken
     self.UpLoginInfo(user_name, nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got unicode instance instead)
 
 2017-06-10 15:17:50  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 99, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 99, in LoginServer
     except :
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -580,14 +580,14 @@ KeyboardInterrupt
 
 2017-06-10 15:17:57  INFO: Thread-1  new user: zero login success
 2017-06-10 15:17:57  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(user_name.encode('utf-8'), nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got str instance instead)
 
 2017-06-10 15:18:47  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -596,7 +596,7 @@ TypeError: unbound method UpdateLoginInfo() must be called with DataDriver insta
 KeyboardInterrupt
 
 2017-06-10 15:18:54  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -608,14 +608,14 @@ error: [Errno 98] Address already in use
 
 2017-06-10 15:19:15  INFO: Thread-1  new user: zero login success
 2017-06-10 15:19:15  WARNING: Thread-1  login security check failed, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 47, in GetToken
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 47, in GetToken
     self.UpLoginInfo(str(user_name), nowtime)
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 30, in UpLoginInfo
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 30, in UpLoginInfo
     DataDriver.UpdateLoginInfo(user_name, logintime)
 TypeError: unbound method UpdateLoginInfo() must be called with DataDriver instance as first argument (got str instance instead)
 
 2017-06-10 15:20:14  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -626,7 +626,7 @@ KeyboardInterrupt
 2017-06-10 15:20:22  INFO: Thread-1  new user: zero login success
 2017-06-10 15:21:08  INFO: Thread-2  new user: zero login success
 2017-06-10 15:24:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -638,7 +638,7 @@ KeyboardInterrupt
 2017-06-10 15:24:16  INFO: Thread-2  new user: zero login success
 2017-06-10 15:25:05  INFO: Thread-3  new user: zero login success
 2017-06-10 15:25:48  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -647,7 +647,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:25:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -659,7 +659,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 15:26:14  INFO: Thread-1  new user: zero login success
 2017-06-10 15:26:45  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -668,7 +668,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 15:26:53  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -680,7 +680,7 @@ error: [Errno 98] Address already in use
 
 2017-06-10 15:26:57  ERROR: MainThread  DB connection failed
 2017-06-10 15:27:00  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -691,7 +691,7 @@ error: [Errno 98] Address already in use
 error: [Errno 98] Address already in use
 
 2017-06-10 15:27:48  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -700,7 +700,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 15:29:03  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -709,7 +709,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:29:41  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -718,7 +718,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:30:46  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -727,7 +727,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:33:25  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -736,7 +736,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:36:26  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -745,7 +745,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:38:31  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -754,7 +754,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:39:32  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -763,7 +763,7 @@ KeyboardInterrupt
 KeyboardInterrupt
 
 2017-06-10 15:44:51  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -774,7 +774,7 @@ KeyboardInterrupt
 2017-06-10 15:52:56  ERROR: MainThread  DB connection failed
 2017-06-10 15:52:56  ERROR: MainThread  DB connection failed
 2017-06-10 15:54:12  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -785,7 +785,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-10 15:54:17  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 98, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 98, in LoginServer
     loginServer.serve_forever()
   File "/usr/lib/python2.7/SocketServer.py", line 231, in serve_forever
     poll_interval)
@@ -794,7 +794,7 @@ error: [Errno 98] Address already in use
 KeyboardInterrupt
 
 2017-06-10 15:54:21  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -805,7 +805,7 @@ KeyboardInterrupt
 error: [Errno 98] Address already in use
 
 2017-06-10 15:54:27  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
-  File "/home/zero/PycharmProjects/unity (澶嶄欢)/game/game/login.py", line 94, in LoginServer
+  File "/home/zero/PycharmProjects/unity (复件)/game/game/login.py", line 94, in LoginServer
     loginServer = SocketServer.ThreadingTCPServer((LOGIN_HOST, LOGIN_PORT), self.LoginHandeler(self.GetToken, Log.error))
   File "/usr/lib/python2.7/SocketServer.py", line 417, in __init__
     self.server_bind()
@@ -826,7 +826,7 @@ error: [Errno 98] Address already in use
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-10 06:34:22  INFO: Thread-1  new user: zero login success
 2017-06-10 06:35:40  INFO: Thread-1  new user: zero login success
@@ -1108,7 +1108,7 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 18:56:09  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
   File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
@@ -1119,7 +1119,7 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 18:56:24  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
   File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
@@ -1130,7 +1130,7 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 18:57:42  ERROR: MainThread  DB connection failed
 2017-06-11 18:57:42  ERROR: MainThread  DB connection failed
@@ -1143,7 +1143,7 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 18:59:40  ERROR: MainThread  DB connection failed
 2017-06-11 18:59:40  ERROR: MainThread  DB connection failed
@@ -1156,7 +1156,7 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 19:10:30  ERROR: MainThread  DB connection failed
 2017-06-11 19:10:30  ERROR: MainThread  DB connection failed
@@ -1176,7 +1176,7 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 19:43:49  ERROR: MainThread  port ERROR, traceback: Traceback (most recent call last):
   File "C:\Users\Administrator\PycharmProjects\unity\ga\game\game\login.py", line 94, in LoginServer
@@ -1187,7 +1187,7 @@ error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 19:44:01  INFO: Thread-1  new user: zero login success
 2017-06-11 19:44:41  INFO: Thread-2  new user: zero login success
@@ -1235,7 +1235,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:46:57  ERROR: MainThread  Error: userinfo cached in server for 完� failure
+2017-06-11 19:46:57  ERROR: MainThread  Error: userinfo cached in server for ��� failure
 2017-06-11 19:48:56  INFO: Thread-1  new user: zero login success
 2017-06-11 19:49:10  INFO: Thread-2  new user: zero login success
 2017-06-11 19:49:13  ERROR: MainThread  DataBase error: Traceback (most recent call last):
@@ -1264,7 +1264,7 @@ UnicodeDecodeError: 'ascii' codec can't decode byte 0xcd in position 0: ordinal 
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:49:13  ERROR: MainThread  Error: userinfo cached in server for 完� failure
+2017-06-11 19:49:13  ERROR: MainThread  Error: userinfo cached in server for ��� failure
 2017-06-11 19:51:40  INFO: Thread-1  new user: zero login success
 2017-06-11 19:52:14  INFO: Thread-2  new user: zero login success
 2017-06-11 19:52:17  ERROR: MainThread  DataBase error: Traceback (most recent call last):
@@ -1309,7 +1309,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:52:17  ERROR: MainThread  Error: userinfo cached in server for 完� failure
+2017-06-11 19:52:17  ERROR: MainThread  Error: userinfo cached in server for ��� failure
 2017-06-11 19:55:31  INFO: Thread-1  new user: zero login success
 2017-06-11 19:55:39  INFO: Thread-2  new user: zero login success
 2017-06-11 19:55:43  ERROR: MainThread  DataBase error: Traceback (most recent call last):
@@ -1354,7 +1354,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     spec, self.fields, self.codec_options)
 InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
 
-2017-06-11 19:55:43  ERROR: MainThread  Error: userinfo cached in server for 完� failure
+2017-06-11 19:55:43  ERROR: MainThread  Error: userinfo cached in server for ��� failure
 2017-06-11 20:02:29  INFO: Thread-1  new user: zero login success
 2017-06-11 20:02:56  INFO: Thread-2  new user: zero login success
 2017-06-11 20:04:18  INFO: Thread-1  new user: zero login success
@@ -1416,7 +1416,7 @@ InvalidStringData: strings in documents must be valid UTF-8: '\xcd\xea\xe8'
     self.socket.bind(self.server_address)
   File "C:\Python27\lib\socket.py", line 228, in meth
     return getattr(self._sock,name)(*args)
-error: [Errno 10048] 通常每个套接字地址(协议/网络地址/端口)
+error: [Errno 10048] ͨ��ÿ���׽��ֵ�ַ(Э��/�����ַ/�˿�)
 
 2017-06-11 21:35:06  INFO: Thread-1  new user: one login success
 2017-06-11 21:36:08  INFO: Thread-1  new user: one login success
@@ -1498,7 +1498,6 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 2017-06-11 22:24:30  INFO: Thread-2  new user: zero login success
 2017-06-11 22:25:21  INFO: Thread-3  new user: zero login success
 2017-06-11 22:26:31  INFO: Thread-4  new user: zero login success
-
 2017-06-18 19:33:30  ERROR: MainThread  DB connection failed
 2017-06-18 19:33:30  ERROR: MainThread  DB connection failed
 2017-06-18 19:51:14  INFO: Thread-1  login decode failed
@@ -1995,86 +1994,517 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 2017-06-19 01:25:12  INFO: Thread-9  new user: zero login success
 2017-06-19 01:25:27  INFO: Thread-9  Userinfo for zero dump into DB
 2017-06-19 01:25:34  INFO: Thread-10  new user: zero login success
-2017-06-19 01:39:26  INFO: Thread-1  new user: zero login success
-2017-06-19 01:39:38  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 01:39:45  INFO: Thread-2  new user: zero login success
-2017-06-19 01:39:55  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 01:40:04  INFO: Thread-3  Userinfo for zero dump into DB
-2017-06-19 12:01:32  INFO: Thread-1  new user: zero login success
-2017-06-19 12:01:37  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 12:01:40  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 12:02:10  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 12:02:32  INFO: Thread-3  Userinfo for zero dump into DB
-2017-06-19 12:03:38  INFO: Thread-2  new user: zero login success
-2017-06-19 12:04:04  INFO: Thread-4  Userinfo for zero dump into DB
-2017-06-19 12:05:44  INFO: Thread-5  Userinfo for zero dump into DB
-2017-06-19 12:05:50  INFO: Thread-3  new user: zero login success
-2017-06-19 12:05:59  INFO: Thread-6  Userinfo for zero dump into DB
-2017-06-19 12:06:12  INFO: Thread-7  Userinfo for zero dump into DB
-2017-06-19 12:07:13  INFO: Thread-4  new user: zero login success
-2017-06-19 12:08:12  INFO: Thread-8  Userinfo for zero dump into DB
-2017-06-19 12:08:49  INFO: Thread-5  new user: zero login success
-2017-06-19 12:09:29  INFO: Thread-9  Userinfo for zero dump into DB
-2017-06-19 12:43:54  INFO: Thread-1  new user: zero login success
-2017-06-19 12:44:18  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 13:42:40  INFO: Thread-1  new user: zero login success
-2017-06-19 13:42:51  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 13:52:18  INFO: Thread-1  new user: zero login success
-2017-06-19 14:01:48  INFO: Thread-1  new user: zero login success
-2017-06-19 14:02:39  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:02:48  INFO: Thread-2  new user: zero login success
-2017-06-19 14:03:05  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 14:05:24  INFO: Thread-1  new user: zero login success
-2017-06-19 14:05:33  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:05:39  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 14:06:40  INFO: Thread-1  new user: zero login success
-2017-06-19 14:06:47  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:07:33  INFO: Thread-1  new user: zero login success
-2017-06-19 14:07:42  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:07:46  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 14:09:33  INFO: Thread-1  new user: zero login success
-2017-06-19 14:09:40  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:09:50  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 14:10:52  INFO: Thread-1  new user: zero login success
-2017-06-19 14:11:04  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:11:10  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 14:11:37  INFO: Thread-3  Userinfo for zero dump into DB
-2017-06-19 14:11:43  INFO: Thread-2  new user: zero login success
-2017-06-19 14:12:00  INFO: Thread-4  Userinfo for zero dump into DB
-2017-06-19 14:27:13  INFO: Thread-1  new user: zero login success
-2017-06-19 14:28:16  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 14:28:23  INFO: Thread-2  new user: zero login success
-2017-06-19 14:29:21  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 15:43:26  INFO: Thread-1  new user: one login success
-2017-06-19 15:44:26  INFO: Thread-1  Userinfo for one dump into DB
-2017-06-19 15:47:19  INFO: Thread-2  new user: two login success
-2017-06-19 15:47:22  INFO: Thread-2  Userinfo for two dump into DB
-2017-06-19 15:47:33  INFO: Thread-3  Userinfo for two dump into DB
-2017-06-19 15:47:59  INFO: Thread-4  Userinfo for two dump into DB
-2017-06-19 15:48:33  INFO: Thread-5  Userinfo for two dump into DB
-2017-06-19 15:48:59  INFO: Thread-6  Userinfo for two dump into DB
-2017-06-19 15:49:54  INFO: Thread-7  Userinfo for two dump into DB
-2017-06-19 15:50:00  INFO: Thread-8  Userinfo for two dump into DB
-2017-06-19 15:50:17  INFO: Thread-8  Userinfo for two dump into DB
-2017-06-19 15:52:17  INFO: Thread-3  new user: one login success
-2017-06-19 16:08:46  INFO: Thread-1  new user: one login success
-2017-06-19 16:08:54  INFO: Thread-1  Userinfo for one dump into DB
-2017-06-19 16:09:13  INFO: Thread-2  Userinfo for one dump into DB
-2017-06-19 16:11:02  INFO: Thread-1  new user: zero login success
-2017-06-19 16:11:13  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 16:11:26  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 16:11:38  INFO: Thread-3  Userinfo for zero dump into DB
-2017-06-19 16:12:01  INFO: Thread-4  Userinfo for zero dump into DB
-2017-06-19 16:12:27  INFO: Thread-5  Userinfo for zero dump into DB
-2017-06-19 21:55:57  INFO: Thread-1  new user: zero login success
-2017-06-19 21:56:05  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 21:56:08  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 21:56:11  INFO: Thread-3  Userinfo for zero dump into DB
-2017-06-19 21:56:14  INFO: Thread-4  Userinfo for zero dump into DB
-2017-06-19 21:57:24  INFO: Thread-1  new user: zero login success
-2017-06-19 21:57:47  INFO: Thread-1  Userinfo for zero dump into DB
-2017-06-19 22:17:20  INFO: Thread-2  new user: zero login success
-2017-06-19 22:17:36  INFO: Thread-2  Userinfo for zero dump into DB
-2017-06-19 22:19:49  INFO: Thread-3  new user: zero login success
-2017-06-19 22:20:00  INFO: Thread-3  Userinfo for zero dump into DB
-2017-06-19 22:20:12  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 01:25:44  INFO: Thread-10  Userinfo for zero dump into DB
+2017-06-19 01:26:53  INFO: Thread-11  new user: zero login success
+2017-06-19 01:26:59  INFO: Thread-11  Userinfo for zero dump into DB
+2017-06-19 01:27:15  INFO: Thread-12  new user: zero login success
+2017-06-19 01:27:22  INFO: Thread-12  Userinfo for zero dump into DB
+2017-06-19 01:28:29  INFO: Thread-13  new user: zero login success
+2017-06-19 01:28:40  INFO: Thread-13  Userinfo for zero dump into DB
+2017-06-19 01:28:48  INFO: Thread-14  new user: zero login success
+2017-06-19 01:29:03  INFO: Thread-14  Userinfo for zero dump into DB
+2017-06-19 01:29:13  INFO: Thread-15  new user: zero login success
+2017-06-19 01:29:29  INFO: Thread-15  Userinfo for zero dump into DB
+2017-06-19 01:29:37  INFO: Thread-16  new user: zero login success
+2017-06-19 01:29:57  INFO: Thread-16  Userinfo for zero dump into DB
+2017-06-19 01:30:14  INFO: Thread-17  new user: zero login success
+2017-06-19 01:30:23  INFO: Thread-17  Userinfo for zero dump into DB
+2017-06-19 01:30:43  INFO: Thread-18  new user: zero login success
+2017-06-19 01:30:51  INFO: Thread-18  Userinfo for zero dump into DB
+2017-06-19 01:31:05  INFO: Thread-19  new user: zero login success
+2017-06-19 01:31:12  INFO: Thread-19  Userinfo for zero dump into DB
+2017-06-19 01:31:29  INFO: Thread-20  new user: zero login success
+2017-06-19 01:31:35  INFO: Thread-20  Userinfo for zero dump into DB
+2017-06-19 01:31:41  INFO: Thread-21  new user: zero login success
+2017-06-19 01:31:51  INFO: Thread-21  Userinfo for zero dump into DB
+2017-06-19 01:32:00  INFO: Thread-22  new user: zero login success
+2017-06-19 01:32:07  INFO: Thread-22  Userinfo for zero dump into DB
+2017-06-19 01:51:01  INFO: Thread-23  login decode failed
+2017-06-19 01:51:01  WARNING: Thread-23  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 02:24:17  ERROR: Thread-24  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 77, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 02:24:18  INFO: Thread-25  login decode failed
+2017-06-19 02:24:18  WARNING: Thread-25  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 02:24:18  INFO: Thread-26  login decode failed
+2017-06-19 02:24:18  WARNING: Thread-26  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 03:47:02  INFO: Thread-27  login decode failed
+2017-06-19 03:47:02  WARNING: Thread-27  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 05:36:33  ERROR: Thread-28  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 77, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 05:36:33  INFO: Thread-29  login decode failed
+2017-06-19 05:36:33  WARNING: Thread-29  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 05:36:33  INFO: Thread-30  login decode failed
+2017-06-19 05:36:33  WARNING: Thread-30  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 08:49:21  ERROR: Thread-31  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 77, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 08:49:22  INFO: Thread-32  login decode failed
+2017-06-19 08:49:22  WARNING: Thread-32  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 08:49:22  INFO: Thread-33  login decode failed
+2017-06-19 08:49:22  WARNING: Thread-33  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 11:43:48  INFO: Thread-1  new user: zero login success
+2017-06-19 11:43:56  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 12:03:38  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 77, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 12:03:39  INFO: Thread-3  login decode failed
+2017-06-19 12:03:39  WARNING: Thread-3  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 12:03:39  INFO: Thread-4  login decode failed
+2017-06-19 12:03:39  WARNING: Thread-4  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 15:17:58  ERROR: Thread-5  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 77, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 15:17:59  INFO: Thread-6  login decode failed
+2017-06-19 15:17:59  WARNING: Thread-6  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 15:17:59  INFO: Thread-7  login decode failed
+2017-06-19 15:17:59  WARNING: Thread-7  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 18:33:09  ERROR: Thread-8  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 77, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 18:33:10  INFO: Thread-9  login decode failed
+2017-06-19 18:33:10  WARNING: Thread-9  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 18:33:10  INFO: Thread-10  login decode failed
+2017-06-19 18:33:10  WARNING: Thread-10  login security check failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 43, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 18:52:32  ERROR: MainThread  what
+2017-06-19 18:52:32  INFO: MainThread  hello  : world
+2017-06-19 20:08:06  ERROR: MainThread  what
+2017-06-19 20:08:06  INFO: MainThread  hello  : world
+2017-06-19 20:08:36  ERROR: MainThread  login security check failed,exception: 219.219.220.109:9997: timed out traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\data.py", line 17, in InitDB
+    cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
+  File "C:\Python27\lib\site-packages\pymongo\database.py", line 1048, in authenticate
+    connect=True)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 500, in _cache_credentials
+    writable_preferred_server_selector)
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 219.219.220.109:9997: timed out
+
+2017-06-19 20:10:48  ERROR: MainThread  login security check failed,exception: 219.219.220.109:9997: timed out traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\data.py", line 17, in InitDB
+    cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
+  File "C:\Python27\lib\site-packages\pymongo\database.py", line 1048, in authenticate
+    connect=True)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 500, in _cache_credentials
+    writable_preferred_server_selector)
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 219.219.220.109:9997: timed out
+
+2017-06-19 20:10:48  ERROR: MainThread  login security check failed,exception: 219.219.220.109:9997: timed out traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\data.py", line 17, in InitDB
+    cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
+  File "C:\Python27\lib\site-packages\pymongo\database.py", line 1048, in authenticate
+    connect=True)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 500, in _cache_credentials
+    writable_preferred_server_selector)
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 219.219.220.109:9997: timed out
+
+2017-06-19 20:11:47  ERROR: MainThread  login security check failed,exception: 219.219.220.109:9997: timed out traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\data.py", line 17, in InitDB
+    cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
+  File "C:\Python27\lib\site-packages\pymongo\database.py", line 1048, in authenticate
+    connect=True)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 500, in _cache_credentials
+    writable_preferred_server_selector)
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 219.219.220.109:9997: timed out
+
+2017-06-19 20:11:47  ERROR: MainThread  login security check failed,exception: 219.219.220.109:9997: timed out traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\data.py", line 17, in InitDB
+    cls.__db.authenticate(configure.DB_USERNAME, configure.DB_USERPASSWORD)
+  File "C:\Python27\lib\site-packages\pymongo\database.py", line 1048, in authenticate
+    connect=True)
+  File "C:\Python27\lib\site-packages\pymongo\mongo_client.py", line 500, in _cache_credentials
+    writable_preferred_server_selector)
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 214, in select_server
+    address))
+  File "C:\Python27\lib\site-packages\pymongo\topology.py", line 189, in select_servers
+    self._error_message(selector))
+ServerSelectionTimeoutError: 219.219.220.109:9997: timed out
+
+2017-06-19 20:25:02  INFO: Thread-1  new user: zero login success
+2017-06-19 20:25:10  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 20:25:40  INFO: Thread-1  new user: zero login success
+2017-06-19 20:26:25  INFO: Thread-1  new user: zero login success
+2017-06-19 20:26:33  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 20:26:36  INFO: Thread-2  new user: zero login success
+2017-06-19 21:03:39  INFO: Thread-1  new user: zero login success
+2017-06-19 21:03:47  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:04:43  INFO: Thread-2  new user: zero login success
+2017-06-19 21:04:50  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-19 21:07:02  INFO: Thread-1  new user: zero login success
+2017-06-19 21:07:11  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:07:31  INFO: Thread-1  new user: zero login success
+2017-06-19 21:07:39  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:08:08  INFO: Thread-1  new user: zero login success
+2017-06-19 21:08:16  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:13:20  INFO: Thread-2  new user: zero login success
+2017-06-19 21:13:27  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-19 21:15:09  INFO: Thread-3  new user: zero login success
+2017-06-19 21:15:16  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:16:25  INFO: Thread-1  new user: zero login success
+2017-06-19 21:16:33  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:17:16  INFO: Thread-1  new user: zero login success
+2017-06-19 21:17:17  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:17:18  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:17:19  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:17:20  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:17:21  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:17:24  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:19:45  INFO: Thread-1  new user: zero login success
+2017-06-19 21:19:53  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:20:25  INFO: Thread-1  new user: zero login success
+2017-06-19 21:20:26  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:20:27  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:20:28  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:20:29  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:20:30  INFO: MainThread  wrong msg parsing 
+2017-06-19 21:20:33  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:21:50  INFO: Thread-1  new user: zero login success
+2017-06-19 21:21:59  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:22:48  INFO: Thread-1  new user: zero login success
+2017-06-19 21:22:49  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:22:52  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:23:15  INFO: Thread-1  new user: zero login success
+2017-06-19 21:23:16  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:23:19  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:25:48  INFO: Thread-1  new user: zero login success
+2017-06-19 21:25:50  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:26:44  INFO: Thread-1  new user: zero login success
+2017-06-19 21:26:45  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:26:48  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:26:51  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:26:52  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:28:34  INFO: Thread-1  new user: zero login success
+2017-06-19 21:28:35  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:28:38  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:29:23  INFO: Thread-1  new user: zero login success
+2017-06-19 21:29:24  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:29:27  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:29:30  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:29:31  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:30:21  INFO: Thread-1  new user: zero login success
+2017-06-19 21:30:23  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:30:26  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:30:29  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:30:30  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:35:52  INFO: Thread-1  new user: zero login success
+2017-06-19 21:35:54  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:35:55  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:35:56  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:35:57  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:35:58  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:36:00  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:38:34  INFO: Thread-1  new user: zero login success
+2017-06-19 21:38:36  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:38:36  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:38:37  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:38:38  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:38:39  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:38:42  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:39:47  INFO: Thread-1  new user: zero login success
+2017-06-19 21:39:48  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:39:51  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:39:54  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:39:55  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:40:24  INFO: Thread-1  new user: zero login success
+2017-06-19 21:40:25  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:40:28  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:40:31  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:40:32  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:41:34  INFO: Thread-1  new user: zero login success
+2017-06-19 21:41:35  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:41:38  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:41:40  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:41:40  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:41:41  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:41:42  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:47:23  INFO: Thread-1  new user: zero login success
+2017-06-19 21:47:25  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:47:28  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:47:31  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:47:32  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:53:32  INFO: Thread-1  new user: zero login success
+2017-06-19 21:53:34  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:53:37  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:53:39  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:53:40  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:56:02  INFO: Thread-1  new user: zero login success
+2017-06-19 21:56:03  ERROR: MainThread  Error: zero msg put into user msgqueue failure
+2017-06-19 21:56:06  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:56:29  INFO: Thread-1  new user: zero login success
+2017-06-19 21:56:30  ERROR: MainThread  Error: zero msg put into user msgqueue failure
+2017-06-19 21:56:33  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:56:45  INFO: Thread-1  new user: zero login success
+2017-06-19 21:56:47  ERROR: MainThread  Error: userinfo cached in server for  failure
+2017-06-19 21:56:50  INFO: Thread-2  Userinfo for  dump into DB
+2017-06-19 21:56:52  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 21:56:53  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-19 21:59:34  INFO: Thread-1  new user: zero login success
+2017-06-19 21:59:36  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:59:37  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:59:37  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:59:39  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:59:40  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 21:59:42  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:00:22  INFO: Thread-1  new user: zero login success
+2017-06-19 22:00:23  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 22:00:24  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 22:00:25  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 22:00:26  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 22:00:27  ERROR: MainThread  Error:  msg put into user msgqueue failure
+2017-06-19 22:00:30  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:01:15  INFO: Thread-1  new user: zero login success
+2017-06-19 22:01:23  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:01:39  INFO: Thread-1  new user: zero login success
+2017-06-19 22:01:48  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:03:36  INFO: Thread-1  new user: zero login success
+2017-06-19 22:03:44  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:06:58  INFO: Thread-1  new user: zero login success
+2017-06-19 22:07:06  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:20:10  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-19 22:20:10  INFO: Thread-3  login decode failed
+2017-06-19 22:20:10  WARNING: Thread-3  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 22:20:10  INFO: Thread-4  login decode failed
+2017-06-19 22:20:10  WARNING: Thread-4  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 22:26:25  INFO: Thread-1  new user: zero login success
+2017-06-19 22:26:33  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:26:52  INFO: Thread-1  new user: zero login success
+2017-06-19 22:27:00  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:27:25  INFO: Thread-1  new user: zero login success
+2017-06-19 22:27:33  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 22:57:34  INFO: Thread-1  new user: zero login success
+2017-06-19 23:02:48  INFO: Thread-1  new user: zero login success
+2017-06-19 23:02:56  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:03:29  INFO: Thread-2  new user: zero login success
+2017-06-19 23:03:36  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-19 23:03:53  INFO: Thread-1  new user: zero login success
+2017-06-19 23:04:01  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:04:24  INFO: Thread-1  new user: zero login success
+2017-06-19 23:04:32  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:06:04  INFO: Thread-1  new user: zero login success
+2017-06-19 23:06:12  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:07:31  INFO: Thread-1  new user: zero login success
+2017-06-19 23:07:39  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:08:20  INFO: Thread-1  new user: zero login success
+2017-06-19 23:08:29  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:14:05  INFO: Thread-2  login decode failed
+2017-06-19 23:14:05  WARNING: Thread-2  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 23:15:18  INFO: Thread-1  new user: zero login success
+2017-06-19 23:15:26  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:16:31  INFO: Thread-1  new user: zero login success
+2017-06-19 23:16:39  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:17:31  INFO: Thread-1  new user: zero login success
+2017-06-19 23:17:39  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-19 23:54:05  INFO: Thread-2  login decode failed
+2017-06-19 23:54:05  WARNING: Thread-2  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-19 23:58:05  INFO: Thread-1  new user: zero login success
+2017-06-19 23:58:09  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:00:42  INFO: Thread-2  new user: zero login success
+2017-06-20 00:00:45  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:00:51  INFO: Thread-1  new user: zero login success
+2017-06-20 00:00:55  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:02:03  INFO: Thread-1  new user: zero login success
+2017-06-20 00:02:08  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:02:34  INFO: Thread-1  new user: zero login success
+2017-06-20 00:02:38  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:02:55  INFO: Thread-1  new user: zero login success
+2017-06-20 00:02:59  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:03:25  INFO: Thread-1  new user: zero login success
+2017-06-20 00:03:29  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:04:06  INFO: Thread-1  new user: zero login success
+2017-06-20 00:04:10  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:04:34  INFO: Thread-1  new user: zero login success
+2017-06-20 00:04:38  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:05:39  INFO: Thread-1  new user: zero login success
+2017-06-20 00:07:06  INFO: Thread-1  new user: zero login success
+2017-06-20 00:07:40  INFO: Thread-1  new user: zero login success
+2017-06-20 00:08:05  INFO: Thread-1  new user: zero login success
+2017-06-20 00:08:09  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:09:08  INFO: Thread-1  new user: zero login success
+2017-06-20 00:09:12  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:13:58  INFO: Thread-1  new user: zero login success
+2017-06-20 00:14:02  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:14:46  INFO: Thread-1  new user: zero login success
+2017-06-20 00:14:55  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:18:15  INFO: Thread-2  new user: zero login success
+2017-06-20 00:19:16  INFO: Thread-1  new user: zero login success
+2017-06-20 00:19:38  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:20:00  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:20:53  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:23:52  INFO: Thread-1  new user: zero login success
+2017-06-20 00:24:19  INFO: Thread-1  new user: zero login success
+2017-06-20 00:24:32  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:24:57  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:25:19  INFO: Thread-1  new user: zero login success
+2017-06-20 00:25:24  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:25:46  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-20 00:26:54  INFO: Thread-2  new user: zero login success
+2017-06-20 00:27:04  INFO: Thread-4  Userinfo for zero dump into DB
+2017-06-20 00:29:21  INFO: Thread-3  new user: zero login success
+2017-06-20 00:29:24  INFO: Thread-5  Userinfo for zero dump into DB
+2017-06-20 00:30:00  INFO: Thread-6  Userinfo for zero dump into DB
+2017-06-20 00:30:58  INFO: Thread-6  Userinfo for zero dump into DB
+2017-06-20 00:31:06  INFO: Thread-4  new user: zero login success
+2017-06-20 00:31:40  INFO: Thread-7  Userinfo for zero dump into DB
+2017-06-20 00:33:20  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:33:26  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:33:30  INFO: Thread-1  new user: zero login success
+2017-06-20 00:34:18  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:35:54  INFO: Thread-1  new user: zero login success
+2017-06-20 00:36:18  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:36:23  INFO: Thread-2  new user: zero login success
+2017-06-20 00:36:40  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:37:26  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:37:35  INFO: Thread-1  new user: zero login success
+2017-06-20 00:37:58  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:38:01  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-20 00:38:54  INFO: Thread-1  new user: zero login success
+2017-06-20 00:39:12  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:39:20  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:39:43  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-20 00:42:31  INFO: Thread-2  new user: zero login success
+2017-06-20 00:42:43  INFO: Thread-4  Userinfo for zero dump into DB
+2017-06-20 00:43:00  INFO: Thread-1  new user: zero login success
+2017-06-20 00:43:14  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:43:43  INFO: Thread-2  new user: zero login success
+2017-06-20 00:43:47  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:44:04  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-20 00:45:08  INFO: Thread-1  new user: zero login success
+2017-06-20 00:45:18  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:48:17  INFO: Thread-2  new user: zero login success
+2017-06-20 00:48:42  INFO: Thread-3  new user: zero login success
+2017-06-20 00:48:53  INFO: Thread-1  new user: zero login success
+2017-06-20 00:48:57  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:49:33  INFO: Thread-2  new user: zero login success
+2017-06-20 00:49:36  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 00:51:09  INFO: Thread-3  new user: zero login success
+2017-06-20 00:51:40  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-20 00:52:35  INFO: Thread-3  Userinfo for zero dump into DB
+2017-06-20 00:54:58  INFO: Thread-1  new user: zero login success
+2017-06-20 00:55:20  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:56:00  INFO: Thread-1  new user: zero login success
+2017-06-20 00:56:08  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:58:09  INFO: Thread-1  new user: zero login success
+2017-06-20 00:59:11  INFO: Thread-1  new user: zero login success
+2017-06-20 00:59:19  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 00:59:48  INFO: Thread-1  new user: zero login success
+2017-06-20 00:59:56  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 01:00:13  INFO: Thread-2  new user: zero login success
+2017-06-20 01:00:45  INFO: Thread-2  Userinfo for zero dump into DB

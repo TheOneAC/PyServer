@@ -76,9 +76,10 @@ def Login():
 def Actionmsg(token):
     monsterID = "monster100"
     action = {
-        u"operate" : u"move",
+        u"operate" : u"init_monster_position",
         u"para1": u'',
-        u"para2": u""
+        u"para2": u"",
+        u"sync": u""
     }
     username = token.split(' ')[0]
     loginTime = token.rsplit(' ')[-1]

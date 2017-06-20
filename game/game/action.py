@@ -8,9 +8,10 @@ from security import SecurityTools as SecTools
 from log import LoggerTools as Log
 from data import DataDriver
 from user import User
-from configure import *
+
 import  Queue
 import time
+import configure
 
 class Action(object):
     """负责接受用户的行为信息，用udp"""
@@ -19,12 +20,11 @@ class Action(object):
         pass
 
     def ActionMsgDispatcher(self, msg, socket, client_address):
-        assert msg[u'name'] != u'' and msg[u'action'] != u''  "blank Action"
+        #assert msg[u'name'] != u''  "blank Action"
         try:
             #print msg
             token = msg[u'name']
             #token = SecTools.AESDecrypt(token)
-            action = msg[u'action']
         except:
             Log.info("wrong msg parsing ")
         try:
@@ -36,7 +36,20 @@ class Action(object):
         except:
             Log.error("Error: userinfo delete failure")
 
-        if token not in self.__users.keys():
+        action = msg.get(u'action')
+
+        if not action and client_address == (configure.MOSTER_HOST, configure.MONSTER_PORT):
+            monsteraction = msg[u'monsteraction']
+            print "hello"
+            msg = {'monsteraction': monsteraction, 'socket': socket}
+            if token == "":
+                for user in self.__users.values():
+                    user.AddMonsterMsg(msg)
+            else:
+                user = self.__users.get(token)
+                user.AddMonsterMsg(msg)
+            return
+        if not self.__users.get(token, None):
             try:
                 user = User()
                 user.Init(token, client_address, self.AddLogoutUser)
@@ -46,6 +59,7 @@ class Action(object):
         try:
             loginTime = self.__users.get(token).login_time
             if loginTime:
+                action = msg.get(u'action')
                 tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
                 if base64.b64encode(SecTools.EnHash(tomd5.encode("utf-8"))) ==  msg[u'md5']:
                     user = self.__users.get(token)
@@ -80,5 +94,5 @@ class Action(object):
         DataDriver.InitDB()
         self.__users = {} #token为key，user为value，user里面存队列
         self.__logout_user = Queue.Queue()
-        actionServer = SocketServer.UDPServer((ACTION_HOST, ACTION_PORT), self.ActionHandler(self.ActionMsgDispatcher))
+        actionServer = SocketServer.UDPServer((configure.ACTION_HOST, configure.ACTION_PORT), self.ActionHandler(self.ActionMsgDispatcher))
         actionServer.serve_forever()
