@@ -5,11 +5,12 @@ import random
 import time
 import user
 import math
-import monster
-from configure import *
+from monster import *
+import configure as config
 import socket
 import json
 import threading
+from Queue import Queue
 
 '''
 json格式:
@@ -25,23 +26,23 @@ para2 : y / attack_value
 }
 
 '''
+class UserInfo(object):
+    def __init__(self):
+        self.name = ""
+        self.position = (-1,-1)
+
+
 #TODO 消息的交互
 class AIController(object):
+    def __init__(self):
+        pass
 
-    def __init__(self,monsters=[],users=[],simple_monsters=[]):
-
-        self.__monster_list = monsters
-        self.__user_list = users
-        self.__simple_monster = simple_monsters
-        self.ratio = 0.5
-
-
-
-    def control(self):
+    def Control(self):
         print 'begin'
 
         while True:
-
+            if not self.__msg_queue.empty():
+                pass
             for item in self.__monster_list:
                 if item.state == monster.MONSTER_STATE.RANDER:
                     run_function = self.rander(item)
@@ -52,11 +53,8 @@ class AIController(object):
                         run_function.send(random.uniform(0, 0.5))
 
                     except StopIteration:
-                            print 'stop itertation'
-                            continue
-
-
-
+                        print 'stop itertation'
+                        continue
                 elif item.state == monster.MONSTER_STATE.FOLLOW:
                     print('follow')
                     run_function = self.follow(item)
@@ -75,7 +73,7 @@ class AIController(object):
 
 
     # 漫走
-    def rander(self,monster_item):
+    def Wander(self,monster_item):
 
         print('rander')
 
@@ -104,7 +102,7 @@ class AIController(object):
 
 
     # 追随
-    def follow(self,monster_item):
+    def Follow(self,monster_item):
         print('follow')
         flag=False
         if self.__user_list is not None:
@@ -136,7 +134,7 @@ class AIController(object):
 
 
     # 攻击
-    def attack(self,monster_item,user_item):
+    def Attack(self, monster_item, user_item):
         print('attack')
 
         user_item.blood_value = user_item.blood_value-(monster_item.attack_value - user_item.defense_value)
@@ -159,7 +157,7 @@ class AIController(object):
 
         return False
 
-    def can_follow(self,monster_item,user_item):
+    def __CanFollow(self, monster_item, user_item):
         monster_position = list(monster_item.position)
         user_position = list(user_item.position)
 
@@ -171,21 +169,18 @@ class AIController(object):
 
         return False
 
-    def death(self,monster_item):
+    def Death(self,monster_item):
         print 'monster_id',monster_item.id, "death"
 
-    def createMonster(self):
+    def InitMonster(self):
         for i in range(100):
-            mon = monster.Monster(id=i+1,position=(random.randint(0,500), random.randint(0,500) ) )
-            simple_mon = monster.SimpleMonster(mon.id , mon.position)
+            mon = Monster(id=i+1,position=(random.randint(0,500), random.randint(0,500) ) )
             self.__monster_list.append(mon)
-            self.__simple_monster.append(simple_mon)
-            #print simple_mon
-            #print type(simple_mon)
 
 
-    def UpdateUdpMessage(self,msg,socket,client_address):
-
+    def UpdateUdpMessage(self, msg, socket, client_address):
+        self.__client_address = client_address #保存action server的地址
+        self.__socket = socket
         user_action = msg[u"action"][u"operate"]
         if user_action == "move":
             pass
@@ -194,7 +189,7 @@ class AIController(object):
         elif user_action == "init_monster_position":
             #response = {u"name":msg[u"name"],u"monsteraction":[]}
             monsterinfo = []
-            for monster in self.__simple_monster:
+            for monster in self.__monster_list:
                 one_monster = {}
                 one_monster[u"monsterid"]=monster.id
                 one_monster[u"x"] = monster.position[0]
@@ -205,55 +200,31 @@ class AIController(object):
             print len(monsterinfo)
             #print json.dumps(response)
             socket.sendto(json.dumps(response), client_address)
-            pass
-
-        #socket.sendto(json.dumps(msg), self.client_address)
 
 
 
-    def UpdateHandler(self,UpdateUdpMessage):
+    def UpdateHandler(self, UpdateUdpMessage):
         class MyUpdateHandler(SocketServer.BaseRequestHandler):
             def handle(self):
                 data = self.request[0].strip()
                 socket = self.request[1]
-                print "{} wrote:".format(self.client_address[0])
-                print data
-
                 user_msg = json.loads(data)
-                UpdateUdpMessage(user_msg,socket,self.client_address)
-
-
-
+                UpdateUdpMessage(user_msg, socket, self.client_address)
         return MyUpdateHandler
 
-    def UpdateServer(self):
-
-        return SocketServer.UDPServer((MONSTER_HOST, MONSTER_PORT), self.UpdateHandler(self.UpdateUdpMessage))
-
-
-    #client test
-    def client(self,ip, port, message):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.sendto(message + "\n", (MONSTER_HOST, MONSTER_PORT))
-        received = sock.recv(1024)
-
-        print "Sent:     {}".format(message)
-        print "Received: {}".format(received)
-
-if __name__ == "__main__":
-
-    '''
-    monster_list=[monster.Monster(),monster.Monster()]
-
-    controller.control()
-    '''
-    controller = AIController()
-    server = controller.UpdateServer()
-    controller.createMonster()
-    controller.createMonster()
-    print 'monster'
-    server.serve_forever()
-    print 'monster'
+    def StartAIServer(self):
+        self.__boss = Monster(id = 0, blood_value = config.BOSS_HP, monster_type = MONSTER_TYPE.BOSS, position = (20,20), state = MONSTER_STATE.WANDER, attack_value = 1000, defense_value = 1000)
+        self.__monster_list = []
+        self.__user_list = [] #UserInfo
+        self.__msg_queue = Queue()
+        self.ratio = 0.5
+        self.InitMonster()
+        return SocketServer.UDPServer((config.MONSTER_HOST, config.MONSTER_PORT), self.UpdateHandler(self.UpdateUdpMessage))
 
 
-
+    def StartAI(self):
+        server = self.StartAIServer()
+        server.serve_forever()
+        processer = threading.Thread(target = self.Control, args = ())
+        #userthread.setDaemon(True)
+        userthread.start()

@@ -2508,3 +2508,26 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 2017-06-20 00:59:56  INFO: Thread-1  Userinfo for zero dump into DB
 2017-06-20 01:00:13  INFO: Thread-2  new user: zero login success
 2017-06-20 01:00:45  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 13:49:59  INFO: Thread-1  new user: zero login success
+2017-06-20 13:51:56  INFO: Thread-1  new user: zero login success
+2017-06-20 13:52:04  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 13:55:05  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 13:55:11  INFO: Thread-1  new user: zero login success
+2017-06-20 13:55:21  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 14:03:53  INFO: Thread-1  new user: zero login success
+2017-06-20 14:05:00  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 14:05:34  INFO: Thread-1  Userinfo for zero dump into DB
+2017-06-20 14:07:23  ERROR: Thread-2  login response failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "D:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 14:07:48  ERROR: Thread-3  login response failed, traceback: Traceback (most recent call last):
+  File "K:\后台\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "D:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
