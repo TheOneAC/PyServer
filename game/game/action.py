@@ -38,7 +38,7 @@ class Action(object):
 
         action = msg.get(u'action')
 
-        if not action and client_address == (configure.MOSTER_HOST, configure.MONSTER_PORT):
+        if not action and client_address == (configure.MONSTER_HOST, configure.MONSTER_PORT):
             monsteraction = msg[u'monsteraction']
             print "hello"
             msg = {'monsteraction': monsteraction, 'socket': socket}

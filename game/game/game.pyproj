@@ -27,6 +27,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="aes.py" />
+    <Compile Include="aicontroller.py" />
     <Compile Include="client.py" />
     <Compile Include="configure.py" />
     <Compile Include="data.py">

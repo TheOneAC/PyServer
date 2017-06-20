@@ -2,7 +2,6 @@
 # -*- coding: UTF-8 -*-
 import random
 import time
-import user
 import math
 
 
@@ -10,25 +9,30 @@ def enum(**enums):
     return type('Enum', (object,), enums)
 
 
-MONSTER_STATE = enum(RANDER=1, FOLLOW=2, DEATH=3)
+MONSTER_STATE = enum(WANDER=1, FOLLOW=2, DEATH=3)
+MONSTER_TYPE = enum(BOSS=1, COMMON=2)
 
 
 class Monster(object):
     """怪,属性包括血量,位置等
     控制怪的行为：追踪，攻击，随机移动等"""
 
-
-
-    def __init__(self, id=1, blood_value=100000, position=(1, 2),
-                 state=MONSTER_STATE.RANDER, attack_value=100, defense_value=10, user_value=None):
+    def __init__(self, id=1, blood_value=100000, monster_type=MONSTER_TYPE.COMMON
+                 , position=(1, 2), state=MONSTER_STATE.WANDER, attack_value=100, defense_value=100):
         super(Monster, self).__init__()
         self.__id = id
+        self.__monster_type = monster_type
         self.__blood_value = blood_value
         self.__position = position
         self.__state = state
         self.__attack_value = attack_value
         self.__defense_value = defense_value
-        self.__user = user_value
+
+
+
+    def get_blood_by_tpye(self,monster_type):
+        pass
+
 
     @property
     def id(self):
@@ -97,22 +101,24 @@ class Monster(object):
 
 
     @property
-    def user_value(self):
-        return self.__user
+    def monster_type(self):
+        return self.__monster_type
+    @defense_value.setter
+    def monster_type(self, value):
+        self.__monster_type = value
+    @monster_type.deleter
+    def monster_type(self):
+        del self.__monster_type
 
-    @user_value.setter
-    def user_value(self, value):
-        self.__user = value
 
-    @user_value.deleter
-    def user_value(self):
-        del self.__user
+
+
 
     # 打印所有属性
     def __str__(self):
         list = {}
         list.setdefault('id', self.__id)
-        list.setdefault('blood', self.__blood)
+        list.setdefault('blood_value', self.__blood_value)
         list.setdefault('position', self.__position)
         list.setdefault('state', self.__state)
         list.setdefault('attack_value', self.__attack_value)
