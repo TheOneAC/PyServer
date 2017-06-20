@@ -9,55 +9,16 @@ def enum(**enums):
     return type('Enum', (object,), enums)
 
 
-MONSTER_STATE = enum(RANDER=1, FOLLOW=2, DEATH=3)
+MONSTER_STATE = enum(WANDER=1, FOLLOW=2, DEATH=3)
 MONSTER_TYPE = enum(BOSS=1, COMMON=2)
-
-
-class SimpleMonster(object):
-    def __init__(self,id=1,position=(1,2)):
-        super(SimpleMonster, self).__init__()
-        self.__id = id
-        self.__position = position
-
-    @property
-    def id(self):
-        return self.__id
-    @id.setter
-    def id(self, value):
-        self.__id = value
-    @id.deleter
-    def id(self):
-        del self.__id
-
-
-    @property
-    def position(self):
-        return self.__position
-    @position.setter
-    def position(self, value):
-        self.__position = value
-    @position.deleter
-    def position(self):
-        del self.__position
-
-
-    def __str__(self):
-        list = {}
-        list.setdefault('id', self.__id)
-        list.setdefault('position', self.__position)
-
-        return str(list)
-
 
 
 class Monster(object):
     """怪,属性包括血量,位置等
     控制怪的行为：追踪，攻击，随机移动等"""
 
-
-
     def __init__(self, id=1, blood_value=100000, monster_type=MONSTER_TYPE.COMMON
-                 , position=(1, 2), state=MONSTER_STATE.RANDER, attack_value=100, defense_value=10):
+                 , position=(1, 2), state=MONSTER_STATE.WANDER, attack_value=100, defense_value=100):
         super(Monster, self).__init__()
         self.__id = id
         self.__monster_type = monster_type
@@ -136,6 +97,18 @@ class Monster(object):
     @defense_value.deleter
     def defense_value(self):
         del self.__defense_value
+
+
+
+    @property
+    def monster_type(self):
+        return self.__monster_type
+    @defense_value.setter
+    def monster_type(self, value):
+        self.__monster_type = value
+    @monster_type.deleter
+    def monster_type(self):
+        del self.__monster_type
 
 
 

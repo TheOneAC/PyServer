@@ -138,7 +138,7 @@ class User:
             #del action[u'sync']
             socket.sendto(json.dumps(action) , client_address)
             msg = {u'name': self.__name, u'action': action}
-            self.__socket.sendto(json.dumps(msg), (configure.MOSTER_HOST, configure.MONSTER_PORT))
+            self.__socket.sendto(json.dumps(msg), (configure.MONSTER_HOST, configure.MONSTER_PORT))
         elif action[u'operate'] == "add_item": #增加物品
             item_id = action[u'para1']
             if item_id in self.__items.keys():
@@ -185,7 +185,7 @@ class User:
             socket.sendto(json.dumps(action), client_address)
         elif action[u'operate'] == "init_monster_position":# 获取怪物位置
             msg = {u'name': self.__name, u'action': action}
-            self.__socket.sendto(json.dumps(msg), (configure.MOSTER_HOST, configure.MONSTER_PORT))
+            self.__socket.sendto(json.dumps(msg), (configure.MONSTER_HOST, configure.MONSTER_PORT))
 
 
     def ProcessMosterAction(self, msg, client_address):
