@@ -44,8 +44,8 @@ class AIController(object):
             if not self.__msg_queue.empty():
                 pass
             for item in self.__monster_list:
-                if item.state == monster.MONSTER_STATE.RANDER:
-                    run_function = self.rander(item)
+                if item.state == MONSTER_STATE.RANDER:
+                    run_function = self.Wander(item)
                     next(run_function)
 
                     print 'monster_id:',item.id,'position:',item.position
@@ -55,9 +55,9 @@ class AIController(object):
                     except StopIteration:
                         print 'stop itertation'
                         continue
-                elif item.state == monster.MONSTER_STATE.FOLLOW:
+                elif item.state == MONSTER_STATE.FOLLOW:
                     print('follow')
-                    run_function = self.follow(item)
+                    run_function = self.Follow(item)
                     next(run_function)
                     try:
                         run_function.send(random.uniform(0, 0.5))
@@ -65,8 +65,8 @@ class AIController(object):
                     except StopIteration:
                         print 'follow stop iteration'
                         continue
-                elif item.state == monster.MONSTER_STATE.DEATH:
-                    self.death(item)
+                elif item.state == MONSTER_STATE.DEATH:
+                    self.Death(item)
                     self.__monster_list.remove(item)
 
 
@@ -91,8 +91,8 @@ class AIController(object):
 
         if self.__user_list is not None:
             for user_item in self.__user_list:
-                if self.can_follow(monster_item,user_item):
-                    monster_item.state =monster.MONSTER_STATE.FOLLOW
+                if self.__CanFollow(monster_item,user_item):
+                    monster_item.state = MONSTER_STATE.FOLLOW
                     break
         sleep_cnt = yield monster_item.position
         print('let me think {0} secs'.format(sleep_cnt))
@@ -104,25 +104,25 @@ class AIController(object):
     # 追随
     def Follow(self,monster_item):
         print('follow')
-        flag=False
+        flag = False
         if self.__user_list is not None:
              for user_item in self.__user_list:
-                 if self.can_follow(monster_item,user_item):
+                 if self.__CanFollow(monster_item,user_item):
                     flag=True
                     monster_position = list(monster_item.position)
                     user_position = list(user_item.position)
-                    monster_position[0]+=(user_position[0]-monster_position[0])*self.ratio
-                    monster_position[1]+=(user_position[1]-monster_position[1])*self.ratio
+                    monster_position[0] += (user_position[0]-monster_position[0])*self.ratio
+                    monster_position[1] += (user_position[1]-monster_position[1])*self.ratio
                     monster_item.position = tuple(monster_position)
                     break
         if not flag:
-           monster_item.state=monster.MONSTER_STATE.WALK
+           monster_item.state= MONSTER_STATE.WALK
 
 
         if self.__user_list is not None:
             for user_item in self.__user_list:
-                if self.can_attack(monster_item,user_item):
-                    self.attack(monster_item,user_item)
+                if self.__CanAttack(monster_item,user_item):
+                    self.Attack(monster_item,user_item)
                     break
 
         sleep_cnt = yield monster_item.position
@@ -141,11 +141,11 @@ class AIController(object):
         monster_item.blood_value = monster_item.blood_value -(user_item.attack_value - monster_item.defense_value)
         print 'monster_Id',monster_item.id,"blood:",monster_item.blood_value
         if monster_item.blood_value <= 0:
-            monster_item.state = monster.MONSTER_STATE.DEATH
+            monster_item.state = MONSTER_STATE.DEATH
 
         return
 
-    def can_attack(self,monster_item,user_item):
+    def __CanAttack(self, monster_item, user_item):
         monster_position = list(monster_item.position)
         user_position = list(user_item.position)
 
@@ -173,14 +173,22 @@ class AIController(object):
         print 'monster_id',monster_item.id, "death"
 
     def InitMonster(self):
-        for i in range(100):
-            mon = Monster(id=i+1,position=(random.randint(0,500), random.randint(0,500) ) )
+        random.seed(time.time())
+        for i in range(99):
+            mon = Monster(id=i+1,position=(random.randint(0,2147483647) % 500, random.randint(0,2147483647) % 500) )
             self.__monster_list.append(mon)
+        self.__monster_list.append(self.__boss)
+
+
+
 
 
     def UpdateUdpMessage(self, msg, socket, client_address):
-        self.__client_address = client_address #保存action server的地址
+        #保存action server的地址
+        self.__client_address = client_address
         self.__socket = socket
+
+        msg = json.loads(msg)
         user_action = msg[u"action"][u"operate"]
         if user_action == "move":
             pass
@@ -188,16 +196,18 @@ class AIController(object):
             pass
         elif user_action == "init_monster_position":
             #response = {u"name":msg[u"name"],u"monsteraction":[]}
-            monsterinfo = []
-            for monster in self.__monster_list:
-                one_monster = {}
-                one_monster[u"monsterid"]=monster.id
-                one_monster[u"x"] = monster.position[0]
-                one_monster[u"y"] = monster.position[1]
-                monsterinfo.append(one_monster)
-            response = {u"name":msg[u"name"],u"monsteraction":monsterinfo}
+            monsterInfo = []
+            for info in self.__monster_list:
+                simple_mon = {}
+                simple_mon[u"monsterid"] = info.id
+                simple_mon[u"x"] = info.position[0]
+                simple_mon[u"y"] = info.position[1]
+                print("x,y:", info.position[0],info.position[1])
+                monsterInfo.append(simple_mon)
+
+            response = {u"name":msg[u"name"],u"monsteraction":monsterInfo}
             print client_address
-            print len(monsterinfo)
+            print len(monsterInfo)
             #print json.dumps(response)
             socket.sendto(json.dumps(response), client_address)
 
@@ -208,8 +218,7 @@ class AIController(object):
             def handle(self):
                 data = self.request[0].strip()
                 socket = self.request[1]
-                user_msg = json.loads(data)
-                UpdateUdpMessage(user_msg, socket, self.client_address)
+                UpdateUdpMessage(data, socket, self.client_address)
         return MyUpdateHandler
 
     def StartAIServer(self):
@@ -225,6 +234,12 @@ class AIController(object):
     def StartAI(self):
         server = self.StartAIServer()
         server.serve_forever()
-        processer = threading.Thread(target = self.Control, args = ())
+        #processer = threading.Thread(target = self.Control, args = ())
         #userthread.setDaemon(True)
-        userthread.start()
+        #processer.start()
+
+
+if __name__ == "__main__":
+
+    controller = AIController()
+    controller.StartAI()

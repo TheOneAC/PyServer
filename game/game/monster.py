@@ -100,6 +100,18 @@ class Monster(object):
 
 
 
+    @property
+    def monster_type(self):
+        return self.__monster_type
+    @defense_value.setter
+    def monster_type(self, value):
+        self.__monster_type = value
+    @monster_type.deleter
+    def monster_type(self):
+        del self.__monster_type
+
+
+
 
 
     # 打印所有属性
