@@ -32,9 +32,23 @@ class AIController(object):
 
         self.__monster_list = monsters
         self.__user_list = users
-        self.__simple_monster = simple_monsters
+        self.__simple_monsters = simple_monsters
         self.ratio = 0.5
 
+    def createMonster(self):
+        for i in range(99):
+            mon = monster.Monster(id=i+1, position=(random.randint(0,500), random.randint(0,500) ) )
+            one_monster = {}
+            one_monster[u"monsterid"] = mon.id
+            one_monster[u"x"] = mon.position[0]
+            one_monster[u"y"] = mon.position[1]
+            self.__monster_list.append(mon)
+            self.__simple_monsters.append(one_monster)
+            #print simple_mon
+            #print type(simple_mon)
+        boss = monster.Monster(id=100, monster_type=monster.MONSTER_TYPE.BOSS,
+                               position=(random.randint(0, 500), random.randint(0, 500)))
+        self.__simple_monsters.append(boss)
 
 
     def control(self):
@@ -174,14 +188,7 @@ class AIController(object):
     def death(self,monster_item):
         print 'monster_id',monster_item.id, "death"
 
-    def createMonster(self):
-        for i in range(100):
-            mon = monster.Monster(id=i+1,position=(random.randint(0,500), random.randint(0,500) ) )
-            simple_mon = monster.SimpleMonster(mon.id , mon.position)
-            self.__monster_list.append(mon)
-            self.__simple_monster.append(simple_mon)
-            #print simple_mon
-            #print type(simple_mon)
+
 
 
     def UpdateUdpMessage(self,msg,socket,client_address):
@@ -192,17 +199,10 @@ class AIController(object):
         elif user_action == "hit":
             pass
         elif user_action == "init_monster_position":
-            #response = {u"name":msg[u"name"],u"monsteraction":[]}
-            monsterinfo = []
-            for monster in self.__simple_monster:
-                one_monster = {}
-                one_monster[u"monsterid"]=monster.id
-                one_monster[u"x"] = monster.position[0]
-                one_monster[u"y"] = monster.position[1]
-                monsterinfo.append(one_monster)
-            response = {u"name":msg[u"name"],u"monsteraction":monsterinfo}
+
+            response = {u"name":msg[u"name"],u"monsteraction":self.__simple_monsters}
             print client_address
-            print len(monsterinfo)
+            print len(self.__simple_monsters)
             #print json.dumps(response)
             socket.sendto(json.dumps(response), client_address)
             pass
@@ -235,7 +235,7 @@ class AIController(object):
     def client(self,ip, port, message):
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         sock.sendto(message + "\n", (MONSTER_HOST, MONSTER_PORT))
-        received = sock.recv(1024)
+        received = sock.recv(65535)
 
         print "Sent:     {}".format(message)
         print "Received: {}".format(received)
