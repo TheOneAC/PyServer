@@ -37,10 +37,10 @@ class Action(object):
             Log.error("Error: userinfo delete failure")
 
         action = msg.get(u'action')
-
+        #print action
         if not action and client_address == (configure.MONSTER_HOST, configure.MONSTER_PORT):
             monsteraction = msg[u'monsteraction']
-            print "hello"
+            #print "hello"
             msg = {'monsteraction': monsteraction, 'socket': socket}
             if token == "":
                 for user in self.__users.values():

@@ -182,20 +182,35 @@ class User:
                 self.__missions[mission_id] = 1;
             socket.sendto("True", client_address)
         elif action[u'operate'] == "init_hp":  # 获取初始血量
+            #socket.sendto(json.dumps(action), client_address)
+            action[u'para1'] = str(configure.MONSTER_HP)
+            action[u'para2'] = str(configure.BOSS_HP)
             socket.sendto(json.dumps(action), client_address)
+
         elif action[u'operate'] == "init_monster_position":# 获取怪物位置
+            msg = {u'name': self.__name, u'action': action}
+            self.__socket.sendto(json.dumps(msg), (configure.MONSTER_HOST, configure.MONSTER_PORT))
+        elif action[u'operate'] == "hit":# 打怪
             msg = {u'name': self.__name, u'action': action}
             self.__socket.sendto(json.dumps(msg), (configure.MONSTER_HOST, configure.MONSTER_PORT))
 
 
+
     def ProcessMosterAction(self, msg, client_address):
-        print msg[u"monsteraction"]
+        monsteraction =  msg[u"monsteraction"]
         socket = msg[u'socket']
-        for mon_position in msg[u"monsteraction"]:
-            x = mon_position.get(u'x')
-            y = mon_position.get(u'y')
-            msg = {u'operate': "monster_position",u'para1':mon_position.get(u'monsterid'),u'para2':str(x) + ' ' + str(y)}
-            socket.sendto(json.dumps(msg),self.__client_address )
+        if monsteraction[u'operate'] == "monsterinfo":
+            monsterlist = monsteraction[u'para1']
+            for mon_position in monsterlist:
+                x = mon_position.get(u'x')
+                y = mon_position.get(u'y')
+                msg = {u'operate': "monster_position",u'para1':mon_position.get(u'monsterid'),u'para2':str(x) + ' ' + str(y)}
+                socket.sendto(json.dumps(msg),self.__client_address )
+        elif monsteraction[u'operate'] == "monster_blood":
+            socket.sendto(json.dumps(monsteraction), self.__client_address)
+        elif monsteraction[u'operate'] == "monster_hit":
+            socket.sendto(json.dumps(monsteraction), self.__client_address)
+
 
     #读取自己的msg，并处理，同时负责定时存储
     def StartUser(self, token, AddLogoutUser):
@@ -203,11 +218,13 @@ class User:
         while True:
             if not self.__monster_queue.empty():
                 msg = self.__monster_queue.get()
+                print "one moster msg"
                 self.ProcessMosterAction(msg, self.__client_address)
 
             if time.time() % configure.DUMP_TIME_INTERVAL == 0:
                 self.DumpUserInfo(token)
             if not self.__queue.empty():
+                print "one user msg"
                 msg = self.__queue.get()
                 lasttime = time.time()
                 socket = msg[u'socket']

@@ -76,14 +76,14 @@ def Login():
 def Actionmsg(token):
     monsterID = "monster100"
     action = {
-        u"operate" : u"init_monster_position",
-        u"para1": u'',
-        u"para2": u"",
+        u"operate" : 'hit',
+        u"para1": "3",
+        u"para2": "300",
         u"sync": u""
     }
     username = token.split(' ')[0]
     loginTime = token.rsplit(' ')[-1]
-    #print username
+    print type(loginTime)
     sec = SecurityTools()
     #AESToken = sec.AESEncrypt(token)
     tomd5 = action[u"operate"] + action[u'para1'] + action[u'para2'] + loginTime
