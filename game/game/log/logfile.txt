@@ -2508,3 +2508,165 @@ UnboundLocalError: local variable 'decode_message' referenced before assignment
 2017-06-20 00:59:56  INFO: Thread-1  Userinfo for zero dump into DB
 2017-06-20 01:00:13  INFO: Thread-2  new user: zero login success
 2017-06-20 01:00:45  INFO: Thread-2  Userinfo for zero dump into DB
+2017-06-20 02:23:48  ERROR: Thread-1  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 02:23:48  INFO: Thread-2  login decode failed
+2017-06-20 02:23:48  WARNING: Thread-2  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 02:23:48  INFO: Thread-3  login decode failed
+2017-06-20 02:23:48  WARNING: Thread-3  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 03:57:33  INFO: Thread-4  login decode failed
+2017-06-20 03:57:33  WARNING: Thread-4  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 05:24:41  INFO: Thread-5  login decode failed
+2017-06-20 05:24:41  WARNING: Thread-5  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 06:25:06  ERROR: Thread-6  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 06:25:06  INFO: Thread-7  login decode failed
+2017-06-20 06:25:06  WARNING: Thread-7  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 06:25:06  INFO: Thread-8  login decode failed
+2017-06-20 06:25:06  WARNING: Thread-8  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 06:25:14  INFO: Thread-9  login decode failed
+2017-06-20 06:25:14  WARNING: Thread-9  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 08:17:23  INFO: Thread-10  login decode failed
+2017-06-20 08:17:23  WARNING: Thread-10  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 09:23:01  INFO: Thread-11  login decode failed
+2017-06-20 09:23:01  WARNING: Thread-11  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 09:24:16  INFO: Thread-12  login decode failed
+2017-06-20 09:24:16  WARNING: Thread-12  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 10:27:13  INFO: Thread-13  login decode failed
+2017-06-20 10:27:13  WARNING: Thread-13  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 10:27:13  INFO: Thread-14  login decode failed
+2017-06-20 10:27:13  WARNING: Thread-14  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 14:07:32  ERROR: Thread-15  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 14:08:00  ERROR: Thread-16  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 14:08:00  INFO: Thread-17  login decode failed
+2017-06-20 14:08:00  WARNING: Thread-17  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 14:08:00  INFO: Thread-18  login decode failed
+2017-06-20 14:08:00  WARNING: Thread-18  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 14:30:30  ERROR: Thread-19  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 14:30:31  INFO: Thread-20  login decode failed
+2017-06-20 14:30:31  WARNING: Thread-20  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 14:30:31  INFO: Thread-21  login decode failed
+2017-06-20 14:30:31  WARNING: Thread-21  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 14:35:44  ERROR: Thread-22  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 71, in handle
+    raise Exception("client is off")
+Exception: client is off
+
+2017-06-20 16:34:14  ERROR: Thread-23  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 16:34:39  ERROR: Thread-24  login response failed, traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 63, in handle
+    message = self.rfile.readline()
+  File "C:\Python27\lib\socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+error: [Errno 10054] 
+
+2017-06-20 16:34:39  INFO: Thread-25  login decode failed
+2017-06-20 16:34:39  WARNING: Thread-25  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
+2017-06-20 16:34:40  INFO: Thread-26  login decode failed
+2017-06-20 16:34:40  WARNING: Thread-26  login security check failed,exception: local variable 'decode_message' referenced before assignment traceback: Traceback (most recent call last):
+  File "C:\Users\Administrator\PycharmProjects\unity\game\game\login.py", line 40, in GetToken
+    user_name = decode_message[u'name']
+UnboundLocalError: local variable 'decode_message' referenced before assignment
+
